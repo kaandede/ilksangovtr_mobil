@@ -6,4 +6,8 @@ public partial class Login : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void Login_Button_Clicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new AnaSayfa();
+    }
 }
