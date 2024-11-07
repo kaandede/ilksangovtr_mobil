@@ -23,7 +23,7 @@
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" Margin="0,15,0,0" Padding="0">
-                    <CheckBox IsChecked="False" Color="#383348"/>
+                    <CheckBox IsChecked="False" Color="#164276"/>
                     <Label Text="Beni Hatırla" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#164276" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                     <Label Text="Şifremi Unuttum" TextDecorations="Underline" TextColor="#63B7FD" FontFamily="NexaLight" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                 </StackLayout>
