@@ -1,3 +1,5 @@
+using ilksangovtr_mobil.Models;
+
 namespace ilksangovtr_mobil.Views;
 
 public partial class Login : ContentPage
@@ -8,6 +10,8 @@ public partial class Login : ContentPage
 	}
     private void Login_Button_Clicked(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new AnaSayfa();
+        var anaSayfaViewModel = new AnaSayfaViewModel();
+        Application.Current.MainPage = new AnaSayfa(anaSayfaViewModel);
+
     }
 }

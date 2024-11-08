@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.Views;
+using Microsoft.Extensions.Logging;
 
 namespace ilksangovtr_mobil
 {
@@ -21,6 +23,8 @@ namespace ilksangovtr_mobil
                     fonts.AddFont("fa-brands-400.ttf", "FaBrands");
                     fonts.AddFont("fa-solid-900.ttf", "FaSolid");
                 });
+            builder.Services.AddSingleton<AnaSayfaViewModel>();
+            builder.Services.AddSingleton<AnaSayfa>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

@@ -9,8 +9,11 @@
       Aspect="AspectFill"
       HorizontalOptions="FillAndExpand" 
       VerticalOptions="FillAndExpand"/>
-        <StackLayout Margin="0,140,0,0" HorizontalOptions="CenterAndExpand">
-            <Image Source="logo.png" Aspect="AspectFit"/>
+        <StackLayout Margin="0,120,0,0" HorizontalOptions="CenterAndExpand">
+            <StackLayout Margin="120,0,120,0">
+                <Image Source="iilksan.png" Aspect="AspectFit"/>
+            </StackLayout>
+
             <StackLayout WidthRequest="300" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Frame BackgroundColor="#F3F6FF" BorderColor="#e8ecf1" Padding="0" Margin="0,40,0,0" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Orientation="Horizontal">
@@ -28,31 +31,30 @@
                     <Label Text="Şifremi Unuttum" TextDecorations="Underline" TextColor="#63B7FD" FontFamily="NexaLight" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                 </StackLayout>
                 <Button Text="Giriş" FontSize="18" BackgroundColor="#164276" FontFamily="NexaHeavy" TextColor="#fff" HeightRequest="50" CornerRadius="10" Margin="5,25,0,0" Clicked="Login_Button_Clicked"/>
+            </StackLayout> 
+            <StackLayout Margin="0,45,0,0" HorizontalOptions="CenterAndExpand">
+                <Frame BorderColor="#edf0f4" BackgroundColor="#F3F6FF" CornerRadius="10" Padding="0">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="E-Devlet" 
+                         FontFamily="NexaHeavy"
+                         FontSize="14"
+                         BackgroundColor="#fff"
+                         TextColor="#164276"
+                         HeightRequest="50"
+                         WidthRequest="120"
+                         Margin="0,0"/>
+                        <Button 
+                         Text="MEBBİS" 
+                         FontSize="14"
+                         HeightRequest="50"
+                         WidthRequest="120"
+                         FontFamily="NexaHeavy"
+                         BackgroundColor="Transparent"
+                         TextColor="#164276"
+                         Margin="5,0"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
-        </StackLayout>
-        <StackLayout Margin="0,520,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Frame BorderColor="#e8ecf1" BackgroundColor="#F3F6FF" CornerRadius="10" Padding="0">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button Text="E-Devlet" 
-            FontFamily="NexaHeavy"
-            FontSize="15"
-            BackgroundColor="#fff"
-            TextColor="#423D52"
-            HeightRequest="50"
-            WidthRequest="120"
-            Margin="0,0"/>
-                    <Button 
-            Text="MEBBİS" 
-            FontSize="15"
-            HeightRequest="50"
-            WidthRequest="120"
-            FontFamily="NexaHeavy"
-            BackgroundColor="Transparent"
-            TextColor="#423D52"
-            Margin="5,0"/>
-                </StackLayout>
-            </Frame>
-
         </StackLayout>
     </Grid>
 </ContentPage>

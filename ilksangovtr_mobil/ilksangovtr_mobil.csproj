@@ -57,21 +57,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\aidat.png" />
+	  <None Remove="Resources\Images\aidat_ince.png" />
 	  <None Remove="Resources\Images\back32.png" />
 	  <None Remove="Resources\Images\back33.png" />
 	  <None Remove="Resources\Images\back34.png" />
+	  <None Remove="Resources\Images\bars_ince.png" />
+	  <None Remove="Resources\Images\bell_ince.png" />
+	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\home_1.png" />
+	  <None Remove="Resources\Images\home_base.png" />
+	  <None Remove="Resources\Images\home_ince.png" />
+	  <None Remove="Resources\Images\iilksan.png" />
+	  <None Remove="Resources\Images\ikraz.png" />
+	  <None Remove="Resources\Images\ikraz_ince.png" />
+	  <None Remove="Resources\Images\user.png" />
+	  <None Remove="Resources\Images\user_ince.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\AnaSayfa.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
