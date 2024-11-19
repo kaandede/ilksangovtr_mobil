@@ -4,12 +4,38 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ilksangovtr_mobil"
+    xmlns:views="clr-namespace:ilksangovtr_mobil.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="ilksangovtr_mobil">
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="true">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#fff" />
+                <Setter Property="Shell.ForegroundColor" Value="#677372" />
+                <Setter Property="Shell.TitleColor" Value="#677372" />
+                <Setter Property="Shell.DisabledColor" Value="#677372" />
+                <Setter Property="Shell.UnselectedColor" Value="#152B27" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#fff" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="#152B27"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#677372"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#152B27"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+
+    <TabBar>
+        <ShellContent Route="AnaSayfa" Icon="home_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
+        <ShellContent Route="AnaSayfa" Icon="aidat_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
+        <ShellContent Route="AnaSayfa" Icon="ikraz_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
+        <ShellContent Route="AnaSayfa" Icon="user_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
+    </TabBar>
+    
+
+
+    
 
 </Shell>

@@ -64,13 +64,24 @@
 	  <None Remove="Resources\Images\back34.png" />
 	  <None Remove="Resources\Images\bars_ince.png" />
 	  <None Remove="Resources\Images\bell_ince.png" />
+	  <None Remove="Resources\Images\calculate.png" />
+	  <None Remove="Resources\Images\car.png" />
+	  <None Remove="Resources\Images\earnings.png" />
+	  <None Remove="Resources\Images\earnings_red.png" />
 	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\home_1.png" />
 	  <None Remove="Resources\Images\home_base.png" />
 	  <None Remove="Resources\Images\home_ince.png" />
+	  <None Remove="Resources\Images\home_ince2.png" />
 	  <None Remove="Resources\Images\iilksan.png" />
 	  <None Remove="Resources\Images\ikraz.png" />
 	  <None Remove="Resources\Images\ikraz_ince.png" />
+	  <None Remove="Resources\Images\insurance.png" />
+	  <None Remove="Resources\Images\profits.png" />
+	  <None Remove="Resources\Images\social_care.png" />
+	  <None Remove="Resources\Images\sosyal_yardim.png" />
+	  <None Remove="Resources\Images\tag_left.png" />
+	  <None Remove="Resources\Images\tag_right.png" />
 	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\user_ince.png" />
 	</ItemGroup>

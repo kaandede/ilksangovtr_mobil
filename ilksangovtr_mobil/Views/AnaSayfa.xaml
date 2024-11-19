@@ -4,54 +4,54 @@
              x:Class="ilksangovtr_mobil.Views.AnaSayfa"
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
              x:DataType="models:AnaSayfaViewModel"
-             Title="AnaSayfa"
              BackgroundColor="#fff">
 
-    <StackLayout>
-        <Border BackgroundColor="#F3F7F6"
+    <ScrollView>
+        <StackLayout>
+            <Border BackgroundColor="#F3F7F6"
                     Stroke="Transparent"
                     StrokeShape="RoundRectangle 0,0,30,30" >
-            <Grid>
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0,0,0,0"
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0,0,0,0"
                       Grid.Row="0"
                       HeightRequest="320"
                       ColumnDefinitions="*,*,*">
-                    <Frame Margin="25,10,0,0"
+                        <Frame Margin="20,10,0,0"
                            BorderColor="#fff"
                            CornerRadius="30"
                            BackgroundColor="#fff"
                            Padding="12"
                            VerticalOptions="StartAndExpand"
                            HorizontalOptions="StartAndExpand">
-                        <Image Source="bars_ince.png" 
+                            <Image Source="bars_ince.png" 
                               HeightRequest="18"
                               WidthRequest="18" 
                               VerticalOptions="Center" 
                               Margin="0,0,0,0" 
                               HorizontalOptions="Center"/>
-                    </Frame>
-                    <Frame BorderColor="Transparent"
+                        </Frame>
+                        <Frame BorderColor="Transparent"
                            BackgroundColor="Transparent"
                            Margin="-40,25,0,0"
                            Grid.Column="1"
                            Padding="0"
                            VerticalOptions="StartAndExpand"
                            HorizontalOptions="StartAndExpand">
-                        <Label FontSize="14"
+                            <Label FontSize="14"
                                FontFamily="NexaHeavy" 
                                Text="Merhaba, Kaan DEDE"
                                TextColor="#011612"/>
-                    </Frame>
-                    <Border Grid.Column="2"
+                        </Frame>
+                        <Border Grid.Column="2"
                             Padding="12"
                             StrokeShape="RoundRectangle 30"
                             Stroke="#fff"
@@ -59,44 +59,61 @@
                             BackgroundColor="#fff"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="StartAndExpand">
-                        <Image Source="bell_ince.png" 
+                            <Image Source="bell_ince.png" 
                                  HeightRequest="20"
                                  WidthRequest="20" 
                                  VerticalOptions="Center" 
                                  Margin="0,0,0,0" 
                                  HorizontalOptions="Start"/>
-                    </Border>
-                    <Label Text="●"
+                        </Border>
+                        <Label Text="●"
                             Margin="84,13,0,0"
                             Grid.Column="2"
                             FontSize="18" 
                             TextColor="#0D7561" 
                             VerticalOptions="StartAndExpand"
                             HorizontalOptions="StartAndExpand"/>
-                </Grid>
-                <Grid Grid.Row="1" 
+                    </Grid>
+                    <Grid Grid.Row="1" 
                       Padding="20"
-                      Margin="10,60,10,30"
+                      Margin="10,70,20,0"
                       BackgroundColor="Transparent">
-                    <StackLayout Spacing="13">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <!--<Image Source="aidat.png"
-                               HeightRequest="24"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center"
-                               WidthRequest="24"/>
-                            <Label Grid.Column="1"
-                               FontFamily="NexaHeavy"
-                               Text="**** 3425"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Start"
-                               Margin="10,0,0,0"/>-->
-                        </Grid>
-                        <Label Text="Toplam Ödenen Aidat Tutarı"
+                        <StackLayout Spacing="15">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Toplam Ödenen Aidat Tutarı"
+                                   Grid.Column="0"
+                                    Grid.Row="0"
+                                  FontSize="14"
+                                  Margin="-10,0,0,0"
+                                  FontFamily="NexaLight"
+                                  FontAttributes="Bold"
+                                  VerticalOptions="CenterAndExpand"
+                                  HorizontalOptions="CenterAndExpand"
+                                  TextColor="#666"/>
+                                <Label Text="22.259,69 ₺"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   FontSize="32"
+                                   Margin="0,10,0,0"
+                                   FontFamily="NexaHeavy"/>
+                                <Image Source="earnings_red.png"
+                                   Grid.Column="2"
+                                   Grid.Row="1"
+                                   Margin="0,-10,0,0"
+                                   HeightRequest="54"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="End"
+                                   WidthRequest="54"/>
+                            </Grid>
+                            <!--<Label Text="Toplam Ödenen Aidat Tutarı"
                                FontSize="14"
                                FontFamily="NexaLight"
                                FontAttributes="Bold"
@@ -106,9 +123,9 @@
                         <Label Text="22.259,69 ₺"
                                FontSize="32"
                                Margin="0,0,0,0"
-                               FontFamily="NexaHeavy"/>
-                        <Border BackgroundColor="Transparent" Margin="0,-5,0,0" HorizontalOptions="Start" Stroke="Transparent" StrokeShape="RoundRectangle 30">
-                            <Label Text="Son Aidat Bilgisi : 1.733,04 ₺"
+                               FontFamily="NexaHeavy"/>-->
+                            <Border BackgroundColor="Transparent" Margin="-5,-5,0,0" HorizontalOptions="Start" Stroke="Transparent" StrokeShape="RoundRectangle 30">
+                                <Label Text="Son Aidat Bilgisi : 1.733,04 ₺"
                                      FontFamily="NexaHeavy"
                                      Padding="10,10,10,10"
                                      BackgroundColor="#EAEEF6"
@@ -116,38 +133,38 @@
                                      HorizontalOptions="Center"
                                      TextColor="#838FF0"
                                      FontSize="12"/>
-                        </Border>
+                            </Border>
 
-                    </StackLayout>
-                </Grid>
-                
-                
-                <Grid Grid.Row="2"
+                        </StackLayout>
+                    </Grid>
+
+
+                    <Grid Grid.Row="2"
                         Margin="0,0,0,0"
                         HeightRequest="70"
                         VerticalOptions="EndAndExpand">
-                    <Border BackgroundColor="Transparent"
+                        <Border BackgroundColor="Transparent"
                           Stroke="Transparent"
                           StrokeShape="RoundRectangle 0,0,30,30"
                           StrokeThickness="1">
-                        <Border.Shadow>
-                            <Shadow Brush="#86bab0" 
+                            <Border.Shadow>
+                                <Shadow Brush="#86bab0" 
                                     Offset="20,20" 
                                     Radius="40" 
-                                    Opacity="0.5"/>
-                        </Border.Shadow>
-                        <Grid Margin="15,0,15,0" 
+                                    Opacity="0.6"/>
+                            </Border.Shadow>
+                            <Grid Margin="15,0,15,0" 
                               ColumnDefinitions="*,*,*"
                               RowDefinitions="*,*"
                               RowSpacing="3">
-                            <Label Grid.Row="1"
+                                <Label Grid.Row="1"
                            FontFamily="NexaLight"
                            FontAttributes="Bold"
                            FontSize="12"
                            HorizontalOptions="Center"
                            Text="Sosyal Yardımlar"
                            TextColor="#011612"/>
-                            <Label Grid.Row="1"
+                                <Label Grid.Row="1"
                                 Grid.Column="1"
                                 FontFamily="NexaLight"
                                 FontAttributes="Bold"
@@ -155,7 +172,7 @@
                                 HorizontalOptions="Center"
                                 Text="Araç Kampanya"
                                 TextColor="#011612"/>
-                            <Label Grid.Row="1"
+                                <Label Grid.Row="1"
                                 Grid.Column="2"
                                 FontFamily="NexaLight"
                                 FontAttributes="Bold"
@@ -163,85 +180,158 @@
                                 HorizontalOptions="Center"
                                 Text="İkraz Hesaplama"
                                 TextColor="#011612"/>
-                            <Image Source="home_ince.png" 
+                                <Image Source="social_care.png" 
                            HeightRequest="28"
                            WidthRequest="28" 
                            VerticalOptions="Center" 
                            Margin="0,0,0,0" 
                            HorizontalOptions="Center"/>
-                                    <Image Source="ikraz_ince.png" 
+                                <Image Source="car.png" 
                              Grid.Column="1"
                              HeightRequest="28"
                              WidthRequest="28" 
                              VerticalOptions="Center" 
                              Margin="0,0,0,0" 
                              HorizontalOptions="Center"/>
-                            <Image Source="aidat_ince.png" 
+                                <Image Source="calculate.png" 
                              Grid.Column="2"
                              HeightRequest="28"
                              WidthRequest="28" 
                              VerticalOptions="Center" 
                              Margin="0,0,0,0" 
                              HorizontalOptions="Center"/>
-                        </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                </Grid>
+            </Border>
+
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="4" Margin="25,20,30,0" Spacing="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Haberler"
+                   FontSize="18"
+                   FontFamily="NexaHeavy"/>
+
+                    <Label Grid.Column="1"
+                   Text="Tümü"
+                   TextColor="#0D7561"
+                   TextDecorations="Underline"
+                   FontFamily="NexaLight" 
+                   FontAttributes="Bold"/>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Border Stroke="Transparent" BackgroundColor="#fbfdfc" VerticalOptions="CenterAndExpand" StrokeShape="RoundRectangle 30" HorizontalOptions="CenterAndExpand" HeightRequest="100" Margin="0,0,10,0">
+                        <Border.Shadow>
+                            <Shadow Brush="#d9dcdc" Offset="10,10" Radius="50" Opacity="0.3"/>
+                        </Border.Shadow>
+                        <CarouselView ItemsSource="{Binding CarouselItems}" Loop="True">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate x:DataType="models:CarouselItem">
+                                    <Grid RowDefinitions=".0*,.100*" RowSpacing="0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                        <VerticalStackLayout Grid.Row="1" Spacing="5" Margin="15,0,0,0">
+                                            <Label  FontFamily="NexaHeavy" Text="{Binding Title}" FontSize="Title"></Label>
+                                            <Label  FontFamily="NexaLight" FontAttributes="Bold" Text="{Binding Description}" FontSize="Subtitle"></Label>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                    </Border>
+                </Grid>
+            </StackLayout>
+            <StackLayout Grid.Row="4" Margin="25,40,25,0" Spacing="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Top Merchants"
+                               FontSize="18"
+                               FontFamily="NexaHeavy"/>
+
+                    <Label Grid.Column="1"
+                               Text="Tümü"
+                               FontFamily="NexaLight" 
+                               FontAttributes="Bold"/>
+                </Grid>
+                <Border Stroke="AntiqueWhite" VerticalOptions="CenterAndExpand" Padding="5,10,5,10">
+                    <Border.Shadow>
+                        <Shadow Brush="#37363e" Offset="0,10" Radius="60" Opacity="0.3"/>
+                    </Border.Shadow>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="user_ince.png"
+                                   HeightRequest="40"
+                                   WidthRequest="40"/>
+                        <StackLayout Margin="15,0,0,0">
+                            <Label Text="Discount Up To 80%"
+                                       FontAttributes="Bold"/>
+                            <Label Text="Festive Season Gift"
+                                       TextColor="#666"
+                                       FontSize="14"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+            <StackLayout Grid.Row="5" Margin="25,30,25,0" Spacing="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="İşlemler"
+                       Grid.Row="0"
+                       TextColor="#717073"
+                            FontSize="18"
+                            FontFamily="NexaLight"
+                       FontAttributes="Bold"/>
+                    <Border Grid.Row="1" Stroke="Transparent" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" Padding="5,10,5,10">
+                        <Border.Shadow>
+                            <Shadow Brush="#37363e" Offset="0,10" Radius="60" Opacity="0.3"/>
+                        </Border.Shadow>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="insurance.png"
+                     HeightRequest="30"
+                     WidthRequest="30"/>
+                            <StackLayout Margin="15,10,0,0">
+                                <Label Text="İkraz Sigorta Poliçeleri"
+                    FontFamily="NexaHeavy"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Border>
+                    <Border Grid.Row="2" Stroke="Transparent" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" Padding="5,10,5,10">
+                        <Border.Shadow>
+                            <Shadow Brush="#37363e" Offset="0,10" Radius="60" Opacity="0.3"/>
+                        </Border.Shadow>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="tag_right.png"
+                        HeightRequest="30"
+                        WidthRequest="30"/>
+                            <StackLayout Margin="15,10,0,0">
+                                <Label Text="Kampanyalar"
+                            FontFamily="NexaHeavy"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
                     </Border>
                 </Grid>
 
-            </Grid>
-        </Border>
-        <Grid Grid.Row="3" BackgroundColor="Transparent">
-            <Border Stroke="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="100" Margin="25,20,25,0">
-                <Border.Shadow>
-                    <Shadow Brush="#37363e" Offset="0,10" Radius="60" Opacity="0.3"/>
-                </Border.Shadow>
-                <CarouselView ItemsSource="{Binding CarouselItems}" Loop="True">
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate x:DataType="models:CarouselItem">
-                            <Grid RowDefinitions=".0*,.100*" RowSpacing="0" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
-                                <VerticalStackLayout Grid.Row="1" Spacing="5" Margin="10,0,0,0">
-                                    <Label  FontFamily="NexaHeavy" Text="{Binding Title}" FontSize="Title"></Label>
-                                    <Label  FontFamily="NexaLight" FontAttributes="Bold" Text="{Binding Description}" FontSize="Subtitle"></Label>
-                                </VerticalStackLayout>
-                            </Grid>
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>
-            </Border>
-        </Grid>
-        <StackLayout Grid.Row="4" Margin="20,10,20,0" Spacing="15">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Text="Top Merchants"
-                           FontSize="18"
-                           FontAttributes="Bold"/>
-
-                <Label Grid.Column="1"
-                           Text="View all"
-                           TextColor="#3b71ca"/>
-            </Grid>
-
-            <Frame BackgroundColor="White"
-                       CornerRadius="15"
-                       Padding="15">
-                <StackLayout Orientation="Horizontal">
-                    <Image Source="user_ince.png"
-                               HeightRequest="40"
-                               WidthRequest="40"/>
-                    <StackLayout Margin="15,0,0,0">
-                        <Label Text="Discount Up To 80%"
-                                   FontAttributes="Bold"/>
-                        <Label Text="Festive Season Gift"
-                                   TextColor="#666"
-                                   FontSize="14"/>
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
-        </StackLayout>
-        <!--<Grid Grid.Row="2" Margin="0,0,0,0">
+            </StackLayout>
+            <!--<Grid Grid.Row="2" Margin="0,0,0,0">
             <Border Stroke="Transparent" WidthRequest="370" HeightRequest="200" StrokeShape="RoundRectangle 10" BackgroundColor="Transparent" Padding="0,0,0,0" Margin="0,10,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Border.Shadow>
                     <Shadow Brush="#37363e" Offset="0,10" Radius="60" Opacity="0.3"/>
@@ -262,7 +352,7 @@
                 <IndicatorView x:Name="indicatorView" VerticalOptions="CenterAndExpand" IndicatorColor="#ccc" SelectedIndicatorColor="#000" IndicatorSize="14"></IndicatorView>
             </Border>
         </Grid>-->
-        <Grid Grid.Row="5"
+            <!--<Grid Grid.Row="6"
                 Margin="0,0,0,0"
                 HeightRequest="70"
                 VerticalOptions="EndAndExpand">
@@ -280,7 +370,8 @@
                       ColumnDefinitions="*,*,*,*"
                       RowDefinitions="*,*"
                       RowSpacing="3">
-                    <!--<Label FontFamily="FaSolid"
+                    -->
+            <!--<Label FontFamily="FaSolid"
                              Text="{x:Static models:FaSolidIcons.House}"
                              FontSize="23"
                              Margin="0,60,0,0"
@@ -288,6 +379,7 @@
                              HorizontalOptions="Center"
                              VerticalOptions="Center"
                              TextColor="#011612"/>-->
+            <!--
                     <Image Source="home_ince.png" 
                            HeightRequest="28"
                            WidthRequest="28" 
@@ -315,7 +407,8 @@
                               VerticalOptions="Center" 
                               Margin="0,30,0,0" 
                               HorizontalOptions="Center"/>
-                    <!--<Label FontFamily="FaSolid"
+                    -->
+            <!--<Label FontFamily="FaSolid"
                               Grid.Column="1"
                               Text="{x:Static models:FaSolidIcons.Coins}"
                               FontSize="23"
@@ -324,7 +417,7 @@
                               HorizontalOptions="Center"
                               VerticalOptions="Center"
                               TextColor="#677371"/>-->
-                    <!--<Label FontFamily="FaSolid"
+            <!--<Label FontFamily="FaSolid"
                            Grid.Column="2"
                            Text="{x:Static models:FaSolidIcons.FileCircleCheck}"
                            FontSize="23"
@@ -333,7 +426,7 @@
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            TextColor="#677371"/>-->
-                    <!--<Label FontFamily="FaSolid"
+            <!--<Label FontFamily="FaSolid"
                            Grid.Column="3"
                            Text="{x:Static models:FaSolidIcons.Bell}"
                            FontSize="23"
@@ -342,7 +435,7 @@
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            TextColor="#A6BBE8"/>-->
-                    <!--<Label FontFamily="FaSolid"
+            <!--<Label FontFamily="FaSolid"
                               Margin="0,60,0,0"
                               Grid.Column="3"
                               Text="{x:Static models:FaSolidIcons.User}"
@@ -351,8 +444,10 @@
                               HorizontalOptions="Center"
                               VerticalOptions="Center"
                               TextColor="#677371"/>-->
+            <!--
                 </Grid>
             </Border>
-        </Grid>
-    </StackLayout>
+        </Grid>-->
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

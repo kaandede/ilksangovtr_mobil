@@ -8,10 +8,26 @@ public partial class Login : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private bool LoginIsSuccessful()
+    {
+        return true;
+    }
     private void Login_Button_Clicked(object sender, EventArgs e)
     {
         var anaSayfaViewModel = new AnaSayfaViewModel();
         Application.Current.MainPage = new AnaSayfa(anaSayfaViewModel);
 
+        if (LoginIsSuccessful())
+        {
+            // Giriþ baþarýlý ise AppShell'e geç
+            Application.Current.MainPage = new AppShell();
+
+
+            // MainPage'e yönlendir
+            Shell.Current.GoToAsync("//AnaSayfa");
+        }
+
     }
+
 }

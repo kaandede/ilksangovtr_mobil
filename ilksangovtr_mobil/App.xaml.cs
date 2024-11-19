@@ -8,7 +8,7 @@ namespace ilksangovtr_mobil
         {
             InitializeComponent();
 
-            MainPage = new Login();
+                MainPage = new Login();
             Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(BorderlessEntry), (handler, view) =>
             {
 #if __ANDROID__
