@@ -5,9 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ilksangovtr_mobil"
     xmlns:views="clr-namespace:ilksangovtr_mobil.Views"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Shell.NavBarIsVisible="False"
-    Shell.TabBarIsVisible="true">
+    Shell.TabBarIsVisible="True">
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
@@ -25,17 +25,13 @@
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
+    
 
-
+ 
     <TabBar>
         <ShellContent Route="AnaSayfa" Icon="home_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
         <ShellContent Route="AnaSayfa" Icon="aidat_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
         <ShellContent Route="AnaSayfa" Icon="ikraz_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
         <ShellContent Route="AnaSayfa" Icon="user_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
     </TabBar>
-    
-
-
-    
-
 </Shell>

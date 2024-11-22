@@ -6,8 +6,17 @@
              x:DataType="models:AnaSayfaViewModel"
              BackgroundColor="#fff">
 
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="New" Order="Secondary" Priority="0"/>
+        <ToolbarItem Text="New" Order="Primary" Priority="1"/>
+        <ToolbarItem Text="New3"  Order="Primary" Priority="4"/>
+    </ContentPage.ToolbarItems>-->
+
     <ScrollView>
+        
         <StackLayout>
+            
             <Border BackgroundColor="#F3F7F6"
                     Stroke="Transparent"
                     StrokeShape="RoundRectangle 0,0,30,30" >
@@ -25,14 +34,14 @@
                       Grid.Row="0"
                       HeightRequest="320"
                       ColumnDefinitions="*,*,*">
-                        <Frame Margin="20,10,0,0"
+                        <Frame Margin="15,10,0,0"
                            BorderColor="#fff"
                            CornerRadius="30"
                            BackgroundColor="#fff"
                            Padding="12"
                            VerticalOptions="StartAndExpand"
                            HorizontalOptions="StartAndExpand">
-                            <Image Source="bars_ince.png" 
+                            <ImageButton Source="bars_ince.png" 
                               HeightRequest="18"
                               WidthRequest="18" 
                               VerticalOptions="Center" 
@@ -41,7 +50,7 @@
                         </Frame>
                         <Frame BorderColor="Transparent"
                            BackgroundColor="Transparent"
-                           Margin="-40,25,0,0"
+                           Margin="-55,25,0,0"
                            Grid.Column="1"
                            Padding="0"
                            VerticalOptions="StartAndExpand"
@@ -55,7 +64,7 @@
                             Padding="12"
                             StrokeShape="RoundRectangle 30"
                             Stroke="#fff"
-                            Margin="0,10,25,0"
+                            Margin="0,10,20,0"
                             BackgroundColor="#fff"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="StartAndExpand">
@@ -67,7 +76,7 @@
                                  HorizontalOptions="Start"/>
                         </Border>
                         <Label Text="●"
-                            Margin="84,13,0,0"
+                            Margin="88,13,0,0"
                             Grid.Column="2"
                             FontSize="18" 
                             TextColor="#0D7561" 
@@ -76,7 +85,7 @@
                     </Grid>
                     <Grid Grid.Row="1" 
                       Padding="20"
-                      Margin="10,70,20,0"
+                      Margin="5,70,20,0"
                       BackgroundColor="Transparent">
                         <StackLayout Spacing="15">
                             <Grid>
@@ -107,7 +116,7 @@
                                 <Image Source="earnings_red.png"
                                    Grid.Column="2"
                                    Grid.Row="1"
-                                   Margin="0,-10,0,0"
+                                   Margin="0,-10,-5,0"
                                    HeightRequest="54"
                                    VerticalOptions="Start"
                                    HorizontalOptions="End"
@@ -148,12 +157,12 @@
                           StrokeShape="RoundRectangle 0,0,30,30"
                           StrokeThickness="1">
                             <Border.Shadow>
-                                <Shadow Brush="#86bab0" 
-                                    Offset="20,20" 
+                                <Shadow Brush="#0D7561" 
+                                    Offset="10,10" 
                                     Radius="40" 
-                                    Opacity="0.6"/>
+                                    Opacity="0.2"/>
                             </Border.Shadow>
-                            <Grid Margin="15,0,15,0" 
+                            <Grid Margin="10,0,10,0" 
                               ColumnDefinitions="*,*,*"
                               RowDefinitions="*,*"
                               RowSpacing="3">
@@ -232,7 +241,7 @@
                             <CarouselView.ItemTemplate>
                                 <DataTemplate x:DataType="models:CarouselItem">
                                     <Grid RowDefinitions=".0*,.100*" RowSpacing="0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
-                                        <VerticalStackLayout Grid.Row="1" Spacing="5" Margin="15,0,0,0">
+                                        <VerticalStackLayout Grid.Row="1" Spacing="5" Margin="15,0,0,5">
                                             <Label  FontFamily="NexaHeavy" Text="{Binding Title}" FontSize="Title"></Label>
                                             <Label  FontFamily="NexaLight" FontAttributes="Bold" Text="{Binding Description}" FontSize="Subtitle"></Label>
                                         </VerticalStackLayout>
@@ -243,8 +252,65 @@
                     </Border>
                 </Grid>
             </StackLayout>
-            <StackLayout Grid.Row="4" Margin="25,40,25,0" Spacing="15">
-              
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="4" Margin="25,20,25,0" Spacing="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Duyurular"
+                     FontSize="18"
+                     FontFamily="NexaHeavy"/>
+                    <Label Grid.Column="1"
+                     Text="Tümü"
+                     TextColor="#0D7561"
+                     TextDecorations="Underline"
+                     FontFamily="NexaLight" 
+                     FontAttributes="Bold"/>
+                </Grid>
+                <ListView 
+                          ItemsSource="{Binding DuyuruItems}"
+                          RowHeight="45"
+                          HasUnevenRows="True"
+                          BackgroundColor="Transparent"
+                          SeparatorColor="#c2c7c7">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:DuyuruItem">
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border  
+                                      Grid.Column="0"
+                                      Grid.Row="0"
+                                      Stroke="Transparent" 
+                                      BackgroundColor="Transparent" 
+                                      StrokeShape="RoundRectangle 30" 
+                                      Padding="5"
+                                      Margin="0,20,0,0"
+                                      VerticalOptions="CenterAndExpand"
+                                      HorizontalOptions="CenterAndExpand">
+                                        <Image Source="{Binding Duyuru_Image}"
+                                          VerticalOptions="CenterAndExpand"
+                                          HorizontalOptions="CenterAndExpand"
+                                          HeightRequest="20"
+                                          WidthRequest="20"/>
+                                    </Border>
+
+                                    <Label Grid.Column="1" Grid.Row="0" Padding="5,10,5,5"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#011612" Text="{Binding Duyuru_Title}"/>
+                                    <Label Grid.Column="1" Grid.Row="1" Padding="5,0,0,5" VerticalTextAlignment="Center" FontFamily="NexaHeavy" FontSize="11" TextColor="#273935" Text="{Binding Duyuru_date}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
             <StackLayout Grid.Row="5" Margin="25,30,25,0" Spacing="15">
                 <Grid>
@@ -261,9 +327,9 @@
 
                     <Label Text="İşlemler"
                        Grid.Row="0"
-                       TextColor="#717073"
-                            FontSize="18"
-                            FontFamily="NexaLight"
+                       TextColor="#757577"
+                       FontSize="18"
+                       FontFamily="NexaLight"
                        FontAttributes="Bold"/>
 
 
