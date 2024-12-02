@@ -23,9 +23,11 @@ public partial class Login : ContentPage
             // Giriþ baþarýlý ise AppShell'e geç
             Application.Current.MainPage = new AppShell();
 
-
-            // MainPage'e yönlendir
-            Shell.Current.GoToAsync("//AnaSayfa");
+            // Kesin route ile gitme
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                await Shell.Current.GoToAsync($"//{nameof(AnaSayfa)}");
+            });
         }
 
     }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ilksangovtr_mobil.Views.Bildirimler"
+             Title="Bildirimler">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Border BackgroundColor="#fff"
+        Stroke="Transparent"
+        StrokeShape="RoundRectangle 0,0,30,30" >
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0,0,0,0"
+          Grid.Row="0"
+          HeightRequest="80"
+          ColumnDefinitions="*,*,*">
+                        <Frame Margin="15,10,0,0"
+               BorderColor="#F3F7F6"
+               CornerRadius="30"
+               BackgroundColor="#F3F7F6"
+               Padding="12"
+               VerticalOptions="StartAndExpand"
+               HorizontalOptions="StartAndExpand">
+                            <ImageButton Source="left.png" 
+                  HeightRequest="18"
+                  WidthRequest="18" 
+                  Clicked="back_AnaSayfa_Clicked"
+                  VerticalOptions="Center" 
+                  Margin="0,0,0,0" 
+                  HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+               BackgroundColor="Transparent"
+               Margin="-55,25,0,0"
+               Grid.Column="1"
+               Padding="0"
+               VerticalOptions="StartAndExpand"
+               HorizontalOptions="StartAndExpand">
+                            <Label FontSize="14"
+                   FontFamily="NexaHeavy" 
+                   Text="Bildirimler"
+                   TextColor="#011612"/>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </Border>
+            <StackLayout Margin="15" Padding="10">
+                <Image
+              Source="dotnet_bot.png"
+              HeightRequest="185"
+              Aspect="AspectFit"
+              SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

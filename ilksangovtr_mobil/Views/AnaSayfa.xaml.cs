@@ -10,4 +10,15 @@ public partial class AnaSayfa : ContentPage
 		InitializeComponent();
 		BindingContext = anaSayfaViewModel;
 	}
+
+    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
+    }
+
+    private void Bildirimler_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Bildirimler());
+    }
+
 }

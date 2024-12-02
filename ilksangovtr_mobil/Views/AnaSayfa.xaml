@@ -14,9 +14,9 @@
     </ContentPage.ToolbarItems>-->
 
     <ScrollView>
-        
+
         <StackLayout>
-            
+
             <Border BackgroundColor="#F3F7F6"
                     Stroke="Transparent"
                     StrokeShape="RoundRectangle 0,0,30,30" >
@@ -44,6 +44,7 @@
                             <ImageButton Source="bars_ince.png" 
                               HeightRequest="18"
                               WidthRequest="18" 
+                              Clicked="ToolbarItem_Clicked"
                               VerticalOptions="Center" 
                               Margin="0,0,0,0" 
                               HorizontalOptions="Center"/>
@@ -68,10 +69,11 @@
                             BackgroundColor="#fff"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="StartAndExpand">
-                            <Image Source="bell_ince.png" 
+                            <ImageButton Source="bell_ince.png" 
                                  HeightRequest="20"
                                  WidthRequest="20" 
                                  VerticalOptions="Center" 
+                                 Clicked="Bildirimler_Clicked"     
                                  Margin="0,0,0,0" 
                                  HorizontalOptions="Start"/>
                         </Border>
@@ -146,8 +148,6 @@
 
                         </StackLayout>
                     </Grid>
-
-
                     <Grid Grid.Row="2"
                         Margin="0,0,0,0"
                         HeightRequest="70"
@@ -216,7 +216,7 @@
                 </Grid>
             </Border>
 
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="4" Margin="25,20,30,0" Spacing="5">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="3" Margin="25,20,30,0" Spacing="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -281,7 +281,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
-                                    
+
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -312,10 +312,13 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+
+            
             <StackLayout Grid.Row="5" Margin="25,30,25,0" Spacing="15">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
@@ -411,6 +414,32 @@
                         HorizontalOptions="StartAndExpand">
                             <Label Text="Oteller ve Konukevleri"
                         FontFamily="NexaHeavy"/>
+                        </Border>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Margin="0,0,0,10" Orientation="Horizontal" HorizontalOptions="Start">
+                        <Border  
+                             Grid.Column="0"
+                             Stroke="Transparent" 
+                             BackgroundColor="#fff" 
+                             StrokeShape="RoundRectangle 30" 
+                             Padding="12"
+                             VerticalOptions="Start"
+                             HorizontalOptions="Start">
+                            <Border.Shadow>
+                                <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
+                            </Border.Shadow>
+                            <Image Source="folder.png"
+                             HeightRequest="20"
+                             WidthRequest="20"/>
+                        </Border>
+                        <Border  Grid.Column="1"
+                              Margin="10,0,0,0"
+                             Stroke="Transparent" 
+                             BackgroundColor="Transparent" 
+                             VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="StartAndExpand">
+                            <Label Text="Bülten ve Raporlar"
+                             FontFamily="NexaHeavy"/>
                         </Border>
                     </StackLayout>
                 </Grid>

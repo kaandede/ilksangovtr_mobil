@@ -7,7 +7,8 @@ namespace ilksangovtr_mobil
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute("AnaSayfa", typeof(Views.AnaSayfa));        
+            //Routing.RegisterRoute("AnaSayfa", typeof(Views.AnaSayfa));        
+   
         }
     }
 }
