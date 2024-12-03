@@ -7,9 +7,4 @@ public partial class Aidat : ContentPage
 		InitializeComponent();
 	}
 
-    private void Bildirim_aidata_git(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new Bildirimler());
-    }
-
 }

@@ -4,14 +4,14 @@ namespace ilksangovtr_mobil.Views;
 
 public partial class Bildirimler : ContentPage
 {
-	public Bildirimler()
+	public Bildirimler(AnaSayfaViewModel anaSayfaViewModel)
 	{
 		InitializeComponent();
+        BindingContext = anaSayfaViewModel;
     }
 
     private void back_AnaSayfa_Clicked(object sender, EventArgs e)
     {
         Navigation.PopToRootAsync();
     }
-
 }

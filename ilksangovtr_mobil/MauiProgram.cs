@@ -1,5 +1,6 @@
 ﻿using ilksangovtr_mobil.Models;
 using ilksangovtr_mobil.Views;
+using Syncfusion.Maui.Core.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace ilksangovtr_mobil
@@ -11,6 +12,7 @@ namespace ilksangovtr_mobil
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -25,6 +27,9 @@ namespace ilksangovtr_mobil
                 });
             builder.Services.AddSingleton<AnaSayfaViewModel>();
             builder.Services.AddSingleton<AnaSayfa>();
+            builder.Services.AddSingleton<Login>();
+            builder.Services.AddSingleton<Bildirimler>();
+            builder.Services.AddSingleton<MainPage>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

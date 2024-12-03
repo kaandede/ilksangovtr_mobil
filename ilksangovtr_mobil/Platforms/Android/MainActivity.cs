@@ -10,7 +10,24 @@ namespace ilksangovtr_mobil
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Window.SetNavigationBarColor(Android.Graphics.Color.ParseColor("#FFFFFF"));
+          
+        }
+
+        protected override void OnStop()
+        {
+            // Gereksiz referansları temizleyin
+            // Örneğin:
+            // - Açık olan dialog ve progress bar'ları kapatın
+            // - Gereksiz bağlantıları sonlandırın
+
+            base.OnStop();
+        }
+
+        // Gerekirse diğer lifecycle metodları
+        protected override void OnDestroy()
+        {
+            // Ek temizlik işlemleri
+            base.OnDestroy();
         }
     }
 }

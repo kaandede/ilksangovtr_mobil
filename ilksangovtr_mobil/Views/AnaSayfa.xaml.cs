@@ -18,7 +18,8 @@ public partial class AnaSayfa : ContentPage
 
     private void Bildirimler_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Bildirimler());
+        var anaSayfaViewModel = new AnaSayfaViewModel();
+        Navigation.PushAsync(new Bildirimler(anaSayfaViewModel));
     }
 
 }

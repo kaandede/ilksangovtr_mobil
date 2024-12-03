@@ -14,6 +14,8 @@ namespace ilksangovtr_mobil.Models
     {
         public ObservableCollection<CarouselItem> CarouselItems { get; set; } = new();
         public ObservableCollection<DuyuruItem> DuyuruItems { get; set; } = new();
+        public ObservableCollection<BildirimItem> BildirimItems { get; set; } = new();
+        public ObservableCollection<MessageItem> MessageItems { get; set; } = new();
 
 
 
@@ -37,8 +39,6 @@ namespace ilksangovtr_mobil.Models
 
 
             DateTime duyuru_date = DateTime.Now;
-
-            // İstenilen formatta tarihi string olarak al
             string shortDate = duyuru_date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 
             DuyuruItems.Add(new DuyuruItem()
@@ -66,6 +66,132 @@ namespace ilksangovtr_mobil.Models
                 Duyuru_Image = "duyuru.png"
             });
 
+
+
+            DateTime bildirim_date = DateTime.Now;
+            string bildirim_short_Date = bildirim_date.ToString("dd/MM", CultureInfo.InvariantCulture);
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza iade edildi."
+            });
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri2",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir."
+            });
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri3",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde."
+            });
+
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri4",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri5",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri6",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri7",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri8",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri9",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri10",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+            BildirimItems.Add(new BildirimItem()
+            {
+                Bildirim_Title = "Transfer ve Döviz İşlemleri11",
+                Bildirim_date = bildirim_short_Date,
+                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            });
+
+
+
+
+            DateTime message_date = DateTime.Now;
+            string message_short_Date = message_date.ToString("dd/MM", CultureInfo.InvariantCulture);
+
+
+            MessageItems.Add(new MessageItem()
+            {
+                Message_Title = "Transfer ve Döviz İşlemleri1",
+                Message_date = message_short_Date,
+           
+            }); 
+            MessageItems.Add(new MessageItem()
+            {
+                Message_Title = "Transfer ve Döviz İşlemleri2",
+                Message_date = message_short_Date,
+           
+            });
+
+            MessageItems.Add(new MessageItem()
+            {
+                Message_Title = "Transfer ve Döviz İşlemleri3",
+                Message_date = message_short_Date,
+
+            });
+            MessageItems.Add(new MessageItem()
+            {
+                Message_Title = "Transfer ve Döviz İşlemleri4",
+                Message_date = message_short_Date,
+
+            });
+            MessageItems.Add(new MessageItem()
+            {
+                Message_Title = "Transfer ve Döviz İşlemleri5",
+                Message_date = message_short_Date,
+
+            });
         }
     }
 }

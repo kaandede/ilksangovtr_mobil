@@ -7,8 +7,18 @@ namespace ilksangovtr_mobil
         public AppShell()
         {
             InitializeComponent();
-            //Routing.RegisterRoute("AnaSayfa", typeof(Views.AnaSayfa));        
-   
+            RegisterRoutes();
+
+        }
+
+        private void RegisterRoutes()
+        {
+
+            Routing.RegisterRoute(nameof(AnaSayfa), typeof(AnaSayfa));
+            Routing.RegisterRoute(nameof(Aidat), typeof(Aidat));
+            Routing.RegisterRoute(nameof(Ikraz), typeof(Ikraz));
+            Routing.RegisterRoute(nameof(User), typeof(User));
+            // Diğer sayfalar...
         }
     }
 }
