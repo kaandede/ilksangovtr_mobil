@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ilksangovtr_mobil.Views.Login"
-             xmlns:local="clr-namespace:ilksangovtr_mobil"
-             Title="Login">
+             Shell.NavBarIsVisible="False"
+             xmlns:local="clr-namespace:ilksangovtr_mobil">
     <Grid>
         <Image Source="back25.png" 
       Aspect="AspectFill"

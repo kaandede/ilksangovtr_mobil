@@ -1,3 +1,4 @@
+using DevExpress.Maui.Controls;
 using ilksangovtr_mobil.Models;
 
 namespace ilksangovtr_mobil.Views;
@@ -10,8 +11,9 @@ public partial class Bildirimler : ContentPage
         BindingContext = anaSayfaViewModel;
     }
 
-    private void back_AnaSayfa_Clicked(object sender, EventArgs e)
+
+    async void back_AnaSayfa_Clicked(object sender, EventArgs e)
     {
-        Navigation.PopToRootAsync();
+        await Shell.Current.GoToAsync("..");
     }
 }

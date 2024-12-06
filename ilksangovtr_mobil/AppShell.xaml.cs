@@ -1,4 +1,5 @@
-﻿using ilksangovtr_mobil.Views;
+﻿using CommunityToolkit.Maui.Extensions;
+using ilksangovtr_mobil.Views;
 
 namespace ilksangovtr_mobil
 {
@@ -7,18 +8,18 @@ namespace ilksangovtr_mobil
         public AppShell()
         {
             InitializeComponent();
-            RegisterRoutes();
-
-        }
-
-        private void RegisterRoutes()
-        {
 
             Routing.RegisterRoute(nameof(AnaSayfa), typeof(AnaSayfa));
+            Routing.RegisterRoute(nameof(Loading), typeof(Loading));
+            Routing.RegisterRoute(nameof(Login), typeof(Login));
+            Routing.RegisterRoute(nameof(Bildirimler), typeof(Bildirimler));
+            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(Aidat), typeof(Aidat));
             Routing.RegisterRoute(nameof(Ikraz), typeof(Ikraz));
             Routing.RegisterRoute(nameof(User), typeof(User));
-            // Diğer sayfalar...
-        }
+
+            FlyoutIcon = ImageSource.FromFile("bars_ince.png");
+
+        }       
     }
 }

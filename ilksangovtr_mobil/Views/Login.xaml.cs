@@ -1,34 +1,36 @@
 using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.Services;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class Login : ContentPage
 {
-	public Login()
+    private readonly AuthService _authService;
+
+    public Login(AuthService authService)
 	{
 		InitializeComponent();
-	}
-
-    private bool LoginIsSuccessful()
-    {
-        return true;
+        _authService = authService;
     }
-    private void Login_Button_Clicked(object sender, EventArgs e)
+
+    //private bool LoginIsSuccessful()
+    //{
+    //    return true;
+    //}
+    private async void Login_Button_Clicked(object sender, EventArgs e)
     {
-        var anaSayfaViewModel = new AnaSayfaViewModel();
-        Application.Current.MainPage = new AnaSayfa(anaSayfaViewModel);
+       // var anaSayfaViewModel = new AnaSayfaViewModel();
+        //Application.Current.MainPage = new AnaSayfa(anaSayfaViewModel);
 
-        if (LoginIsSuccessful())
-        {
-            // Giriþ baþarýlý ise AppShell'e geç
-            Application.Current.MainPage = new AppShell();
 
-            // Kesin route ile gitme
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-                await Shell.Current.GoToAsync($"//{nameof(AnaSayfa)}");
-            });
-        }
+        _authService.Login();
+        await Shell.Current.GoToAsync($"//{nameof(AnaSayfa)}");
+
+        //if (LoginIsSuccessful())
+        //{
+        //    Application.Current.MainPage = new AppShell();
+
+        //}
 
     }
 

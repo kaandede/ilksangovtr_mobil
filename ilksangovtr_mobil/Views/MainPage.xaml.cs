@@ -1,7 +1,7 @@
 ﻿using ilksangovtr_mobil.Models;
 using ilksangovtr_mobil.Views;
 
-namespace ilksangovtr_mobil
+namespace ilksangovtr_mobil.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -10,9 +10,9 @@ namespace ilksangovtr_mobil
             InitializeComponent();
         }
 
-        private void back_Clicked(object sender, EventArgs e)
+        async void back_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopToRootAsync();
+            await Shell.Current.GoToAsync("..");
         }
 
     }

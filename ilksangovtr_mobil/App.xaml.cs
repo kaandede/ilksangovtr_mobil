@@ -7,9 +7,9 @@ namespace ilksangovtr_mobil
         public App()
         {
             InitializeComponent();
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzYwNjk4M0AzMjM3MmUzMDJlMzBlQlN2RWtKMHE3YnhtcS9lWThNeGdzMzdCbDlrWDNGbjJHQ3hTaTJDN3RnPQ==\r\n\r\n");
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzYwNjk4M0AzMjM3MmUzMDJlMzBlQlN2RWtKMHE3YnhtcS9lWThNeGdzMzdCbDlrWDNGbjJHQ3hTaTJDN3RnPQ==\r\n\r\n");
 
-                MainPage = new Login();
+            MainPage = new AppShell();
             Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(BorderlessEntry), (handler, view) =>
             {
 #if __ANDROID__

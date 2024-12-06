@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ilksangovtr_mobil.Views.AnaSayfa"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
              x:DataType="models:AnaSayfaViewModel"
              BackgroundColor="#fff">
@@ -12,6 +13,10 @@
         <ToolbarItem Text="New" Order="Primary" Priority="1"/>
         <ToolbarItem Text="New3"  Order="Primary" Priority="4"/>
     </ContentPage.ToolbarItems>-->
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#F3F7F6" StatusBarStyle="DarkContent"/>
+    </Page.Behaviors>
 
     <ScrollView>
 

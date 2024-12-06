@@ -12,8 +12,8 @@ public partial class AnaSayfa : ContentPage
 	}
 
     private void ToolbarItem_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new MainPage());
+    { 
+        Shell.Current.GoToAsync(nameof(MainPage));
     }
 
     private void Bildirimler_Clicked(object sender, EventArgs e)

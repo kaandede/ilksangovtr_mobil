@@ -25,13 +25,25 @@
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
-    
 
- 
+    <ShellContent
+                  ContentTemplate="{DataTemplate views:Loading}"
+                  Route="Loading"
+                  Shell.FlyoutBehavior="Disabled"
+                  Shell.FlyoutItemIsVisible="False"/>  
+    <ShellContent 
+                  ContentTemplate="{DataTemplate views:Login}"
+                  Route="Login"
+                  Shell.FlyoutBehavior="Disabled"
+                  Shell.TabBarIsVisible="False"
+                  Shell.FlyoutItemIsVisible="False"/>
+
     <TabBar>
-        <ShellContent Route="AnaSayfa" Icon="home_ince.png" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
-        <ShellContent Route="Aidat" Icon="aidat_ince.png" ContentTemplate="{DataTemplate views:Aidat}"/>
-        <ShellContent Route="Ikraz" Icon="ikraz_ince.png" ContentTemplate="{DataTemplate views:Ikraz}"/>
-        <ShellContent Route="User" Icon="user_ince.png"  ContentTemplate="{DataTemplate views:User}"/>
+
+        <ShellContent Icon="home_ince.png" Route="AnaSayfa" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
+        <ShellContent Icon="aidat_ince.png" Route="Aidat" ContentTemplate="{DataTemplate views:Aidat}"/>
+        <ShellContent Icon="ikraz_ince.png" Route="Ikraz" ContentTemplate="{DataTemplate views:Ikraz}"/>
+        <ShellContent Icon="user_ince.png" Route="User" ContentTemplate="{DataTemplate views:User}"/>
+
     </TabBar>
 </Shell>
