@@ -1,40 +1,197 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ilksangovtr_mobil.Views.Aidat">
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
+             x:Class="ilksangovtr_mobil.Views.Aidat"
+             BackgroundColor="#fff"
+             x:DataType="models:AnaSayfaViewModel">
+
+    <ContentPage.BindingContext>
+        <models:AnaSayfaViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0">
+            <StackLayout>
+                <Border BackgroundColor="Transparent"
+                         Stroke="Transparent"
+                         StrokeShape="RoundRectangle 0,0,0,0" >
+                    <Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                            </Grid.RowDefinitions>
+                        </Grid>
+                        <Grid Margin="0,0,0,0"
+                           Grid.Row="0">
+                            <Frame BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    Margin="0,0,0,0"
+                    Padding="0"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+                                <Label FontSize="14"
+                    FontFamily="NexaHeavy" 
+                    Text="Aidat"
+                    TextColor="#00100C"/>
+                            </Frame>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </StackLayout>
+        </StackLayout>
+        <dx:TabView
+           Grid.Row="1"
+           HeaderPanelPadding="0"
+           ItemHeaderWidth="Auto"
+           IsSelectedItemIndicatorVisible="True" 
+           SelectedItemIndicatorColor="#0D7561"
+           HeaderPanelPosition="Top"
+           SelectedItemIndicatorHeight="5"
+           Margin="0,0,0,0"
+           ItemHeaderPadding="10"
+           HeaderPanelBackgroundColor="#fff">
+            <dx:TabViewItem>
+                <dx:TabViewItem.HeaderContent>
+                    <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="4" >
+                        <Label Text="Aidat Bilgilerim"
+                        FontSize="14"
+                        FontFamily="NexaHeavy"
+                        TextColor="#20322F" 
+                        HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </dx:TabViewItem.HeaderContent>
+
+                <dx:TabViewItem.Content>
+                    <StackLayout HeightRequest="200" Margin="10,10,10,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Border BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
+                            <Border.Shadow>
+                                <Shadow Brush="#565558" Offset="5,5" Radius="30" Opacity="0.2"/>
+                            </Border.Shadow>
+                            <TableView BindingContext="{Binding AidatBilgilerims[0]}">
+                                <TableRoot>
+                                    <TableSection x:DataType="models:AidatBilgilerim">
+                                        <ViewCell>
+                                            <Grid ColumnDefinitions="200,*" >
+                                                <Label Grid.Row="0" Margin="10"
+                                        Grid.Column="0"
+                                        FontSize="Caption"
+                                        FontFamily="NexaHeavy"
+                                        HorizontalOptions="Start"
+                                        Text="Toplam Ödenen Aidat Tutarı"
+                                        HorizontalTextAlignment="Start"
+                                        TextColor="#2F2F2F"
+                                        VerticalOptions="Center" />
+                                                <Label Grid.Row="0" 
+                                        Grid.Column="1"
+                                        Margin="6,0,0,0"
+                                        FontSize="Caption"
+                                        HorizontalOptions="Start"
+                                        FontFamily="NexaLight"
+                                        FontAttributes="Bold"
+                                        TextColor="#565558"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding ToplamOdenenAidatTutari}"
+                                        VerticalOptions="Center" />
+                                            </Grid>
+                                        </ViewCell>
+
+                                        <ViewCell>
+                                            <Grid ColumnDefinitions="200,*">
+                                                <Label  Grid.Row="0" Margin="10"
+                                        Grid.Column="0"
+                                        FontSize="Caption"
+                                         FontFamily="NexaHeavy"
+                                        HorizontalOptions="Start"
+                                        Text="Toplam Mahsup Aidat Tutarı"
+                                        TextColor="#2F2F2F"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center" />
+                                                <Label Grid.Row="0" 
+                                        Grid.Column="1"
+                                        Margin="6,0,0,0"
+                                        FontSize="Caption"
+                                         FontFamily="NexaLight"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Start"
+                                        HorizontalTextAlignment="Center"
+                                        TextColor="#565558"
+                                        Text="{Binding ToplamMahsupAidatTutari}"
+                                        VerticalOptions="Center" />
+                                            </Grid>
+                                        </ViewCell>
+
+                                        <ViewCell>
+                                            <Grid ColumnDefinitions="200,*">
+                                                <Label Grid.Row="0"
+                                            Grid.Column="0" Margin="10"
+                                            FontSize="Caption"
+                                             FontFamily="NexaHeavy"
+                                            HorizontalOptions="Start"
+                                                         TextColor="#2F2F2F"
+                                            Text="Toplam Tutar"
+                                            HorizontalTextAlignment="Start"
+                                            VerticalOptions="Center" />
+                                                <Label Grid.Row="0"
+                                            Grid.Column="1"
+                                            Margin="6,0,0,0"
+                                            FontSize="Caption"
+                                            FontFamily="NexaLight"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Center"
+                                            TextColor="#565558"
+                                            Text="{Binding ToplamTutar}"
+                                            VerticalOptions="Center" />
+                                            </Grid>
+                                        </ViewCell>
+
+                                    </TableSection>
+                                </TableRoot>
+                            </TableView>
+                        </Border>
+                    </StackLayout>
+             
+                </dx:TabViewItem.Content>
+            </dx:TabViewItem>
 
 
-
-    <!--<StackLayout>
-        <Border BackgroundColor="#F3F7F6"
-       Stroke="Transparent"
-       StrokeShape="RoundRectangle 0,0,30,30" >
-            <Grid>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0,0,0,0"
-             Grid.Row="0"
-             ColumnDefinitions="*">
-                    <Frame BorderColor="Transparent"
-              BackgroundColor="Transparent"
-              Margin="0,0,0,0"
-              Padding="12"
-              Grid.Column="0"
-              VerticalOptions="CenterAndExpand"
-              HorizontalOptions="CenterAndExpand">
-                        <Label FontSize="14"
-              FontFamily="NexaHeavy" 
-              Text="Aidat"
-              TextColor="#00100C"/>
-                    </Frame>
-                </Grid>
-            </Grid>
-        </Border>
-    </StackLayout>-->
+            <dx:TabViewItem>
+                <dx:TabViewItem.HeaderContent>
+                    <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Spacing="4" >
+                        <Label Text="Borçlarım"
+                       FontSize="14"
+                       FontFamily="NexaHeavy"
+                       TextColor="#20322F" 
+                       HorizontalOptions="Center" />
 
 
+                    </VerticalStackLayout>
+                </dx:TabViewItem.HeaderContent>
+            </dx:TabViewItem>
 
+
+            <dx:TabViewItem>
+                <dx:TabViewItem.HeaderContent>
+                    <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Spacing="4">
+                        <Label Text="Banka Bilgileri"
+                         FontSize="14"
+                         FontFamily="NexaHeavy"
+                         TextColor="#20322F" 
+                         HorizontalOptions="Center" />
+
+
+                    </VerticalStackLayout>
+                </dx:TabViewItem.HeaderContent>
+            </dx:TabViewItem>
+
+
+        </dx:TabView>
+    </Grid>
 </ContentPage>

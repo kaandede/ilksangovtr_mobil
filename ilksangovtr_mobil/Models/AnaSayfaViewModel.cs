@@ -16,6 +16,7 @@ namespace ilksangovtr_mobil.Models
         public ObservableCollection<DuyuruItem> DuyuruItems { get; set; } = new();
         public ObservableCollection<BildirimItem> BildirimItems { get; set; } = new();
         public ObservableCollection<MessageItem> MessageItems { get; set; } = new();
+        public ObservableCollection<AidatBilgilerim> AidatBilgilerims { get; set; } = new();
 
 
 
@@ -191,6 +192,13 @@ namespace ilksangovtr_mobil.Models
                 Message_Title = "Transfer ve Döviz İşlemleri5",
                 Message_date = message_short_Date,
 
+            });
+
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺"
             });
         }
     }

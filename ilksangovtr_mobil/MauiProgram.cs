@@ -20,7 +20,10 @@ namespace ilksangovtr_mobil
                 //.ConfigureSyncfusionCore()
                 .UseDevExpress(useLocalization: false)
                 .UseDevExpressControls()
+                .UseDevExpressCollectionView()
+                .UseDevExpressDataGrid()
                 .UseDevExpress()
+                .UseDevExpressEditors()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -41,6 +44,7 @@ namespace ilksangovtr_mobil
             builder.Services.AddTransient<User>();
             builder.Services.AddSingleton<AnaSayfaViewModel>();
             builder.Services.AddSingleton<AnaSayfa>();
+            builder.Services.AddSingleton<Aidat>();
   
 #if DEBUG
             builder.Logging.AddDebug();
