@@ -4,10 +4,9 @@ namespace ilksangovtr_mobil.Views;
 
 public partial class Aidat : ContentPage
 {
-	public Aidat()
+	public Aidat(AnaSayfaViewModel anaSayfaViewModel)
 	{
 		InitializeComponent();
-        BindingContext = new AnaSayfaViewModel();
+        BindingContext = anaSayfaViewModel;
     }
-
 }

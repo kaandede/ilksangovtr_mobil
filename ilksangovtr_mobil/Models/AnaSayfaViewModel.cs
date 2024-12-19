@@ -194,11 +194,139 @@ namespace ilksangovtr_mobil.Models
 
             });
 
+            DateTime aidat_date = DateTime.Now;
+            string aidat_short_Date = aidat_date.ToString("dd/MM", CultureInfo.InvariantCulture);
+
+
+            DateTime aidat_yil = DateTime.Now;
+            string aidat_yil_Date = aidat_yil.ToString("yyyy", CultureInfo.InvariantCulture);
+
+            DateTime aidat_ay = DateTime.Now;
+            string aidat_ay_Date = aidat_ay.ToString("MM", CultureInfo.InvariantCulture);
+
+
+
+
             AidatBilgilerims.Add(new AidatBilgilerim()
             {
                 ToplamOdenenAidatTutari = ": 23.992,73 ₺",
                 ToplamMahsupAidatTutari = ": 0 ₺",
-                ToplamTutar = ": 23.992,73 ₺"
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "1201,18",
+                Kalan = "0 ₺",
+                Odenen = "1201,18 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
+            });
+
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "800",
+                Kalan = "0 ₺",
+                Odenen = "800 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
+            });      
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "800",
+                Kalan = "0 ₺",
+                Odenen = "800 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
+            });
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "800",
+                Kalan = "0 ₺",
+                Odenen = "800 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
+            });
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "800",
+                Kalan = "0 ₺",
+                Odenen = "800 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
+            });
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "800",
+                Kalan = "0 ₺",
+                Odenen = "800 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
+            });
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "800",
+                Kalan = "0 ₺",
+                Odenen = "800 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
+            });
+            AidatBilgilerims.Add(new AidatBilgilerim()
+            {
+                ToplamOdenenAidatTutari = ": 23.992,73 ₺",
+                ToplamMahsupAidatTutari = ": 0 ₺",
+                ToplamTutar = ": 23.992,73 ₺",
+                Kurum = "İLKSAN",
+                Tutar = "800",
+                Kalan = "0 ₺",
+                Odenen = "800 ₺",
+                AidatTarih = aidat_short_Date,
+                Durum = "Ödendi",
+                AidatYil = aidat_yil_Date,
+                AidatAy = aidat_ay_Date
+
             });
         }
     }
