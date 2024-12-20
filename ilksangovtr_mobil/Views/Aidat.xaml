@@ -211,46 +211,229 @@
 
                         </dx:TabViewItem.HeaderContent>
                         <dx:TabViewItem.Content>
-                            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,10,10,0" Spacing="15">
-                                <Border Grid.Row="0" BackgroundColor="Transparent" Margin="10" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <StackLayout Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                                            <Border  
-                                    Grid.Column="0"
-                                    Stroke="Transparent" 
-                                    BackgroundColor="#fff" 
-                                    StrokeShape="RoundRectangle 30" 
-                                    Padding="10"
-                                    VerticalOptions="Start"
-                                    HorizontalOptions="Start">
-                                                <Border.Shadow>
-                                                    <Shadow Brush="#687072" Offset="5,5" Radius="10" Opacity="0.2"/>
-                                                </Border.Shadow>
-                                                <Image Source="check.png"
-                                            VerticalOptions="CenterAndExpand"
-                                            HorizontalOptions="CenterAndExpand"
-                                            HeightRequest="35"
-                                            WidthRequest="35"/>
-                                            </Border>
-                                            <Border  Grid.Column="1"
-                                             Margin="10,0,0,0"
-                                            Stroke="Transparent" 
-                                            BackgroundColor="Transparent" 
-                                            VerticalOptions="CenterAndExpand"
-                                            HorizontalOptions="CenterAndExpand">
-                                                <Label Text="Borçlandırma Bulunamadı."
-                                                       FontSize="16"
-                                                       FontFamily="NexaHeavy"/>
-                                            </Border>
-                                        </StackLayout>
+                            <Grid Margin="10,5,10,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
 
-                                    </Grid>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" HeightRequest="300" BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
+                                    <Border.Shadow>
+                                        <Shadow Brush="#565558" Offset="5,5" Radius="30" Opacity="0.2"/>
+                                    </Border.Shadow>
+                                    <TableView BindingContext="{Binding AidatBorclandirmas[0]}">
+                                        <TableRoot>
+                                            <TableSection x:DataType="models:AidatBorclandirma">
+                                                <ViewCell>
+                                                    <Grid ColumnDefinitions="200,*" >
+                                                        <Label Grid.Row="0" Margin="10"
+                                                Grid.Column="0"
+                                                FontSize="Caption"
+                                                FontFamily="NexaHeavy"
+                                                HorizontalOptions="Start"
+                                                Text="Tebliğ Belge ID"
+                                                HorizontalTextAlignment="Start"
+                                                TextColor="#2F2F2F"
+                                                VerticalOptions="Center" />
+                                                        <Label Grid.Row="0" 
+                                                    Grid.Column="1"
+                                                    Margin="6,0,0,0"
+                                                    FontSize="Caption"
+                                                    HorizontalOptions="Start"
+                                                    FontFamily="NexaLight"
+                                                    FontAttributes="Bold"
+                                                    TextColor="#565558"
+                                                    HorizontalTextAlignment="Start"
+                                                    Text="{Binding AB_TEBLIG_BELGEID }"
+                                                    VerticalOptions="Center" />
+                                                    </Grid>
+                                                </ViewCell>
+
+                                                <ViewCell>
+                                                    <Grid ColumnDefinitions="200,*">
+                                                        <Label  Grid.Row="0" Margin="10"
+                                        Grid.Column="0"
+                                        FontSize="Caption"
+                                         FontFamily="NexaHeavy"
+                                        HorizontalOptions="Start"
+                                        Text="Tebliğ Tarihi"
+                                        TextColor="#2F2F2F"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center" />
+                                                        <Label Grid.Row="0" 
+                                        Grid.Column="1"
+                                        Margin="6,0,0,0"
+                                        FontSize="Caption"
+                                         FontFamily="NexaLight"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Start"
+                                        HorizontalTextAlignment="Center"
+                                        TextColor="#565558"
+                                        Text="{Binding AB_TEBLIGTAR}"
+                                        VerticalOptions="Center" />
+                                                    </Grid>
+                                                </ViewCell>
+
+                                                <ViewCell>
+                                                    <Grid ColumnDefinitions="200,*">
+                                                        <Label Grid.Row="0"
+                                                    Grid.Column="0" Margin="10"
+                                                    FontSize="Caption"
+                                                     FontFamily="NexaHeavy"
+                                                    HorizontalOptions="Start"
+                                                     TextColor="#2F2F2F"
+                                                    Text="Aidat Geliri"
+                                                    HorizontalTextAlignment="Start"
+                                                    VerticalOptions="Center" />
+                                                        <Label Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    Margin="6,0,0,0"
+                                                    FontSize="Caption"
+                                                    FontFamily="NexaLight"
+                                                    FontAttributes="Bold"
+                                                    HorizontalOptions="Start"
+                                                    HorizontalTextAlignment="Center"
+                                                    TextColor="#565558"
+                                                    Text="{Binding AB_AIDATGELIRI}"
+                                                    VerticalOptions="Center" />
+                                                    </Grid>
+                                                </ViewCell>
+
+                                                <ViewCell>
+                                                    <Grid ColumnDefinitions="200,*">
+                                                        <Label Grid.Row="0"
+                                                    Grid.Column="0" Margin="10"
+                                                    FontSize="Caption"
+                                                     FontFamily="NexaHeavy"
+                                                    HorizontalOptions="Start"
+                                                     TextColor="#2F2F2F"
+                                                    Text="Sandık Geliri"
+                                                    HorizontalTextAlignment="Start"
+                                                    VerticalOptions="Center" />
+                                                        <Label Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    Margin="6,0,0,0"
+                                                    FontSize="Caption"
+                                                    FontFamily="NexaLight"
+                                                    FontAttributes="Bold"
+                                                    HorizontalOptions="Start"
+                                                    HorizontalTextAlignment="Center"
+                                                    TextColor="#565558"
+                                                    Text="{Binding AB_SANDIKGELIRI}"
+                                                    VerticalOptions="Center" />
+                                                    </Grid>
+                                                </ViewCell>
+                                                <ViewCell>
+                                                    <Grid ColumnDefinitions="200,*">
+                                                        <Label Grid.Row="0"
+                                             Grid.Column="0" Margin="10"
+                                             FontSize="Caption"
+                                              FontFamily="NexaHeavy"
+                                             HorizontalOptions="Start"
+                                              TextColor="#2F2F2F"
+                                             Text="Son Ödeme Tarihi"
+                                             HorizontalTextAlignment="Start"
+                                             VerticalOptions="Center" />
+                                                        <Label Grid.Row="0"
+                                             Grid.Column="1"
+                                             Margin="6,0,0,0"
+                                             FontSize="Caption"
+                                             FontFamily="NexaLight"
+                                             FontAttributes="Bold"
+                                             HorizontalOptions="Start"
+                                             HorizontalTextAlignment="Center"
+                                             TextColor="#565558"
+                                             Text="{Binding AB_SONODEMETAR}"
+                                             VerticalOptions="Center" />
+                                                    </Grid>
+                                                </ViewCell>
+                                                <ViewCell>
+                                                    <Grid ColumnDefinitions="200,*">
+                                                        <Label Grid.Row="0"
+                                                  Grid.Column="0" Margin="10"
+                                                  FontSize="Caption"
+                                                   FontFamily="NexaHeavy"
+                                                  HorizontalOptions="Start"
+                                                   TextColor="#2F2F2F"
+                                                  Text="Borç"
+                                                  HorizontalTextAlignment="Start"
+                                                  VerticalOptions="Center" />
+                                                     <Label Grid.Row="0"
+                                                  Grid.Column="1"
+                                                  Margin="6,0,0,0"
+                                                  FontSize="Caption"
+                                                  FontFamily="NexaLight"
+                                                  FontAttributes="Bold"
+                                                  HorizontalOptions="Start"
+                                                  HorizontalTextAlignment="Center"
+                                                  TextColor="#565558"
+                                                  Text="{Binding AB_BORC}"
+                                                  VerticalOptions="Center" />
+                                                    </Grid>
+                                                </ViewCell>
+                                            </TableSection>
+                                        </TableRoot>
+                                    </TableView>
                                 </Border>
-                            </StackLayout>
+                                <Border Grid.Row="1" BackgroundColor="Transparent" Margin="0,20,0,10" Padding="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 0">
+
+                                    <Frame BorderColor="Transparent" BackgroundColor="#F3F6FF" CornerRadius="10" Padding="0">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                            <Button Text="Okuldum Kabul Ediyorum" 
+                                       FontFamily="NexaHeavy"
+                                       FontSize="14"
+                                       BackgroundColor="#0D7561"
+                                       TextColor="#fff"
+                                       HeightRequest="50"
+                                       Margin="0,0"/>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </Border>
+                                <StackLayout Grid.Row="2" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,10,10,0" Spacing="15">
+                                    <Border BackgroundColor="Transparent" Margin="10" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                <Border  
+                                          Grid.Column="0"
+                                          Stroke="Transparent" 
+                                          BackgroundColor="#fff" 
+                                          StrokeShape="RoundRectangle 30" 
+                                          Padding="10"
+                                          VerticalOptions="Start"
+                                          HorizontalOptions="Start">
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="#687072" Offset="5,5" Radius="10" Opacity="0.2"/>
+                                                    </Border.Shadow>
+                                                    <Image Source="check.png"
+                                                  VerticalOptions="CenterAndExpand"
+                                                  HorizontalOptions="CenterAndExpand"
+                                                  HeightRequest="35"
+                                                  WidthRequest="35"/>
+                                                </Border>
+                                                <Border  Grid.Column="1"
+                                                   Margin="10,0,0,0"
+                                                  Stroke="Transparent" 
+                                                  BackgroundColor="Transparent" 
+                                                  VerticalOptions="CenterAndExpand"
+                                                  HorizontalOptions="CenterAndExpand">
+                                                    <Label Text="Borçlandırma Bulunamadı."
+                                                             FontSize="16"
+                                                             FontFamily="NexaHeavy"/>
+                                                </Border>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Border>
+                                </StackLayout>
+
+                            </Grid>
+
                         </dx:TabViewItem.Content>
                     </dx:TabViewItem>
 
@@ -303,16 +486,16 @@
                                         WidthRequest="35"/>
                                             </Border>
                                             <Border  Grid.Column="1"
-                                 Margin="10,0,0,0"
-                                Stroke="Transparent" 
-                                BackgroundColor="Transparent" 
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="CenterAndExpand">
+                                             Margin="10,0,0,0"
+                                            Stroke="Transparent" 
+                                            BackgroundColor="Transparent" 
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="CenterAndExpand">
                                                 <VerticalStackLayout>
                                                     <Label Text="BANKA BİLGİLERİ..."
                                                 FontSize="14"
                                                 FontFamily="NexaHeavy"/>
-                                                    <Label Text="Akbank Ankara/Cebeci Şubesi nezdinde kayıtlı masrafsız hesaplarımız:"
+                                                    <Label Text="Akbank Ankara/Cebeci Şubesi nezdinde kayıtlı masrafsız hesaplarımız;"
                                                 FontSize="14"
                                                 FontFamily="NexaLight"
                                                  FontAttributes="Bold"/>
@@ -375,7 +558,11 @@
                                                          HorizontalOptions="CenterAndExpand">
                                                             <Label Text="Panoya Kopyala"
                                                                     FontSize="14"
-                                                                    FontFamily="NexaHeavy"/>
+                                                                    FontFamily="NexaHeavy">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="Ikraz_pano_copy" />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
                                                         </Border>
                                                     </StackLayout>
 
@@ -437,7 +624,11 @@
                                                        HorizontalOptions="CenterAndExpand">
                                                             <Label Text="Panoya Kopyala"
                                                                   FontSize="14"
-                                                                  FontFamily="NexaHeavy"/>
+                                                                  FontFamily="NexaHeavy">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="Aidat_pano_copy" />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
                                                         </Border>
                                                     </StackLayout>
 

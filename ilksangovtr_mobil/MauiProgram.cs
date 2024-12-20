@@ -45,6 +45,7 @@ namespace ilksangovtr_mobil
             builder.Services.AddSingleton<AnaSayfaViewModel>();
             builder.Services.AddSingleton<AnaSayfa>();
             builder.Services.AddSingleton<Aidat>();
+            builder.Services.AddSingleton<SosyalYardimlar>();
   
 #if DEBUG
             builder.Logging.AddDebug();

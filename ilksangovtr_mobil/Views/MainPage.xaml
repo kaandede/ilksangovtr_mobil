@@ -4,53 +4,55 @@
              Shell.TabBarIsVisible="False"
              x:Class="ilksangovtr_mobil.Views.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout>
-            <Border BackgroundColor="#fff"
-         Stroke="Transparent"
-         StrokeShape="RoundRectangle 0,0,30,30" >
-                <Grid>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
 
-                        </Grid.RowDefinitions>
-                    </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="15,10,15,0">
+            <Border BackgroundColor="Transparent"
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 0,0,0,0" >
+                <Grid VerticalOptions="CenterAndExpand">
                     <Grid Margin="0,0,0,0"
-           Grid.Row="0"
-           HeightRequest="80"
-           ColumnDefinitions="*,*,*">
-                        <Frame Margin="15,10,0,0"
-                BorderColor="#F3F7F6"
-                CornerRadius="30"
-                BackgroundColor="#F3F7F6"
-                Padding="12"
-                VerticalOptions="StartAndExpand"
-                HorizontalOptions="StartAndExpand">
+                  ColumnDefinitions="*,Auto,*">
+                        <Frame Margin="0,0,0,0"
+                         Grid.Column="0"
+                   BorderColor="#F3F7F6"
+                   CornerRadius="30"
+                   BackgroundColor="#F3F7F6"
+                   Padding="12"
+                   VerticalOptions="StartAndExpand"
+                   HorizontalOptions="StartAndExpand">
                             <ImageButton Source="left.png" 
-                   HeightRequest="18"
-                   WidthRequest="18" 
-                   Clicked="back_Clicked"
-                   VerticalOptions="Center" 
-                   Margin="0,0,0,0" 
-                   HorizontalOptions="Center"/>
+                  HeightRequest="18"
+                  WidthRequest="18" 
+                  Clicked="back_Clicked"
+                  VerticalOptions="CenterAndExpand" 
+                  Margin="0,0,0,0" 
+                  HorizontalOptions="CenterAndExpand"/>
                         </Frame>
                         <Frame BorderColor="Transparent"
-                BackgroundColor="Transparent"
-                Margin="-55,25,0,0"
-                Grid.Column="1"
-                Padding="0"
-                VerticalOptions="StartAndExpand"
-                HorizontalOptions="StartAndExpand">
+                   BackgroundColor="Transparent"
+                   Margin="0,0,0,0"
+                   Grid.Column="1"
+                   Padding="0"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand">
                             <Label FontSize="14"
-                    FontFamily="NexaHeavy" 
-                    Text="Menü"
-                    TextColor="#011612"/>
+                   FontFamily="NexaHeavy" 
+                   Text="Menü"
+                   TextColor="#00100C"/>
                         </Frame>
                     </Grid>
                 </Grid>
             </Border>
-        </VerticalStackLayout>
-    </ScrollView>
+
+
+        </Grid>
+    </Grid>
+
+
 
 </ContentPage>

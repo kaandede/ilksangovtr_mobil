@@ -20,6 +20,12 @@ public partial class AnaSayfa : ContentPage
     {
         var anaSayfaViewModel = new AnaSayfaViewModel();
         Navigation.PushAsync(new Bildirimler(anaSayfaViewModel));
+    }  
+    
+    private void Click_SosyalYardimlar(object sender, EventArgs e)
+    {
+        var anaSayfaViewModel = new AnaSayfaViewModel();
+        Navigation.PushAsync(new SosyalYardimlar(anaSayfaViewModel));
     }
 
 }

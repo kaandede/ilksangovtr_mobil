@@ -17,6 +17,7 @@ namespace ilksangovtr_mobil.Models
         public ObservableCollection<BildirimItem> BildirimItems { get; set; } = new();
         public ObservableCollection<MessageItem> MessageItems { get; set; } = new();
         public ObservableCollection<AidatBilgilerim> AidatBilgilerims { get; set; } = new();
+        public ObservableCollection<AidatBorclandirma> AidatBorclandirmas { get; set; } = new();
 
 
 
@@ -326,6 +327,20 @@ namespace ilksangovtr_mobil.Models
                 Durum = "Ödendi",
                 AidatYil = aidat_yil_Date,
                 AidatAy = aidat_ay_Date
+
+            });
+
+
+
+
+            AidatBorclandirmas.Add(new AidatBorclandirma()
+            {
+                AB_TEBLIG_BELGEID = ": 5486212",
+                AB_TEBLIGTAR = ": Yok",
+                AB_AIDATGELIRI = ": 1.234,70 ₺",
+                AB_SANDIKGELIRI = ": 10338.68 ₺",
+                AB_SONODEMETAR = ": 27.03.2025",
+                AB_BORC = ": 11.573,38 ₺"
 
             });
         }
