@@ -18,6 +18,8 @@ namespace ilksangovtr_mobil.Models
         public ObservableCollection<MessageItem> MessageItems { get; set; } = new();
         public ObservableCollection<AidatBilgilerim> AidatBilgilerims { get; set; } = new();
         public ObservableCollection<AidatBorclandirma> AidatBorclandirmas { get; set; } = new();
+        public ObservableCollection<SosyalYardimBasvurular> SosyalYardimBasvurulars { get; set; } = new();
+        public ObservableCollection<SosyalYardimBilgilerim> SosyalYardimBilgilerims { get; set; } = new();
 
 
 
@@ -341,6 +343,32 @@ namespace ilksangovtr_mobil.Models
                 AB_SANDIKGELIRI = ": 10338.68 ₺",
                 AB_SONODEMETAR = ": 27.03.2025",
                 AB_BORC = ": 11.573,38 ₺"
+
+            });
+
+            SosyalYardimBasvurulars.Add(new SosyalYardimBasvurular()
+            {
+              YTUR_ADI = "Evlenme",
+              YBASDUR_AD = "Ön Başvuru Tamamlandı",
+              YBAS_KAYITTARIHI = "01.07.2021"
+
+            }); 
+            SosyalYardimBasvurulars.Add(new SosyalYardimBasvurular()
+            {
+              YTUR_ADI = "Aidat İadesi",
+              YBASDUR_AD = "Bekleme",
+              YBAS_KAYITTARIHI = "12.03.2022"
+
+            });     
+            
+            
+            SosyalYardimBilgilerims.Add(new SosyalYardimBilgilerim()
+            {
+              
+              U_TCKIMLIKNO = "43975571922",
+              YTUR_ADI = "Evlenme",
+              YBO_YARDIMMIKTARI = "5.000 ₺",
+              YKID_ADI= "Yapıldı"
 
             });
         }
