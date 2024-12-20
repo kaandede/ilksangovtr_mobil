@@ -13,6 +13,7 @@
         <models:AnaSayfaViewModel/>
     </ContentPage.BindingContext>
 
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -59,6 +60,8 @@
             </Border>
 
         </Grid>
+
+  
         <Grid Grid.Row="1" VerticalOptions="StartAndExpand" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand">
             <Grid>
                 <Grid.RowDefinitions>
@@ -123,7 +126,7 @@
                                         </StackLayout>
                                     </Grid>
                                 </Border>
-                                
+
                             </Grid>
                         </dx:TabViewItem.Content>
                     </dx:TabViewItem>
@@ -159,7 +162,8 @@
                             </Grid>
                         </dx:TabViewItem.Content>
                     </dx:TabViewItem>
-
+                    
+                    
 
                     <dx:TabViewItem>
                         <dx:TabViewItem.HeaderContent>
@@ -185,7 +189,7 @@
                                         <Shadow Brush="#565558" Offset="5,5" Radius="10" Opacity="0.2"/>
                                     </Border.Shadow>
                                     <Grid >
-                              
+
                                         <Picker x:Name="myPicker" 
                                             Grid.Column="1"
                                             WidthRequest="300"
@@ -208,7 +212,7 @@
                                                 </x:Array>
                                             </Picker.ItemsSource>
                                         </Picker>
-                                   
+
                                         <Image Source="asagi.png" 
                                                    WidthRequest="20" 
                                                    HeightRequest="20" 
@@ -218,7 +222,7 @@
                                                    Margin="10,0"/>
 
                                     </Grid>
-                                    
+
 
                                 </Border>
                                 <Border Grid.Row="1" MinimumWidthRequest="350" BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
@@ -244,7 +248,7 @@
                                     TextColor="#fff"
                                     HeightRequest="40"
                                     Margin="0,0"/>
-                                        
+
                                         </StackLayout>
                                     </Frame>
                                 </Border>
@@ -271,29 +275,62 @@
                                         <Shadow Brush="#565558" Offset="5,5" Radius="10" Opacity="0.2"/>
                                     </Border.Shadow>
                                     <Grid>
-                                       <Label Grid.Row="0" Margin="10"
-                                        Grid.Column="0"
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Padding="0">
+                                            <Label Margin="5"
                                         FontSize="14"
                                         FontFamily="NexaHeavy"
                                         HorizontalOptions="StartAndExpand"
-                                        Text="Aidat İadesi yardımı;
-
-                                            Üyelik sürelerine bakılmaksızın;
-
-                                            a) Sandık üyesi iken üyelikleri sona erenlere,
-
-                                            b) Emekli olduğu tarihte 120 ayını doldurmamış olanlara,
-
-                                            c) Üyelik kapsamında iken, Sandığa en az 120 ay aidat ödemiş olanlardan, herhangi bir nedenle üyeliği sona erenlere talep etmeleri halinde,
-
-                                            ç) Sandıktan emekli yardımı almış olup, tekrar üyelik kapsamında bir göreve dönenlere,
-
-                                            ödemiş oldukları aidatları, ödendiği tarihler dikkate alınarak yasal faizi ile birlikte kendilerine iade edilir, ayrıca emekli yardımı ödemesi yapılmaz."
+                                        Text="Aidat İadesi yardımı;"
                                         HorizontalTextAlignment="Start"
                                         TextColor="#2F2F2F"
                                         VerticalOptions="CenterAndExpand" />
+                                            <Label Text="Üyelik sürelerine bakılmaksızın;"
+                                        Margin="5"
+                                        FontSize="14"
+                                        FontFamily="NexaHeavy"
+                                        HorizontalOptions="StartAndExpand" 
+                                        HorizontalTextAlignment="Start"
+                                        TextColor="#2F2F2F"
+                                        VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="a) Sandık üyesi iken üyelikleri sona erenlere,"
+                                        Margin="5"
+                                        FontSize="14"
+                                        FontFamily="NexaHeavy"
+                                        HorizontalOptions="StartAndExpand" 
+                                        HorizontalTextAlignment="Start"
+                                        TextColor="#2F2F2F"
+                                        VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="b) Emekli olduğu tarihte 120 ayını doldurmamış olanlara,"
+                                           Margin="5"
+                                           FontSize="14"
+                                           FontFamily="NexaHeavy"
+                                           HorizontalOptions="StartAndExpand" 
+                                           HorizontalTextAlignment="Start"
+                                           TextColor="#2F2F2F"
+                                           VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="c) Üyelik kapsamında iken, Sandığa en az 120 ay aidat ödemiş olanlardan, herhangi bir nedenle üyeliği sona erenlere talep etmeleri halinde,"
+                                        Margin="5"
+                                        FontSize="14"
+                                        FontFamily="NexaHeavy"
+                                        HorizontalOptions="StartAndExpand" 
+                                        HorizontalTextAlignment="Start"
+                                        TextColor="#2F2F2F"
+                                        VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="ç) Sandıktan emekli yardımı almış olup, tekrar üyelik kapsamında bir göreve dönenlere, ödemiş oldukları aidatları, ödendiği tarihler dikkate alınarak yasal faizi ile birlikte kendilerine iade edilir, ayrıca emekli yardımı ödemesi yapılmaz."
+                                        Margin="5"
+                                        FontSize="14"
+                                        FontFamily="NexaHeavy"
+                                        HorizontalOptions="StartAndExpand" 
+                                        HorizontalTextAlignment="Start"
+                                        TextColor="#2F2F2F"
+                                        VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
 
                                     </Grid>
+
                                 </Border>
                             </Grid>
                         </dx:TabViewItem.Content>
