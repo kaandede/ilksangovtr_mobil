@@ -1,7 +1,5 @@
 ﻿using ilksangovtr_mobil.Models;
 using ilksangovtr_mobil.Views;
-using Microsoft.Maui.Controls;
-using Syncfusion.Maui.Core.Hosting;
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using ilksangovtr_mobil.Services;
@@ -46,6 +44,8 @@ namespace ilksangovtr_mobil
             builder.Services.AddSingleton<AnaSayfa>();
             builder.Services.AddSingleton<Aidat>();
             builder.Services.AddSingleton<SosyalYardimlar>();
+            builder.Services.AddSingleton<YeniSosyalYardimBasvurusu>();
+
   
 #if DEBUG
             builder.Logging.AddDebug();

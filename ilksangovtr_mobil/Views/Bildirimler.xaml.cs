@@ -12,8 +12,8 @@ public partial class Bildirimler : ContentPage
     }
 
 
-    async void back_AnaSayfa_Clicked(object sender, EventArgs e)
+    void back_AnaSayfa_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync("///AnaSayfa");
     }
 }

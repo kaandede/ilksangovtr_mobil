@@ -5,9 +5,11 @@ namespace ilksangovtr_mobil.Views
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+
+        public MainPage(AnaSayfaViewModel anaSayfaViewModel)
         {
             InitializeComponent();
+            BindingContext = anaSayfaViewModel;
         }
 
         async void back_Clicked(object sender, EventArgs e)

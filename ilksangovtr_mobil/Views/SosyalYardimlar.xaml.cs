@@ -1,19 +1,26 @@
 using ilksangovtr_mobil.Models;
+using Syncfusion.Maui.Core.Carousel;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class SosyalYardimlar : ContentPage
 {
+    AnaSayfaViewModel anaSayfaViewModel = new AnaSayfaViewModel();
 
     public SosyalYardimlar(AnaSayfaViewModel anaSayfaViewModel)
-	{
-		InitializeComponent();
-        BindingContext = anaSayfaViewModel;       
+    {
+        InitializeComponent();
+        BindingContext = anaSayfaViewModel;
     }
 
-    async void back_Anasayfa_SoyalYardim(object sender, EventArgs e)
+    private void back_Anasayfa_SoyalYardim(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("..");
+         Shell.Current.GoToAsync("///AnaSayfa");
+    }
+
+    private void YeniSosyalYardim(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new YeniSosyalYardimBasvurusu(anaSayfaViewModel));
     }
     private void OnPickerSelectedIndexChanged(object sender, EventArgs e)
     {
@@ -23,7 +30,7 @@ public partial class SosyalYardimlar : ContentPage
         if (selectedIndex != -1) // Seçim yapýldýysa
         {
             string selectedItem = (string)picker.SelectedItem;
-         
+
         }
     }
 }

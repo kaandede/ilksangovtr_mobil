@@ -164,7 +164,7 @@
                                     </TableView>
                                 </Border>
                                 <Border Grid.Row="1" BackgroundColor="Transparent" Margin="10" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 0">
-                                    <dx:DataGridView IsVerticalScrollBarVisible="False" BackgroundColor="#fff" BorderColor="#F3F7F6" ItemsSource="{Binding AidatBilgilerims}" AllowDragDropRows="True" EditorShowMode="DoubleTap">
+                                    <dx:DataGridView IsVerticalScrollBarVisible="False" IsHorizontalScrollBarVisible="False" BackgroundColor="#fff" BorderColor="#F3F7F6" ItemsSource="{Binding AidatBilgilerims}" AllowDragDropRows="True" EditorShowMode="DoubleTap">
                                         <dx:DataGridView.Columns >
                                             <dx:ComboBoxColumn  GroupCaptionDisplayFormat="{}{1}" IsGrouped="true" AllowExport="false" GroupInterval="Value" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="110" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="AidatYil"></dx:ComboBoxColumn>
                                             <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="100" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="Kurum" Caption="Kurum"></dx:TemplateColumn>
