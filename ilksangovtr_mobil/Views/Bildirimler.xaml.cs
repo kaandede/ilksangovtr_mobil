@@ -12,7 +12,7 @@ public partial class Bildirimler : ContentPage
     }
 
 
-    void back_AnaSayfa_Clicked(object sender, EventArgs e)
+    private void back_AnaSayfa_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("///AnaSayfa");
     }

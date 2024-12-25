@@ -88,50 +88,50 @@
                                                 <ViewCell>
                                                     <Grid ColumnDefinitions="200,*" >
                                                         <Label Grid.Row="0" Margin="10"
-                                   Grid.Column="0"
-                                   FontSize="Caption"
-                                   FontFamily="NexaHeavy"
-                                   HorizontalOptions="Start"
-                                   Text="Toplam Ödenen Aidat Tutarı"
-                                   HorizontalTextAlignment="Start"
-                                   TextColor="#2F2F2F"
-                                   VerticalOptions="Center" />
+                                                   Grid.Column="0"
+                                                   FontSize="Caption"
+                                                   FontFamily="NexaHeavy"
+                                                   HorizontalOptions="Start"
+                                                   Text="Toplam Ödenen Aidat Tutarı"
+                                                   HorizontalTextAlignment="Start"
+                                                   TextColor="#2F2F2F"
+                                                   VerticalOptions="Center" />
                                                         <Label Grid.Row="0" 
-                                       Grid.Column="1"
-                                       Margin="6,0,0,0"
-                                       FontSize="Caption"
-                                       HorizontalOptions="Start"
-                                       FontFamily="NexaLight"
-                                       FontAttributes="Bold"
-                                       TextColor="#565558"
-                                       HorizontalTextAlignment="Start"
-                                       Text="{Binding ToplamOdenenAidatTutari}"
-                                       VerticalOptions="Center" />
+                                                   Grid.Column="1"
+                                                   Margin="6,0,0,0"
+                                                   FontSize="Caption"
+                                                   HorizontalOptions="Start"
+                                                   FontFamily="NexaLight"
+                                                   FontAttributes="Bold"
+                                                   TextColor="#565558"
+                                                   HorizontalTextAlignment="Start"
+                                                   Text="{Binding ToplamOdenenAidatTutari}"
+                                                   VerticalOptions="Center" />
                                                     </Grid>
                                                 </ViewCell>
 
                                                 <ViewCell>
                                                     <Grid ColumnDefinitions="200,*">
                                                         <Label  Grid.Row="0" Margin="10"
-                                       Grid.Column="0"
-                                       FontSize="Caption"
-                                        FontFamily="NexaHeavy"
-                                       HorizontalOptions="Start"
-                                       Text="Toplam Mahsup Aidat Tutarı"
-                                       TextColor="#2F2F2F"
-                                       HorizontalTextAlignment="Center"
-                                       VerticalOptions="Center" />
+                                                   Grid.Column="0"
+                                                   FontSize="Caption"
+                                                    FontFamily="NexaHeavy"
+                                                   HorizontalOptions="Start"
+                                                   Text="Toplam Mahsup Aidat Tutarı"
+                                                   TextColor="#2F2F2F"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center" />
                                                         <Label Grid.Row="0" 
-                                       Grid.Column="1"
-                                       Margin="6,0,0,0"
-                                       FontSize="Caption"
-                                        FontFamily="NexaLight"
-                                       FontAttributes="Bold"
-                                       HorizontalOptions="Start"
-                                       HorizontalTextAlignment="Center"
-                                       TextColor="#565558"
-                                       Text="{Binding ToplamMahsupAidatTutari}"
-                                       VerticalOptions="Center" />
+                                                   Grid.Column="1"
+                                                   Margin="6,0,0,0"
+                                                   FontSize="Caption"
+                                                    FontFamily="NexaLight"
+                                                   FontAttributes="Bold"
+                                                   HorizontalOptions="Start"
+                                                   HorizontalTextAlignment="Center"
+                                                   TextColor="#565558"
+                                                   Text="{Binding ToplamMahsupAidatTutari}"
+                                                   VerticalOptions="Center" />
                                                     </Grid>
                                                 </ViewCell>
 

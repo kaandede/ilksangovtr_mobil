@@ -22,8 +22,6 @@ public partial class AnaSayfa : ContentPage
 
     private void Bildirimler_Clicked(object sender, EventArgs e)
     {
- 
-
         Navigation.PushAsync(new Bildirimler(anaSayfaViewModel));
     }  
     
@@ -31,6 +29,15 @@ public partial class AnaSayfa : ContentPage
     {
    
         Navigation.PushAsync(new SosyalYardimlar(anaSayfaViewModel));
+    } 
+    private void Click_AracKampanya(object sender, EventArgs e)
+    {
+   
+        Navigation.PushAsync(new AracKampanya(anaSayfaViewModel));
     }
 
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        Navigation.PushAsync(new MainPage(anaSayfaViewModel));
+    }
 }

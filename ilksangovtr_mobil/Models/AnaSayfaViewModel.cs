@@ -20,16 +20,19 @@ namespace ilksangovtr_mobil.Models
         public ObservableCollection<AidatBorclandirma> AidatBorclandirmas { get; set; } = new();
         public ObservableCollection<SosyalYardimBasvurular> SosyalYardimBasvurulars { get; set; } = new();
         public ObservableCollection<SosyalYardimBilgilerim> SosyalYardimBilgilerims { get; set; } = new();
+        public ObservableCollection<AracKampanyaBilgilerim> AracKampanyaBilgilerims { get; set; } = new();
+        public ObservableCollection<AracKampanyaKatilimSirasi> AracKampanyaKatilimSirasis { get; set; } = new();
+        public ObservableCollection<AracKampanyaParaYatirmaSirasi> AracKampanyaParaYatirmaSirasis { get; set; } = new();
 
 
 
 
-        public AnaSayfaViewModel() 
+        public AnaSayfaViewModel()
         {
             CarouselItems.Add(new CarouselItem()
             {
                 Title = "Başlık 1",
-                Description= "Açıklama 2",
+                Description = "Açıklama 2",
                 Image = "back4.png"
             });
             CarouselItems.Add(new CarouselItem()
@@ -50,19 +53,19 @@ namespace ilksangovtr_mobil.Models
                 Duyuru_Title = "Acıbadem Sağlık Grubundan İLKSAN Üyelerine Özel İndirimler",
                 Duyuru_date = shortDate,
                 Duyuru_Image = "duyuru.png"
-            });  
+            });
             DuyuruItems.Add(new DuyuruItem()
             {
                 Duyuru_Title = "Klinik 23 Nİisan Ağız ve Diş Sağlığı Polikliniği'nden Üyelerimize Özel İndirimler",
                 Duyuru_date = shortDate,
                 Duyuru_Image = "duyuru.png"
-            });   
+            });
             DuyuruItems.Add(new DuyuruItem()
             {
                 Duyuru_Title = "Ankara Özel Dentapros Ağız ve Diş Sağlığı Plokliniği'den Üyelerimize Özel İndirimler",
                 Duyuru_date = shortDate,
                 Duyuru_Image = "duyuru.png"
-            }); 
+            });
             DuyuruItems.Add(new DuyuruItem()
             {
                 Duyuru_Title = "İstanbul 360 Ağız ve Diş Sağlığı Plokliniği'den Üyelerimize Özel İndirimler",
@@ -169,13 +172,13 @@ namespace ilksangovtr_mobil.Models
             {
                 Message_Title = "Transfer ve Döviz İşlemleri1",
                 Message_date = message_short_Date,
-           
-            }); 
+
+            });
             MessageItems.Add(new MessageItem()
             {
                 Message_Title = "Transfer ve Döviz İşlemleri2",
                 Message_date = message_short_Date,
-           
+
             });
 
             MessageItems.Add(new MessageItem()
@@ -240,7 +243,7 @@ namespace ilksangovtr_mobil.Models
                 AidatYil = aidat_yil_Date,
                 AidatAy = aidat_ay_Date
 
-            });      
+            });
             AidatBilgilerims.Add(new AidatBilgilerim()
             {
                 ToplamOdenenAidatTutari = ": 23.992,73 ₺",
@@ -348,27 +351,62 @@ namespace ilksangovtr_mobil.Models
 
             SosyalYardimBasvurulars.Add(new SosyalYardimBasvurular()
             {
-              YTUR_ADI = "Evlenme",
-              YBASDUR_AD = "Ön Başvuru Tamamlandı",
-              YBAS_KAYITTARIHI = "01.07.2021"
+                YTUR_ADI = "Evlenme",
+                YBASDUR_AD = "Ön Başvuru Tamamlandı",
+                YBAS_KAYITTARIHI = "01.07.2021"
 
-            }); 
+            });
             SosyalYardimBasvurulars.Add(new SosyalYardimBasvurular()
             {
-              YTUR_ADI = "Aidat İadesi",
-              YBASDUR_AD = "Bekleme",
-              YBAS_KAYITTARIHI = "12.03.2022"
+                YTUR_ADI = "Aidat İadesi",
+                YBASDUR_AD = "Bekleme",
+                YBAS_KAYITTARIHI = "12.03.2022"
 
-            });     
-            
-            
+            });
+
+
             SosyalYardimBilgilerims.Add(new SosyalYardimBilgilerim()
             {
-              
-              U_TCKIMLIKNO = "43975571922",
-              YTUR_ADI = "Evlenme",
-              YBO_YARDIMMIKTARI = "5.000 ₺",
-              YKID_ADI= "Yapıldı"
+
+                U_TCKIMLIKNO = "43975571922",
+                YTUR_ADI = "Evlenme",
+                YBO_YARDIMMIKTARI = "5.000 ₺",
+                YKID_ADI = "Yapıldı"
+
+            });
+
+            AracKampanyaBilgilerims.Add(new AracKampanyaBilgilerim()
+            {
+                ARACKAMP_ADI = "73. Araç Kampanyası",
+                ARAC_OZELLIKLERI = "Citroen C3 Shine 1.2 PureTech 83 HP S&S EAT6",
+                ARAC_DURUM = "Başvuru Yapıldı",
+                ARAC_SOZLESME = "PDF",
+                ARAC_FIYATI = "1.250.000 ₺"
+
+            });   
+            AracKampanyaKatilimSirasis.Add(new AracKampanyaKatilimSirasi()
+            {
+                ARACKAMP_ADI = "73. Araç Kampanyası",
+                ARAC_OZELLIKLERI = "Citroen C3 Shine 1.2 PureTech 83 HP S&S EAT6",
+                ARAC_SIRA = "1",
+                U_ADI = "Ali",
+                U_ILKSANNO = "651489"
+
+            });
+
+            AracKampanyaParaYatirmaSirasis.Add(new AracKampanyaParaYatirmaSirasi()
+            {
+                ARACBASDUR_AD = "Beklemede",
+                ARAC_OZELLIKLERI = "Citroen",
+                AI_AD ="Ankara",
+                SAYI = "1",
+                AB_AD = "Bölge 1",
+                durum1 = "PARA YATIRMA SIRASINA GÖRE",
+                durum2 = "ONAYLANANLAR",
+                durum3 = "İLLERE GÖRE DAĞILIM",
+                durum4 = "BÖLGELERE GÖRE DAĞILIM",
+                durum5 = "İPTALLER",
+                durum6 = "BEKLEYENLER",
 
             });
         }

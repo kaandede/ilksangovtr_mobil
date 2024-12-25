@@ -42,11 +42,14 @@
                              Padding="12"
                              VerticalOptions="StartAndExpand"
                              HorizontalOptions="StartAndExpand">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </Frame.GestureRecognizers>
                                     <ImageButton Source="bars_ince.png" 
                             HeightRequest="18"
                             WidthRequest="18" 
-                            Clicked="ToolbarItem_Clicked"
                             VerticalOptions="Center" 
+                            Clicked="ToolbarItem_Clicked"
                             Margin="0,0,0,0" 
                             HorizontalOptions="Center"/>
                                 </Frame>
@@ -146,67 +149,72 @@
                            HeightRequest="70"
                            VerticalOptions="EndAndExpand">
                         <Border BackgroundColor="Transparent"
-         Stroke="Transparent"
-         StrokeShape="RoundRectangle 0,0,30,30"
-         StrokeThickness="1">
+                         Stroke="Transparent"
+                         StrokeShape="RoundRectangle 0,0,30,30"
+                         StrokeThickness="1">
                             <Border.Shadow>
                                 <Shadow Brush="#0D7561" 
-                   Offset="10,10" 
-                   Radius="40" 
-                   Opacity="0.2"/>
+                           Offset="10,10" 
+                           Radius="40" 
+                           Opacity="0.2"/>
                             </Border.Shadow>
                             <Grid Margin="10,0,10,0" 
-             ColumnDefinitions="*,*,*"
-             RowDefinitions="*,*"
-             RowSpacing="3">
+                                 ColumnDefinitions="*,*,*"
+                                 RowDefinitions="*,*"
+                                 RowSpacing="3">
                                 <Label Grid.Row="1"
-          FontFamily="NexaLight"
-          FontAttributes="Bold"
-          FontSize="12"
-          HorizontalOptions="Center"
-          Text="Sosyal Yardımlar"
-          TextColor="#011612">
+                                      FontFamily="NexaLight"
+                                      FontAttributes="Bold"
+                                      FontSize="12"
+                                      HorizontalOptions="Center"
+                                      Text="Sosyal Yardımlar"
+                                      TextColor="#011612">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="Click_SosyalYardimlar" />
                                     </Label.GestureRecognizers>
                                 </Label>
                                 <Label Grid.Row="1"
-               Grid.Column="1"
-               FontFamily="NexaLight"
-               FontAttributes="Bold"
-               FontSize="12"
-               HorizontalOptions="Center"
-               Text="Araç Kampanya"
-               TextColor="#011612"/>
+                                   Grid.Column="1"
+                                   FontFamily="NexaLight"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                                   HorizontalOptions="Center"
+                                   Text="Araç Kampanya"
+                                   TextColor="#011612">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Click_AracKampanya" />
+                                    </Label.GestureRecognizers>
+                                </Label>
                                 <Label Grid.Row="1"
-               Grid.Column="2"
-               FontFamily="NexaLight"
-               FontAttributes="Bold"
-               FontSize="12"
-               HorizontalOptions="Center"
-               Text="İkraz Hesaplama"
-               TextColor="#011612"/>
+                           Grid.Column="2"
+                           FontFamily="NexaLight"
+                           FontAttributes="Bold"
+                           FontSize="12"
+                           HorizontalOptions="Center"
+                           Text="İkraz Hesaplama"
+                           TextColor="#011612"/>
                                 <ImageButton Source="social_care.png" 
-          HeightRequest="28"
-          WidthRequest="28" 
-          Clicked="Click_SosyalYardimlar"
-          VerticalOptions="Center" 
-          Margin="0,0,0,0" 
-          HorizontalOptions="Center"/>
-                                <Image Source="car.png" 
-            Grid.Column="1"
-            HeightRequest="28"
-            WidthRequest="28" 
-            VerticalOptions="Center" 
-            Margin="0,0,0,0" 
-            HorizontalOptions="Center"/>
+                          HeightRequest="28"
+                          WidthRequest="28" 
+                          Clicked="Click_SosyalYardimlar"
+                          VerticalOptions="Center" 
+                          Margin="0,0,0,0" 
+                          HorizontalOptions="Center"/>
+                                <ImageButton Source="car.png" 
+                                Grid.Column="1"
+                                HeightRequest="28"
+                                Clicked="Click_AracKampanya"
+                                WidthRequest="28" 
+                                VerticalOptions="Center" 
+                                Margin="0,0,0,0" 
+                                HorizontalOptions="Center"/>
                                 <Image Source="calculate.png" 
-            Grid.Column="2"
-            HeightRequest="28"
-            WidthRequest="28" 
-            VerticalOptions="Center" 
-            Margin="0,0,0,0" 
-            HorizontalOptions="Center"/>
+                            Grid.Column="2"
+                            HeightRequest="28"
+                            WidthRequest="28" 
+                            VerticalOptions="Center" 
+                            Margin="0,0,0,0" 
+                            HorizontalOptions="Center"/>
                             </Grid>
                         </Border>
                     </Grid>

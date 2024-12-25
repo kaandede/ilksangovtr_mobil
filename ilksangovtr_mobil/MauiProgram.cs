@@ -14,13 +14,13 @@ namespace ilksangovtr_mobil
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseDevExpress()
                 .UseMauiCommunityToolkit()
                 //.ConfigureSyncfusionCore()
                 .UseDevExpress(useLocalization: false)
                 .UseDevExpressControls()
                 .UseDevExpressCollectionView()
                 .UseDevExpressDataGrid()
-                .UseDevExpress()
                 .UseDevExpressEditors()
                 .ConfigureFonts(fonts =>
                 {
@@ -45,6 +45,8 @@ namespace ilksangovtr_mobil
             builder.Services.AddSingleton<Aidat>();
             builder.Services.AddSingleton<SosyalYardimlar>();
             builder.Services.AddSingleton<YeniSosyalYardimBasvurusu>();
+            builder.Services.AddSingleton<AracKampanya>();
+            builder.Services.AddSingleton<IkinciElAracKampanya>();
 
   
 #if DEBUG

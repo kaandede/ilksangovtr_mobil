@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ilksangovtr_mobil.Views.IkinciElAracKampanya"
+              xmlns:dx="http://schemas.devexpress.com/maui"
+              xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
+              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
+              x:DataType="models:AnaSayfaViewModel"
+              xmlns:local="clr-namespace:ilksangovtr_mobil"
+              Shell.TabBarIsVisible="False"
+              BackgroundColor="#fff">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="15,10,15,0">
+            <Border BackgroundColor="Transparent"
+                         Stroke="Transparent"
+                         StrokeShape="RoundRectangle 0,0,0,0" >
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid Margin="0,0,0,0"
+                   ColumnDefinitions="*,Auto,*">
+                        <Frame Margin="0,0,0,0"
+                          Grid.Column="0"
+                    BorderColor="#F3F7F6"
+                    CornerRadius="30"
+                    BackgroundColor="#F3F7F6"
+                    Padding="12"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="StartAndExpand">
+                            <ImageButton Source="left.png" 
+                   HeightRequest="18"
+                   WidthRequest="18" 
+                    Clicked="back_AracKampanya_Clicked"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="0,0,0,0" 
+                   HorizontalOptions="CenterAndExpand"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    Margin="0,0,0,0"
+                    Grid.Column="1"
+                    Padding="0"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand">
+                            <Label FontSize="14"
+                    FontFamily="NexaHeavy" 
+                    Text="2.El Araç Kampanya"
+                    TextColor="#00100C"/>
+                        </Frame>
+
+                    </Grid>
+                </Grid>
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10,5,10,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="1" MinimumWidthRequest="350" BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
+                    <Border.Shadow>
+                        <Shadow Brush="#565558" Offset="5,5" Radius="30" Opacity="0.2"/>
+                    </Border.Shadow>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <CheckBox x:Name="check_onay" CheckedChanged="check_onay_CheckedChanged" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand" Margin="8,0,0,0" Color="#0D7561"/>
+                            <Label Grid.Row="0" Grid.Column="1" FontFamily="NexaHeavy" Margin="0,5,0,0" TextDecorations="Underline" Text="Başvuru ve Ödeme Koşulları Metnini Okudum, Onaylıyorum.">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Button_Clicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton Grid.Row="1" Grid.Column="0" Source="pdf.png" WidthRequest="20" Margin="8,10,0,0" HeightRequest="20"/>
+                            <Label Grid.Row="1" Grid.Column="1" FontFamily="NexaHeavy" Margin="0,15,0,0" Text="Metni PDF Görüntüle">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ikinciel_pdf" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <dxco:DXPopup x:Name="popup"  
+                              AllowScrim="True"
+                              WidthRequest="300"
+                              HeightRequest="300"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              Margin="24"
+                              BackgroundColor="#F3F7F6"
+                              CornerRadius="15">
+                                <dx:DXScrollView HeightRequest="400">
+                                    <VerticalStackLayout Padding="32,16">
+                                        <Label Text="KAMPANYA İŞLEYİŞİ"
+                                       Margin="0,0,0,10"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#E63950"
+                                       HorizontalTextAlignment="Start" />
+                                        <Label FontFamily="NexaLight" FontAttributes="Bold" Text="1.) Başvuruların Toplanması;
+                                            Kampanya internet başvuruları 7(Yedi) gün 24(YirmiDört) saat yapılabilecektir.
+                                            Satışa sunulan araçlar çekilişsiz, kurasız, internet başvurusu önceliğine göre peşin olarak satılacaktır.
+                                            Kampanyaya katılmak isteyen üyemiz; " />
+                                        <dx:DXSeparator Orientation="Horizontal" CapMargin="18" />
+                                        <Label  Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="2.) www.ilksan.gov.tr web sitemizde yer alan “Üye Giriş” bölümünden T.C. Kimlik Numarası ve şifresiyle İLKSAN Otomasyon’a giriş yaptıktan sonra “Araç Kampanya Başvuru” modülü aracılığıyla ilkyatirimgrup.satbize.com sitesine giriş yapacaktır. " />
+                                        <dx:DXSeparator Orientation="Horizontal" CapMargin="18" />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="3.) ilkyatirimgrup.satbize.com  sitesinde;" />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" HorizontalTextAlignment="Start" FontAttributes="Bold" Text=" - Almak istenen araç seçilerek “Bu Aracı Almak İstiyorum” butonuna tıklanacaktır." />
+
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" HorizontalTextAlignment="Start" FontAttributes="Bold" Text="- Gerekli bilgiler ekranında çıkan ad, soyad, e-posta ve telefon bilgileri doldurulup “Gönder” butonuna tıklanacaktır.
+                                           Başvurular Yetkili firmanın ekranında başvuru sırasına göre düşecektir. Yetkili; başvuru sırasına göre başvuru sahibi ile iletişime geçecek ve başvuru sahibinden 1 (Bir) saat içerisinde kapora yatırmasını talep edecektir.
+                                           Kapora yatıran başvuru sahibi 3(Üç) gün içinde araç bedelini yatırması gerekmektedir. 3(Üç) gün içinde araç bedelinin tamamının yatırmaması halinde üyemizin başvurusu iptal edilecektir." />
+
+                                        <dx:DXSeparator Orientation="Horizontal"  CapMargin="18" />
+
+                                        <Label Text="Ödeme (KAPORA KONUSU)"
+                                             Margin="0,10,0,10"
+                                             FontFamily="NexaHeavy"
+                                             TextColor="#E63950"
+                                             HorizontalTextAlignment="Start" />
+                             
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="1.) Kampanyaya katılıp, müracaatı kabul edildiği tarafına telefon ile bildirilen üyemizin kendilerine belirtilen kapora tutarını, 1(Bir) saat içinde İLKSAN Bağlı Ortaklığı İlk Yatırım Turizm Grup A.Ş.’nin IBAN’ına yatırması ve dekontu ibraz ederek bildirmesi gerekmektedir. Kapora tutarının yatırılacağı IBAN’ın bilgileri aşağıda yer almaktadır. " />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="IBAN: AKBANK CEBECİ/ ANKARA ŞUBESİ
+                                                İLK YATIRIM TURİZM GRUP AŞ-TR65 0004 6000 1788 8000 0914 34 IBAN
+                                                 (Sadece AKBANK Şubelerinden yapılacak işlemlerde havale ücreti ödemeden ödeme gönderebilecektir. Katılımcılar ödemelerini EFT yoluyla herhangi bir banka üzerinden de EFT masrafını ödeyerek ödeme yapabilecektir.)" />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="Dekontun ibraz ederek bildirmesi tarihinden itibaren araç bedelinin tamamı 3 (Üç) gün içerisinde İlk Yatırım Turizm Grup A.Ş’nin IBAN’ına yatırılması gerekmektedir. Söz konusu ödemeye yapıldıktan sonra İlk Yatırım Turizm Grup A.Ş bilgilendirilmelidir. (Tel: 0312 425 87 43) " />
+
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="2.) Araç bedelinin tamamını nakit ödemede zorlanan üyemiz, ikraz kullanım şartlarını taşıması halinde Sandığımızdan ikraz (borç verme) alabilecektir. İkraz kullanımına dair detaylara Sandığımızın 444 1943 numaralı telefon hattından İkraz Servisimizi arayarak veya www.ilksan.gov.tr adresinden ulaşabilirler. " />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="3.) 3(Üç) gün içerisinde araç bedellerini yatırmayan üyelerimizin yerine sıradaki üyelerimize dönüş yapılacaktır. Süresi içerisinde kaporasını yatırıp aracı almaktan vazgeçen katılımcının yatırmış olduğu tutar, Havale ve EFT Masrafları düşüldükten sonra faizsiz olarak kendilerine geri ödenir.
+                                                                Araç ödemesini tamamlayan ve adına fatura kesilen üyelerimiz;
+                                                                Satılan aracın satışa konulduğu haldeki ekspertiz koşullarını taşıması şartıyla 15 (OnBeş) gün içinde SATICI firmaya aracı satın alınan bedelle iade edebileceklerdir.
+                                                                Kampanya hakkında bilgiye İLK YATIRIM TURİZM GRUP A.Ş ait (0312) 425 87 43–44 numaralı telefon hatlarından ulaşabilirsiniz." />
+
+                                        <dx:DXSeparator Orientation="Horizontal"  CapMargin="18" />
+                                        
+                                        <Label Text="Araç Fiyatına Dâhil ve Hariç Olan Tutarlar"
+                                        Margin="0,10,0,10"
+                                        FontFamily="NexaHeavy"
+                                        TextColor="#E63950"
+                                        HorizontalTextAlignment="Start" />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="1.) SATICI tarafından markası, modeli, teknik özellikleri belirlenerek satışa sunulan araçların İnternet sitesinde yayınlanan fiyatları net birim fiyatlardır.  Bu fiyatlar üzerinden 10.000,00 TL indirim yapılacaktır.
+                                                                Noter ücreti, kasko ücreti, Karayolları Motorlu Araçlar Zorunlu Mali Sorumluluk Sigorta Poliçesi ALICI tarafından ödenmektedir. ALICI'nın talebi halinde ek ücretlendirme ile trafik/kasko sigortası gibi giderler kampanyaya katılan yetkili satıcı bayi tarafından da yapılabilecektir." />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="2.) SATICI, sözleşme konusu otomobili teslim alacağı tarihe kadar geçen süre için herhangi bir otopark vs. ücreti ödemeyecektir." />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="3.) Satışı gerçekleşen tüm araçlar anahtar teslimi olarak ARACI tarafından düzenlenen ‘Kesin Sipariş Bildirimi’ doğrultusunda; SATICI'nın kampanyaya katılan yetkili satış bayisince teslim edilerek ALICI adına faturalama yapılacaktır." />
+
+
+                                        <dx:DXSeparator Orientation="Horizontal"  CapMargin="18" />
+
+                                        <Label Text="Araç Teslimi"
+                                         Margin="0,10,0,10"
+                                         FontFamily="NexaHeavy"
+                                         TextColor="#E63950"
+                                         HorizontalTextAlignment="Start" />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="1.) ARAÇ bedeli, ALICI tarafından ARACI (İlk Yatırım Turizm Grup A.Ş) hesabına yatırılacaktır." />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="2.) Araç bedeli, ARACI(İlk Yatırım Turizm Grup A.Ş) tarafından SATICI'nın kampanyaya katılan yetkili SATICI bayinin hesabına aktarılacaktır." />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="3.) ALICI tarafından ruhsat ve plaka işlemlerine ilişkin belgelerin, SATICI yetkili bayiine teslim edilmesini müteakip SATICI tarafından ekspertiz raporundaki şekliyle ALICI tarafından incelendikten ve kontrol edildikten sonra ALICI’ya araç teslim edilir." />
+                                        <Label LineBreakMode="WordWrap" Margin="0,10,0,10" FontFamily="NexaLight" FontAttributes="Bold" Text="4.) SATICI, kusuru olmaksızın meydana gelebilecek gecikmelerden sorumlu değildir." />
+
+
+                                        <dx:DXButton ButtonType="Text" Margin="0,10,0,0" BackgroundColor="#0D7561" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#fff" Content="Onaylıyorum" Clicked="CancelDeleteClick"/>
+                                    </VerticalStackLayout>
+                                </dx:DXScrollView>
+                              
+                            </dxco:DXPopup>
+                        </Grid>
+
+                        <Grid>
+                            <Border BackgroundColor="Transparent" Margin="20,15,0,0" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 0">
+
+                                <Frame BorderColor="Transparent" BackgroundColor="#F3F6FF" CornerRadius="10" Padding="0">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Button Text="Başvur" 
+                                   FontFamily="NexaHeavy"
+                                   FontSize="14"
+                                   Clicked="Button_Clicked_1"
+                                   BackgroundColor="#0D7561"
+                                   TextColor="#fff"
+                                   HeightRequest="40"
+                                   Margin="0,0"/>
+
+                                    </StackLayout>
+                                </Frame>
+                            </Border>
+                        </Grid>
+                    </StackLayout>
+
+
+                </Border>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</ContentPage>
