@@ -82,7 +82,7 @@
                                HorizontalOptions="CenterAndExpand"/>
                                 </Border>
                                 <Label Text="●"
-                                Margin="74,2,0,0"
+                                Margin="82,3,0,0"
                                 Grid.Column="2"
                                 FontSize="18" 
                                 TextColor="#0D7561" 

@@ -13,5 +13,7 @@ namespace ilksangovtr_mobil.Models
         public string? ARAC_FIYATI { get; set; }
         public string? ARAC_DURUM { get; set; }
         public string? ARAC_SOZLESME { get; set; }
+        public string? ARAC_ADET { get; set; }
+        public string? ARAC_MARKA { get; set; }
     }
 }

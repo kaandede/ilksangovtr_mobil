@@ -30,5 +30,9 @@ public partial class AracKampanya : ContentPage
     private void tapped_ikincelArac_Kampanya(object sender, TappedEventArgs e)
     {
         Navigation.PushAsync(new IkinciElAracKampanya(anaSayfaViewModel));
+    } 
+    private void tapped_sifirArac_Kampanya(object sender, TappedEventArgs e)
+    {
+        Navigation.PushAsync(new SifirAracKampanya(anaSayfaViewModel));
     }
 }

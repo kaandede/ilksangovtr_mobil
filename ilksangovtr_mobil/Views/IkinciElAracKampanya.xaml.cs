@@ -60,15 +60,22 @@ public partial class IkinciElAracKampanya : ContentPage
     {
         try
         {
-            string pdfPath = "2ElAraçKampayaBaþvuruveÖdemeKoþullarýMetni.pdf";  // Android için örnek
+            string tempFile = Path.Combine(FileSystem.CacheDirectory, "2ElAracKampayaBasvuruveOdemeKosullariMetni.pdf");
+
+            using (var stream = await FileSystem.OpenAppPackageFileAsync("2ElAracKampayaBasvuruveOdemeKosullariMetni.pdf"))
+            using (var fileStream = File.Create(tempFile))
+            {
+                await stream.CopyToAsync(fileStream);
+            }
+
             await Launcher.OpenAsync(new OpenFileRequest
             {
-                File = new ReadOnlyFile(pdfPath)
+                File = new ReadOnlyFile(tempFile)
             });
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Hata", $"PDF açýlýrken bir hata oluþtu: {ex.Message}", "Tamam");
+            await DisplayAlert("Hata", "PDF dosyasý açýlýrken bir hata oluþtu: " + ex.Message, "Tamam");
         }
     }
 }

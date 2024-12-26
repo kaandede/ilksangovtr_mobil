@@ -381,7 +381,20 @@ namespace ilksangovtr_mobil.Models
                 ARAC_OZELLIKLERI = "Citroen C3 Shine 1.2 PureTech 83 HP S&S EAT6",
                 ARAC_DURUM = "Başvuru Yapıldı",
                 ARAC_SOZLESME = "PDF",
-                ARAC_FIYATI = "1.250.000 ₺"
+                ARAC_FIYATI = "1.250.000 ₺",
+                ARAC_MARKA = "CITROEN",
+                ARAC_ADET = "4"
+
+            }); 
+            AracKampanyaBilgilerims.Add(new AracKampanyaBilgilerim()
+            {
+                ARACKAMP_ADI = "73. Araç Kampanyası",
+                ARAC_OZELLIKLERI = "Citroen C4 Shine 1.2 PureTech 83 HP S&S EAT6",
+                ARAC_DURUM = "Başvuru Yapıldı",
+                ARAC_SOZLESME = "PDF",
+                ARAC_FIYATI = "1.350.000 ₺",
+                ARAC_MARKA = "CITROEN",
+                ARAC_ADET = "2"
 
             });   
             AracKampanyaKatilimSirasis.Add(new AracKampanyaKatilimSirasi()
