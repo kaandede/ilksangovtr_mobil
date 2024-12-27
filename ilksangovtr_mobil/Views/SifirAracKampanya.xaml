@@ -4,14 +4,12 @@
              x:Class="ilksangovtr_mobil.Views.SifirAracKampanya" 
              xmlns:dx="http://schemas.devexpress.com/maui"
              xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
-             xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
-             x:DataType="models:AnaSayfaViewModel"
-             xmlns:local="clr-namespace:ilksangovtr_mobil"
+             xmlns:local="clr-namespace:ilksangovtr_mobil.Models"
              Shell.TabBarIsVisible="False"
              BackgroundColor="#fff">
 
     <ContentPage.BindingContext>
-        <models:AnaSayfaViewModel/>
+        <local:AnaSayfaViewModel/>
     </ContentPage.BindingContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -60,12 +58,33 @@
 
         </Grid>
         <Grid Grid.Row="1">
-            <Border BackgroundColor="Transparent" Margin="10" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 0">
+            <Border BackgroundColor="Transparent" Margin="15,15,15,15" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 0">
                 <dx:DataGridView IsVerticalScrollBarVisible="False" IsHorizontalScrollBarVisible="False" BackgroundColor="#fff" BorderColor="#F3F7F6" ItemsSource="{Binding AracKampanyaBilgilerims}" AllowDragDropRows="True" EditorShowMode="DoubleTap">
                     <dx:DataGridView.Columns>
-                        <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARACKAMP_ADI" Caption="Kampanya Adı"></dx:TemplateColumn>
-                        <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_MARKA" Caption="Marka Adı"></dx:TemplateColumn>
-                        <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_OZELLIKLERI" Caption="Araç Bilgileri"></dx:TemplateColumn>
+                        <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARACKAMP_ADI" Caption="Kampanya Adı">
+                            <dx:TemplateColumn.DisplayTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Item.ARACKAMP_ADI}" Padding="5" FontFamily="NexaLight" FontAttributes="Bold" FontSize="12" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                    
+                                    </Label>
+                                </DataTemplate>
+                            </dx:TemplateColumn.DisplayTemplate>
+                        </dx:TemplateColumn>
+                       
+                        <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_MARKA" Caption="Marka Adı">
+                            <dx:TemplateColumn.DisplayTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Item.ARAC_MARKA}" Padding="5" FontFamily="NexaLight" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </DataTemplate>
+                            </dx:TemplateColumn.DisplayTemplate>
+                        </dx:TemplateColumn>
+                        <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_OZELLIKLERI" Caption="Araç Bilgileri">
+                            <dx:TemplateColumn.DisplayTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Item.ARAC_OZELLIKLERI}" Padding="5" FontFamily="NexaLight" FontAttributes="Bold" FontSize="12" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                </DataTemplate>
+                            </dx:TemplateColumn.DisplayTemplate>
+                        </dx:TemplateColumn>
                         <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_FIYATI" Caption="Fiyat"></dx:TemplateColumn>
                         <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_ADET" Caption="Adet"></dx:TemplateColumn>
                         <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_SOZLESME" Caption="Sözleşme"></dx:TemplateColumn>
@@ -75,6 +94,7 @@
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                         <Button Text="Başvur" 
                                              FontFamily="NexaHeavy"
+                                             Clicked="sifirArac_Basvur_Kampanya"
                                              FontSize="14"
                                              BackgroundColor="#0D7561"
                                              TextColor="#fff"
@@ -91,3 +111,18 @@
         </Grid>
     </Grid>
 </ContentPage>
+
+<!--<dx:DataGridView ItemsSource="{Binding AracKampanyaBilgilerims}">
+    <dx:DataGridView.Columns>
+        --><!-- Diğer sütunlar --><!--
+        <dx:TemplateColumn IsReadOnly="true" HeaderBackgroundColor="#fff" HeaderBorderColor="#ddd" VerticalContentAlignment="Center" MinWidth="120" HeaderFontFamily="NexaHeavy" HeaderFontSize="12" FieldName="ARAC_MARKA" Caption="Marka Adı">
+            <dx:TemplateColumn.DisplayTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Item.ARAC_MARKA}" FontFamily="NexaHeavy" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </DataTemplate>
+            </dx:TemplateColumn.DisplayTemplate>
+        </dx:TemplateColumn>
+
+        --><!-- Diğer sütunlar --><!--
+    </dx:DataGridView.Columns>
+</dx:DataGridView>-->

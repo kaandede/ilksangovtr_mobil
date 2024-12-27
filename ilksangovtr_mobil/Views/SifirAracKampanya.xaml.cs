@@ -1,3 +1,4 @@
+using DevExpress.Maui.DataGrid;
 using ilksangovtr_mobil.Models;
 
 namespace ilksangovtr_mobil.Views;
@@ -16,4 +17,10 @@ public partial class SifirAracKampanya : ContentPage
     {
         Navigation.PushAsync(new AracKampanya(anaSayfaViewModel));
     }
+
+    private void sifirArac_Basvur_Kampanya(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new SifirAracKampanyaBasvur(anaSayfaViewModel));
+    }
+
 }
