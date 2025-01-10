@@ -5,66 +5,33 @@
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
              x:DataType="models:AnaSayfaViewModel"
              xmlns:local="clr-namespace:ilksangovtr_mobil"
-             Shell.TabBarIsVisible="False"
              xmlns:dx="http://schemas.devexpress.com/maui">
 
     <ContentPage.BindingContext>
         <models:AnaSayfaViewModel/>
     </ContentPage.BindingContext>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="15,10,15,0">
-            <Border BackgroundColor="Transparent"
-                         Stroke="Transparent"
-                         StrokeShape="RoundRectangle 0,0,0,0" >
-                <Grid VerticalOptions="CenterAndExpand">
-                    <Grid Margin="0,0,0,0"
-                   ColumnDefinitions="*,Auto,*">
-                        <Frame Margin="0,0,0,0"
-                          Grid.Column="0"
-                    BorderColor="#F3F7F6"
-                    CornerRadius="30"
-                    BackgroundColor="#F3F7F6"
-                    Padding="12"
-                    VerticalOptions="StartAndExpand"
-                    HorizontalOptions="StartAndExpand">
-                            <ImageButton Source="left.png" 
-                   HeightRequest="18"
-                   WidthRequest="18" 
-                   VerticalOptions="CenterAndExpand" 
-                   Clicked="back_SoyalYardim_geri"
-                   Margin="0,0,0,0" 
-                   HorizontalOptions="CenterAndExpand"/>
-                        </Frame>
-                        <Frame BorderColor="Transparent"
-                    BackgroundColor="Transparent"
-                    Margin="0,0,0,0"
-                    Grid.Column="1"
-                    Padding="0"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="StartAndExpand">
-                            <Label FontSize="14"
-                    FontFamily="NexaHeavy" 
-                    Text="Yeni Sosyal Yardım Başvurusu"
-                    TextColor="#00100C"/>
-                        </Frame>
-
-                    </Grid>
-                </Grid>
-            </Border>
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="Auto,*" 
+           Padding="0,0" 
+           BackgroundColor="Transparent">
+            <Label Text="Yeni Sosyal Yardım Başvurusu"
+        Grid.Column="0"
+        FontFamily="NexaHeavy"
+       VerticalOptions="CenterAndExpand"/>
 
         </Grid>
-        <Grid Grid.Row="1">
+    </Shell.TitleView>
+
+
+    <Grid>
+        <Grid>
             <Grid Margin="10,5,10,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" MinimumWidthRequest="350" BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
+                <Border Grid.Row="0" WidthRequest="370" BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
                     <Border.Shadow>
                         <Shadow Brush="#565558" Offset="5,5" Radius="30" Opacity="0.2"/>
                     </Border.Shadow>
@@ -110,7 +77,7 @@
 
                 </Border>
 
-                <Border Grid.Row="1" MinimumWidthRequest="350" BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
+                <Border Grid.Row="1" WidthRequest="370" BackgroundColor="#fff" Margin="10" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Stroke="Transparent" StrokeShape="RoundRectangle 20">
                     <Border.Shadow>
                         <Shadow Brush="#565558" Offset="5,5" Radius="30" Opacity="0.2"/>
                     </Border.Shadow>

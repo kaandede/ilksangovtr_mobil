@@ -16,7 +16,6 @@ namespace ilksangovtr_mobil
                 .UseMauiApp<App>()
                 .UseDevExpress()
                 .UseMauiCommunityToolkit()
-                //.ConfigureSyncfusionCore()
                 .UseDevExpress(useLocalization: false)
                 .UseDevExpressControls()
                 .UseDevExpressCollectionView()
@@ -36,17 +35,21 @@ namespace ilksangovtr_mobil
                 });
 
 
-            builder.Services.AddTransient<AuthService>();
-            builder.Services.AddTransient<Loading>();
-            builder.Services.AddTransient<Login>();
-            builder.Services.AddTransient<User>();
-            builder.Services.AddSingleton<AnaSayfaViewModel>();
-            builder.Services.AddSingleton<AnaSayfa>();
-            builder.Services.AddSingleton<Aidat>();
-            builder.Services.AddSingleton<SosyalYardimlar>();
-            builder.Services.AddSingleton<YeniSosyalYardimBasvurusu>();
-            builder.Services.AddSingleton<AracKampanya>();
-            builder.Services.AddSingleton<IkinciElAracKampanya>();
+            builder.Services.AddScoped<AuthService>();
+            builder.Services.AddScoped<Loading>();
+            builder.Services.AddScoped<Login>();
+            builder.Services.AddScoped<User>();
+            builder.Services.AddScoped<AnaSayfaViewModel>();
+            builder.Services.AddScoped<AnaSayfa>();
+            builder.Services.AddScoped<Bildirimler>();
+            builder.Services.AddScoped<Ikraz>();
+            builder.Services.AddScoped<SifirAracKampanya>();
+            builder.Services.AddScoped<SifirAracKampanyaBasvur>();
+            builder.Services.AddScoped<Aidat>();
+            builder.Services.AddScoped<SosyalYardimlar>();
+            builder.Services.AddScoped<YeniSosyalYardimBasvurusu>();
+            builder.Services.AddScoped<AracKampanya>();
+            builder.Services.AddScoped<IkinciElAracKampanya>();
 
   
 #if DEBUG

@@ -9,7 +9,6 @@ namespace ilksangovtr_mobil
         public App(AnaSayfaViewModel anaSayfaViewModel)
         {
             InitializeComponent();
-            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzYwNjk4M0AzMjM3MmUzMDJlMzBlQlN2RWtKMHE3YnhtcS9lWThNeGdzMzdCbDlrWDNGbjJHQ3hTaTJDN3RnPQ==\r\n\r\n");
 
             MainPage = new AppShell(anaSayfaViewModel);
             //MainPage = new SifirAracKampanyaBasvur(anaSayfaViewModel);

@@ -5,15 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ilksangovtr_mobil"
     xmlns:views="clr-namespace:ilksangovtr_mobil.Views"
-    Shell.FlyoutBehavior="Disabled"
-    Shell.NavBarIsVisible="False"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutIcon="null"
+    Shell.NavBarIsVisible="True"
     Shell.TabBarIsVisible="True">
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="#fff" />
-                <Setter Property="Shell.ForegroundColor" Value="#677372" />
-                <Setter Property="Shell.TitleColor" Value="#677372" />
+                <Setter Property="Shell.BackgroundColor" Value="#F3F7F6" />
+                <Setter Property="Shell.ForegroundColor" Value="#000" />
+                <Setter Property="Shell.TitleColor" Value="#152B27" />
                 <Setter Property="Shell.DisabledColor" Value="#677372" />
                 <Setter Property="Shell.UnselectedColor" Value="#152B27" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="#fff" />
@@ -26,17 +27,22 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+
+
+  
     <ShellContent
                   ContentTemplate="{DataTemplate views:Loading}"
                   Route="Loading"
-                  Shell.FlyoutBehavior="Disabled"
-                  Shell.FlyoutItemIsVisible="False"/>  
+                   Shell.FlyoutBehavior="Disabled"
+                     Shell.TabBarIsVisible="False"
+                     Shell.FlyoutItemIsVisible="False"/>  
     <ShellContent 
                   ContentTemplate="{DataTemplate views:Login}"
                   Route="Login"
                   Shell.FlyoutBehavior="Disabled"
                   Shell.TabBarIsVisible="False"
                   Shell.FlyoutItemIsVisible="False"/>
+
 
     <TabBar>
 

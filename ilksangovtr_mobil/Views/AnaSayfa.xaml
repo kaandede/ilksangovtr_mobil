@@ -4,14 +4,31 @@
              x:Class="ilksangovtr_mobil.Views.AnaSayfa"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
-             x:DataType="models:AnaSayfaViewModel"
-             BackgroundColor="#fff">
+             x:DataType="models:AnaSayfaViewModel" 
+             BackgroundColor="#F3F7F6"
+             Shell.NavBarIsVisible="True">
 
 
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="Auto,*,Auto" 
+               Padding="0,0" 
+               BackgroundColor="Transparent">
+            <Label Text="Merhaba, Kaan DEDE"
+            Grid.Column="0"
+            FontFamily="NexaHeavy"
+           VerticalOptions="CenterAndExpand"/>
+
+            <ImageButton Grid.Column="2"
+              Source="notification_bell"
+              HeightRequest="30"
+              WidthRequest="30"
+              Margin="0,0,20,0"
+              Clicked="Bildirimler_Clicked"/>
+        </Grid>
+    </Shell.TitleView>
     <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="New" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="New" Order="Primary" Priority="1"/>
-        <ToolbarItem Text="New3"  Order="Primary" Priority="4"/>
+        <ToolbarItem x:Name="kullaniciAdi" />
+        <ToolbarItem IconImageSource="bell_24_title" Order="Primary" Priority="2"/>
     </ContentPage.ToolbarItems>-->
 
     <Page.Behaviors>
@@ -27,74 +44,11 @@
                     StrokeShape="RoundRectangle 0,0,30,30" >
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="70" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Margin="15,10,15,0">
-                        <Grid VerticalOptions="CenterAndExpand">
-                            <Grid Margin="0,0,0,0" ColumnDefinitions="*,Auto,*">
-                                <Frame Margin="0,0,0,0"
-                             Grid.Column="0"
-                             BorderColor="#fff"
-                             CornerRadius="30"
-                             BackgroundColor="#fff"
-                             Padding="12"
-                             VerticalOptions="StartAndExpand"
-                             HorizontalOptions="StartAndExpand">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                    </Frame.GestureRecognizers>
-                                    <ImageButton Source="bars_ince.png" 
-                            HeightRequest="18"
-                            WidthRequest="18" 
-                            VerticalOptions="Center" 
-                            Clicked="ToolbarItem_Clicked"
-                            Margin="0,0,0,0" 
-                            HorizontalOptions="Center"/>
-                                </Frame>
-                                <Frame BorderColor="Transparent"
-                             BackgroundColor="Transparent"
-                             Margin="0,0,0,0"
-                             Grid.Column="1"
-                             Padding="0"
-                             VerticalOptions="CenterAndExpand"
-                             HorizontalOptions="StartAndExpand">
-                                    <Label FontSize="14"
-                             FontFamily="NexaHeavy" 
-                             Text="Merhaba, Kaan DEDE"
-                             TextColor="#011612"/>
-                                </Frame>
-                                <Border Grid.Column="2"
-                              Padding="12"
-                              StrokeShape="RoundRectangle 30"
-                              Stroke="#fff"
-                              Margin="0,0,0,0"
-                              BackgroundColor="#fff"
-                              HorizontalOptions="EndAndExpand"
-                              VerticalOptions="StartAndExpand">
-                                    <ImageButton Source="bell_ince.png" 
-                               HeightRequest="20"
-                               WidthRequest="20" 
-                               VerticalOptions="CenterAndExpand" 
-                               Clicked="Bildirimler_Clicked"     
-                               Margin="0,0,0,0" 
-                               HorizontalOptions="CenterAndExpand"/>
-                                </Border>
-                                <Label Text="●"
-                                Margin="82,3,0,0"
-                                Grid.Column="2"
-                                FontSize="18" 
-                                TextColor="#0D7561" 
-                                VerticalOptions="StartAndExpand"
-                                HorizontalOptions="Center"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="1" 
-                     Padding="20"
-                     Margin="5,5,20,0"
+                    <Grid Grid.Row="0"
+                     Margin="25"
                      BackgroundColor="Transparent">
                         <StackLayout Spacing="15">
                             <Grid>
@@ -144,7 +98,7 @@
 
                         </StackLayout>
                     </Grid>
-                    <Grid Grid.Row="2"
+                    <Grid Grid.Row="1"
                            Margin="0,5,0,0"
                            HeightRequest="70"
                            VerticalOptions="EndAndExpand">
@@ -221,7 +175,7 @@
                 </Grid>
             </Border>
 
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="3" Margin="25,20,30,0" Spacing="5">
+            <!--<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="3" Margin="25,20,30,0" Spacing="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -256,68 +210,80 @@
                         </CarouselView>
                     </Border>
                 </Grid>
-            </StackLayout>
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="4" Margin="25,20,25,0" Spacing="5">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="Duyurular"
-                     FontSize="18"
-                     FontFamily="NexaHeavy"/>
-                    <Label Grid.Column="1"
-                     Text="Tümü"
-                     TextColor="#0D7561"
-                     TextDecorations="Underline"
-                     FontFamily="NexaLight" 
-                     FontAttributes="Bold"/>
-                </Grid>
-                <ListView VerticalScrollBarVisibility="Never"
-                          ItemsSource="{Binding DuyuruItems}"
-                          RowHeight="45"
-                          HasUnevenRows="True"
-                          BackgroundColor="Transparent"
-                          SeparatorColor="#c2c7c7">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="models:DuyuruItem">
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
+            </StackLayout>-->
 
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Border  
-                                      Grid.Column="0"
-                                      Grid.Row="0"
-                                      Stroke="Transparent" 
-                                      BackgroundColor="Transparent" 
-                                      StrokeShape="RoundRectangle 30" 
-                                      Padding="5"
-                                      Margin="0,20,0,0"
-                                      VerticalOptions="CenterAndExpand"
-                                      HorizontalOptions="CenterAndExpand">
-                                        <Image Source="{Binding Duyuru_Image}"
-                                          VerticalOptions="CenterAndExpand"
-                                          HorizontalOptions="CenterAndExpand"
-                                          HeightRequest="20"
-                                          WidthRequest="20"/>
-                                    </Border>
 
-                                    <Label Grid.Column="1" Grid.Row="0" Padding="5,10,5,5"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#011612" Text="{Binding Duyuru_Title}"/>
-                                    <Label Grid.Column="1" Grid.Row="1" Padding="5,0,0,5" VerticalTextAlignment="Center" FontFamily="NexaHeavy" FontSize="11" TextColor="#273935" Text="{Binding Duyuru_date}"/>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-            <StackLayout Grid.Row="5" Margin="25,30,25,0" Spacing="15">
+            <Border Padding="25" WidthRequest="375" Stroke="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="3" Margin="10"
+                      BackgroundColor="#fff"
+                       StrokeShape="RoundRectangle 16">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Duyurular"
+                    FontSize="18"
+                    FontFamily="NexaHeavy"/>
+                        <Label Grid.Column="1"
+                    Text="Tümü"
+                    TextColor="#0D7561"
+                    TextDecorations="Underline"
+                    FontFamily="NexaLight" 
+                    FontAttributes="Bold"/>
+                    </Grid>
+
+
+                    <ListView VerticalScrollBarVisibility="Never"
+                         ItemsSource="{Binding DuyuruItems}"
+                         RowHeight="45"
+                         Margin="0,10,0,0"
+                         HasUnevenRows="True"
+                         BackgroundColor="Transparent"
+                         SeparatorColor="#c2c7c7">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:DuyuruItem">
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border  
+                                     Grid.Column="0"
+                                     Grid.Row="0"
+                                     Stroke="Transparent" 
+                                     BackgroundColor="Transparent" 
+                                     StrokeShape="RoundRectangle 30" 
+                                     Padding="5"
+                                     Margin="0,20,0,0"
+                                     VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="CenterAndExpand">
+                                            <Image Source="{Binding Duyuru_Image}"
+                                         VerticalOptions="CenterAndExpand"
+                                         HorizontalOptions="CenterAndExpand"
+                                         HeightRequest="20"
+                                         WidthRequest="20"/>
+                                        </Border>
+
+                                        <Label Grid.Column="1" Grid.Row="0" Padding="5,10,5,5"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#011612" Text="{Binding Duyuru_Title}"/>
+                                        <Label Grid.Column="1" Grid.Row="1" Padding="5,0,0,5" VerticalTextAlignment="Center" FontFamily="NexaHeavy" FontSize="11" TextColor="#273935" Text="{Binding Duyuru_date}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+            </Border>
+            <Border Padding="25" WidthRequest="375" Stroke="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="4" Margin="10"
+            BackgroundColor="#fff"
+             StrokeShape="RoundRectangle 16">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -332,122 +298,128 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Text="İşlemler"
-                       Grid.Row="0"
-                       TextColor="#757577"
-                       FontSize="18"
-                       FontFamily="NexaLight"
-                       FontAttributes="Bold"/>
+                            Grid.Row="0"
+                            TextColor="#757577"
+                            FontSize="18"
+                            FontFamily="NexaLight"
+                            FontAttributes="Bold"/>
 
 
                     <StackLayout Grid.Row="1" Margin="0,10,0,0" Orientation="Horizontal" HorizontalOptions="Start">
                         <Border  
-                            Grid.Column="0"
-                            Stroke="Transparent" 
-                            BackgroundColor="#fff" 
-                            StrokeShape="RoundRectangle 30" 
-                            Padding="12"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Start">
+             Grid.Column="0"
+             Stroke="Transparent" 
+             BackgroundColor="#fff" 
+             StrokeShape="RoundRectangle 30" 
+             Padding="12"
+             VerticalOptions="Start"
+             HorizontalOptions="Start">
                             <Border.Shadow>
                                 <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
                             </Border.Shadow>
                             <Image Source="insurance.png"
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="CenterAndExpand"
-                                HeightRequest="20"
-                                WidthRequest="20"/>
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="CenterAndExpand"
+                 HeightRequest="20"
+                 WidthRequest="20"/>
                         </Border>
                         <Border  Grid.Column="1"
-                                 Margin="10,0,0,0"
-                                Stroke="Transparent" 
-                                BackgroundColor="Transparent" 
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="StartAndExpand">
+                  Margin="10,0,0,0"
+                 Stroke="Transparent" 
+                 BackgroundColor="Transparent" 
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="StartAndExpand">
                             <Label Text="İkraz Sigorta Poliçeleri"
-                                FontFamily="NexaHeavy"/>
+                 FontFamily="NexaHeavy"/>
                         </Border>
                     </StackLayout>
                     <StackLayout Grid.Row="2" Margin="0,10,0,10" Orientation="Horizontal" HorizontalOptions="Start">
                         <Border  
-                          Grid.Column="0"
-                          Stroke="Transparent" 
-                          BackgroundColor="#fff" 
-                          StrokeShape="RoundRectangle 30" 
-                          Padding="12"
-                          VerticalOptions="Start"
-                          HorizontalOptions="Start">
+           Grid.Column="0"
+           Stroke="Transparent" 
+           BackgroundColor="#fff" 
+           StrokeShape="RoundRectangle 30" 
+           Padding="12"
+           VerticalOptions="Start"
+           HorizontalOptions="Start">
                             <Border.Shadow>
                                 <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
                             </Border.Shadow>
                             <Image Source="tag_right.png"
-                              HeightRequest="20"
-                              WidthRequest="20"/>
+               HeightRequest="20"
+               WidthRequest="20"/>
                         </Border>
                         <Border  Grid.Column="1"
-                               Margin="10,0,0,0"
-                              Stroke="Transparent" 
-                              BackgroundColor="Transparent" 
-                              VerticalOptions="CenterAndExpand"
-                              HorizontalOptions="StartAndExpand">
+                Margin="10,0,0,0"
+               Stroke="Transparent" 
+               BackgroundColor="Transparent" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="StartAndExpand">
                             <Label Text="Kampanyalar"
-                              FontFamily="NexaHeavy"/>
+               FontFamily="NexaHeavy"/>
                         </Border>
                     </StackLayout>
                     <StackLayout Grid.Row="3" Margin="0,0,0,10" Orientation="Horizontal" HorizontalOptions="Start">
                         <Border  
-                        Grid.Column="0"
-                        Stroke="Transparent" 
-                        BackgroundColor="#fff" 
-                        StrokeShape="RoundRectangle 30" 
-                        Padding="12"
-                        VerticalOptions="Start"
-                        HorizontalOptions="Start">
+         Grid.Column="0"
+         Stroke="Transparent" 
+         BackgroundColor="#fff" 
+         StrokeShape="RoundRectangle 30" 
+         Padding="12"
+         VerticalOptions="Start"
+         HorizontalOptions="Start">
                             <Border.Shadow>
                                 <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
                             </Border.Shadow>
                             <Image Source="bed.png"
-                        HeightRequest="20"
-                        WidthRequest="20"/>
+         HeightRequest="20"
+         WidthRequest="20"/>
                         </Border>
                         <Border  Grid.Column="1"
-                         Margin="10,0,0,0"
-                        Stroke="Transparent" 
-                        BackgroundColor="Transparent" 
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="StartAndExpand">
+          Margin="10,0,0,0"
+         Stroke="Transparent" 
+         BackgroundColor="Transparent" 
+         VerticalOptions="CenterAndExpand"
+         HorizontalOptions="StartAndExpand">
                             <Label Text="Oteller ve Konukevleri"
-                        FontFamily="NexaHeavy"/>
+         FontFamily="NexaHeavy"/>
                         </Border>
                     </StackLayout>
                     <StackLayout Grid.Row="4" Margin="0,0,0,10" Orientation="Horizontal" HorizontalOptions="Start">
                         <Border  
-                             Grid.Column="0"
-                             Stroke="Transparent" 
-                             BackgroundColor="#fff" 
-                             StrokeShape="RoundRectangle 30" 
-                             Padding="12"
-                             VerticalOptions="Start"
-                             HorizontalOptions="Start">
+              Grid.Column="0"
+              Stroke="Transparent" 
+              BackgroundColor="#fff" 
+              StrokeShape="RoundRectangle 30" 
+              Padding="12"
+              VerticalOptions="Start"
+              HorizontalOptions="Start">
                             <Border.Shadow>
                                 <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
                             </Border.Shadow>
                             <Image Source="folder.png"
-                             HeightRequest="20"
-                             WidthRequest="20"/>
+              HeightRequest="20"
+              WidthRequest="20"/>
                         </Border>
                         <Border  Grid.Column="1"
-                              Margin="10,0,0,0"
-                             Stroke="Transparent" 
-                             BackgroundColor="Transparent" 
-                             VerticalOptions="CenterAndExpand"
-                             HorizontalOptions="StartAndExpand">
+               Margin="10,0,0,0"
+              Stroke="Transparent" 
+              BackgroundColor="Transparent" 
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="StartAndExpand">
                             <Label Text="Bülten ve Raporlar"
-                             FontFamily="NexaHeavy"/>
+              FontFamily="NexaHeavy"/>
                         </Border>
                     </StackLayout>
                 </Grid>
-            </StackLayout>
+
+            </Border>
+
+
+
 
         </StackLayout>
     </ScrollView>
 </ContentPage>
+
+

@@ -7,37 +7,33 @@ public partial class AnaSayfa : ContentPage
 {
     AnaSayfaViewModel anaSayfaViewModel = new AnaSayfaViewModel();
     public AnaSayfa(AnaSayfaViewModel anaSayfaViewModel)
-	{
-		InitializeComponent();
-		BindingContext = anaSayfaViewModel;
+    {
+        InitializeComponent();
+        BindingContext = anaSayfaViewModel;
     }
 
-
-    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
+        base.OnAppearing();
 
-        Navigation.PushAsync(new MainPage(anaSayfaViewModel));
-     
+        // Ana Sayfa'ya geri dönüldüðünde gerekli iþlemleri burada yapabilirsiniz
+        Console.WriteLine("Ana Sayfa yeniden yüklendi!");
+    }
+    private async void Bildirimler_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//AnaSayfa/Bildirimler", false);
     }
 
-    private void Bildirimler_Clicked(object sender, EventArgs e)
+    private async void Click_SosyalYardimlar(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Bildirimler(anaSayfaViewModel));
-    }  
-    
-    private void Click_SosyalYardimlar(object sender, EventArgs e)
-    {
-   
-        Navigation.PushAsync(new SosyalYardimlar(anaSayfaViewModel));
+
+        await Shell.Current.GoToAsync(nameof(SosyalYardimlar));
     } 
-    private void Click_AracKampanya(object sender, EventArgs e)
+    private async void Click_AracKampanya(object sender, EventArgs e)
     {
-   
-        Navigation.PushAsync(new AracKampanya(anaSayfaViewModel));
+
+        await Shell.Current.GoToAsync(nameof(AracKampanya));
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
-    {
-        Navigation.PushAsync(new MainPage(anaSayfaViewModel));
-    }
+  
 }

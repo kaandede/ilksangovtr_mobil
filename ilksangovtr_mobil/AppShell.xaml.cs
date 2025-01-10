@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Extensions;
 using ilksangovtr_mobil.Models;
 using ilksangovtr_mobil.Views;
+using System.ComponentModel;
 
 namespace ilksangovtr_mobil
 {
@@ -12,16 +13,17 @@ namespace ilksangovtr_mobil
             InitializeComponent();
             BindingContext = anaSayfaViewModel;
 
-            Routing.RegisterRoute(nameof(AnaSayfa), typeof(AnaSayfa));
-            Routing.RegisterRoute(nameof(Loading), typeof(Loading));
-            Routing.RegisterRoute(nameof(Login), typeof(Login));
             Routing.RegisterRoute(nameof(Bildirimler), typeof(Bildirimler));
-            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
-            Routing.RegisterRoute(nameof(Aidat), typeof(Aidat));
             Routing.RegisterRoute(nameof(SosyalYardimlar), typeof(SosyalYardimlar));
+            Routing.RegisterRoute(nameof(AracKampanya), typeof(AracKampanya));
+            Routing.RegisterRoute(nameof(IkinciElAracKampanya), typeof(IkinciElAracKampanya));
+            Routing.RegisterRoute(nameof(SifirAracKampanya), typeof(SifirAracKampanya));
+            Routing.RegisterRoute(nameof(SifirAracKampanyaBasvur), typeof(SifirAracKampanyaBasvur));
             Routing.RegisterRoute(nameof(YeniSosyalYardimBasvurusu), typeof(YeniSosyalYardimBasvurusu));
-            Routing.RegisterRoute(nameof(Ikraz), typeof(Ikraz));
-            Routing.RegisterRoute(nameof(User), typeof(User));
-        }       
+
+        }
+    
+
+       
     }
 }

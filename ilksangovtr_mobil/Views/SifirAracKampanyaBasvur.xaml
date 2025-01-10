@@ -7,7 +7,7 @@
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
              x:DataType="models:AnaSayfaViewModel"
              xmlns:local="clr-namespace:ilksangovtr_mobil"
-             Shell.TabBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              BackgroundColor="#fff">
     <ContentPage.BindingContext>
         <models:AnaSayfaViewModel/>
