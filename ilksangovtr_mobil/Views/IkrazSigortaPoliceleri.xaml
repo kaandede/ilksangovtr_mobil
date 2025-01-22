@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ilksangovtr_mobil.Views.IkrazSigortaPoliceleri"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#fff">
+
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="Auto,*" 
+Padding="0,0" 
+BackgroundColor="Transparent">
+            <Label Text="İkraz Sigorta Poliçeleri"
+     Grid.Column="0"
+     FontSize="16"
+     FontFamily="NexaHeavy"
+     HorizontalOptions="CenterAndExpand"
+     VerticalOptions="CenterAndExpand"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20,15">
+            <!-- Hayat Sigortası Kartı -->
+            <Border Stroke="#F3F7F6" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#20000000"
+                           Offset="0,4"
+                           Radius="12"
+                           Opacity="0.2"/>
+                </Border.Shadow>
+                <Grid RowDefinitions="Auto,*,*" RowSpacing="15">
+                    <Grid  ColumnDefinitions="Auto,*,Auto">
+                        <Border BackgroundColor="#F0FDF9"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12"
+                                HeightRequest="48"
+                                WidthRequest="48">
+                            <Image Source="insurance_icon.png"
+                                   HeightRequest="24"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1"
+                                           Margin="15,0">
+                            <Label Text="Hayat Sigortası"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"
+                                   FontSize="16"/>
+                            <Label Text="İkraz Hayat Sigortası"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                        </VerticalStackLayout>
+                        <Border Grid.Column="2"
+                                BackgroundColor="#F0FDF9"
+                                StrokeShape="RoundRectangle 8"
+                                Padding="8,4"
+                                VerticalOptions="Center">
+                            <Label Text="Aktif"
+                                   TextColor="#0D7561"
+                                   FontSize="12"
+                                   FontFamily="NexaHeavy"/>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1" ColumnDefinitions="*,*,*">
+                        <VerticalStackLayout>
+                            <Label Text="Poliçe No"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"
+                                   FontSize="12"/>
+                            <Label Text="POL123456"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="Başlangıç"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"
+                                   FontSize="12"/>
+                            <Label Text="01.01.2024"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="2">
+                            <Label Text="Bitiş"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"
+                                   FontSize="12"/>
+                            <Label Text="31.12.2024"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="2" ColumnDefinitions="*,Auto">
+                        <Button Text="POLİÇE GÖRÜNTÜLE"
+                                FontFamily="NexaHeavy"
+                                BackgroundColor="#0D7561"
+                                TextColor="White"
+                                HeightRequest="40"
+                                CornerRadius="10"/>
+                        <Button Grid.Column="1"
+                                Text="DETAYLI BİLGİ"
+                                FontFamily="NexaHeavy"
+                                BackgroundColor="#F8F9FB"
+                                TextColor="#677372"
+                                HeightRequest="40"
+                                CornerRadius="10"
+                                Margin="10,0,0,0"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Kefalet Sigortaları Başlığı -->
+            <Label Text="Kefalet Sigortaları"
+                   FontFamily="NexaHeavy"
+                   TextColor="#152B27"
+                   FontSize="20"
+                   Margin="0,10"/>
+
+            <!-- Bereket Sigorta -->
+            <Border Stroke="#F3F7F6" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#20000000"
+                 Offset="4,4"
+                 Radius="12"
+                 Opacity="0.4"/>
+                </Border.Shadow>
+                <Grid RowDefinitions="Auto,*,*" RowSpacing="15">
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Border BackgroundColor="#fff"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12"
+                                Stroke="Transparent"
+                                HeightRequest="48"
+                                WidthRequest="48">
+                            <Image Source="insurance.png"
+                                   HeightRequest="30"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1"
+                                           Margin="15,0">
+                            <Label Text="Bereket Sigorta A.Ş."
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"
+                                   FontSize="16"/>
+                            <Label Text="İkraz Kefalet Sigortası"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,10,0,0" ColumnDefinitions="*,Auto">
+                        <Button Text="Poliçe Görüntüle"
+                                FontFamily="NexaHeavy"
+                                BorderColor="Transparent"
+                                BackgroundColor="#E63950"
+                                TextColor="White"
+                                HeightRequest="40"
+                                CornerRadius="10"/>
+                        <Button Grid.Column="1"
+                                Text="Detaylı Bilgi"
+                                FontFamily="NexaHeavy"
+                                BorderColor="Transparent"
+                                BackgroundColor="#F8F9FB"
+                                TextColor="#677372"
+                                HeightRequest="40"
+                                CornerRadius="10"
+                                Margin="10,0,0,0"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Unico Sigorta -->
+            <Border Stroke="#F3F7F6" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#20000000"
+                            Offset="0,4"
+                            Radius="12"
+                            Opacity="0.2"/>
+                </Border.Shadow>
+                <Grid RowDefinitions="Auto,*,*" RowSpacing="15">
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Border BackgroundColor="#fff"
+                                Stroke="Transparent"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12"
+                                HeightRequest="48"
+                                WidthRequest="48">
+                            <Image Source="insurance.png"
+                                   HeightRequest="30"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1"
+                                           Margin="15,0">
+                            <Label Text="Unico Sigorta A.Ş."
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"
+                                   FontSize="16"/>
+                            <Label Text="İkraz Kefalet Sigortası"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,10,0,0" ColumnDefinitions="*,Auto">
+                        <Button Text="Poliçe Görüntüle"
+                                FontFamily="NexaHeavy"
+                                BackgroundColor="#E63950"
+                                TextColor="White"
+                                BorderColor="Transparent"
+                                HeightRequest="40"
+                                CornerRadius="10"/>
+                        <Button Grid.Column="1"
+                                Text="Detaylı Bilgi"
+                                BorderColor="Transparent"
+                                FontFamily="NexaHeavy"
+                                BackgroundColor="#F8F9FB"
+                                TextColor="#677372"
+                                HeightRequest="40"
+                                CornerRadius="10"
+                                Margin="10,0,0,0"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Sompo Sigorta -->
+            <Border Stroke="#f3f7f6" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#20000000"
+                Offset="0,4"
+                Radius="12"
+                Opacity="0.2"/>
+                </Border.Shadow>
+                <Grid RowDefinitions="Auto,*,*" RowSpacing="15">
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Border BackgroundColor="#fff"
+                                Stroke="Transparent"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12"
+                                HeightRequest="48"
+                                WidthRequest="48">
+                            <Image Source="insurance.png"
+                                   HeightRequest="24"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1"
+                                           Margin="15,0">
+                            <Label Text="Sompo Sigorta A.Ş."
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"
+                                   FontSize="16"/>
+                            <Label Text="İkraz Kefalet Sigortası"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,10,0,0" ColumnDefinitions="*,Auto">
+                        <Button Text="POLİÇE GÖRÜNTÜLE"
+                                FontFamily="NexaHeavy"
+                                BackgroundColor="#E63950"
+                                TextColor="White"
+                                HeightRequest="40"
+                                CornerRadius="10"/>
+                        <Button Grid.Column="1"
+                                Text="DETAYLI BİLGİ"
+                                FontFamily="NexaHeavy"
+                                BackgroundColor="#F8F9FB"
+                                TextColor="#677372"
+                                HeightRequest="40"
+                                CornerRadius="10"
+                                Margin="10,0,0,0"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Bilgilendirme Kartı -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0D7561"
+                    Stroke="Transparent"
+                    Padding="20"
+                    Margin="0,10,0,0">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Border BackgroundColor="#F0FDF9" Stroke="Transparent"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="10">
+                        <Image Source="DUYURU.png"
+                               HeightRequest="24"/>
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Sigorta Hakkında"
+                               FontFamily="NexaHeavy"
+                               TextColor="White"/>
+                        <Label Text="Poliçe detayları ve şartlar hakkında bilgi alın"
+                               FontFamily="NexaLight"
+                               TextColor="White"
+                               Opacity="0.8"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+                    <Image Grid.Column="2"
+                           Source="chevron_right_white.png"
+                           HeightRequest="24"/>
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

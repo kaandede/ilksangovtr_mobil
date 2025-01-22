@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+             x:Class="ilksangovtr_mobil.Views.DuyuruDetail"
+             x:DataType="viewmodels:DuyuruDetailViewModel"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#F8FAFC">
+
+    <Shell.TitleView>
+        <Grid Padding="20,0">
+            <Label Text="{Binding Duyuru.Duyuru_Title}"
+                   FontFamily="NexaHeavy"
+                   FontSize="20"
+                   TextColor="#152B27"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="24" Padding="20,15">
+            <Image Source="{Binding Duyuru.Duyuru_Image}"
+                   HeightRequest="250"
+                   IsVisible="{Binding Duyuru.Duyuru_Image, Converter={StaticResource StringToBoolConverter}}"
+                   Aspect="AspectFill">
+                <Image.Clip>
+                    <RoundRectangleGeometry Rect="0,0,1000,250" 
+                                          CornerRadius="24"/>
+                </Image.Clip>
+            </Image>
+
+            <VerticalStackLayout Spacing="16">
+                <Label Text="{Binding Duyuru.Duyuru_date}"
+                       FontFamily="NexaLight"
+                       TextColor="#64748B"
+                       FontSize="14"/>
+                
+                <Label Text="{Binding Duyuru.Duyuru_Description}"
+                       FontFamily="NexaLight"
+                       TextColor="#64748B"
+                       FontSize="16"/>
+
+                <Button Text="Detaylı Bilgi"
+                        Command="{Binding DetayliBilgiCommand}"
+                        IsVisible="{Binding Duyuru.Duyuru_Url, Converter={StaticResource StringToBoolConverter}}"
+                        FontFamily="NexaHeavy"
+                        BackgroundColor="#0D7561"
+                        TextColor="White"
+                        HeightRequest="48"
+                        CornerRadius="14"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             x:Class="ilksangovtr_mobil.Views.IkrazHesaplama"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#F3F7F6">
+
+    <Shell.TitleView>
+        <Border Margin="0" BackgroundColor="#F3F7F6"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 0,0,30,30">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Label Text="İkraz Hesaplama"
+                       Grid.Column="1"
+                       Margin="0,0"
+                       FontFamily="NexaHeavy"
+                       FontSize="18"
+                       TextColor="#152B27"
+                       HorizontalOptions="Center"/>
+            </Grid>
+        </Border>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20,15">
+            <!-- Kullanılabilir Limit Kartı -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#20000000"
+                           Offset="0,4"
+                           Radius="12"
+                           Opacity="0.1"/>
+                </Border.Shadow>
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout>
+                        <Label Text="Kullanılabilir İkraz Limiti"
+                               FontFamily="NexaLight"
+                               TextColor="#677372"/>
+                        <Label Text="50.000,00 ₺"
+                               FontFamily="NexaHeavy"
+                               TextColor="#152B27"
+                               FontSize="32"/>
+                        <Border BackgroundColor="#F0FDF9"
+                                StrokeShape="RoundRectangle 8"
+                                Padding="8,4"
+                                Margin="0,10,0,0"
+                                HorizontalOptions="Start">
+                            <Label Text="Aktif"
+                                   TextColor="#0D7561"
+                                   FontSize="12"
+                                   FontFamily="NexaHeavy"/>
+                        </Border>
+                    </VerticalStackLayout>
+                    <Border Grid.Column="1"
+                            BackgroundColor="#F0FDF9"
+                            StrokeShape="RoundRectangle 15"
+                            Padding="12"
+                            VerticalOptions="Center">
+                        <Image Source="wallet_icon.png"
+                               HeightRequest="32"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Hızlı Seçim Kartı (YENİ) -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="15">
+                <Border.Shadow>
+                    <Shadow Brush="#20000000"
+                           Offset="0,4"
+                           Radius="12"
+                           Opacity="0.1"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Hızlı Tutar Seçimi"
+                           FontFamily="NexaHeavy"
+                           TextColor="#152B27"
+                           FontSize="16"/>
+                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                        <HorizontalStackLayout Spacing="10">
+                            <Border StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#F8F9FB"
+                                    Padding="15,10">
+                                <Label Text="5.000 ₺"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#677372"/>
+                            </Border>
+                            <Border StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#F0FDF9"
+                                    Padding="15,10">
+                                <Label Text="10.000 ₺"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#0D7561"/>
+                            </Border>
+                            <Border StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#F8F9FB"
+                                    Padding="15,10">
+                                <Label Text="15.000 ₺"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#677372"/>
+                            </Border>
+                            <Border StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#F8F9FB"
+                                    Padding="15,10">
+                                <Label Text="20.000 ₺"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#677372"/>
+                            </Border>
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- İkraz Hesaplama Kartı güncellendi -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <VerticalStackLayout Spacing="20">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="İkraz Tutarı ve Vade"
+                               FontFamily="NexaHeavy"
+                               TextColor="#152B27"
+                               FontSize="18"/>
+                        <Border Grid.Column="1"
+                                BackgroundColor="#FFF1F3"
+                                StrokeShape="RoundRectangle 8"
+                                Padding="8,4">
+                            <Label Text="Faiz: %1.79"
+                                   TextColor="#E63950"
+                                   FontSize="12"
+                                   FontFamily="NexaHeavy"/>
+                        </Border>
+                    </Grid>
+
+                    <!-- Tutar Seçimi -->
+                    <VerticalStackLayout Spacing="10">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="10.000 ₺"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"
+                                   FontSize="24"/>
+                            <Label Grid.Column="1"
+                                   Text="Maks. 50.000 ₺"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                        </Grid>
+                        <Slider Maximum="50000"
+                                Minimum="1000"
+                                Value="10000"
+                                MinimumTrackColor="#0D7561"
+                                MaximumTrackColor="#E5E7EB"
+                                ThumbColor="#0D7561"/>
+                    </VerticalStackLayout>
+
+                    <!-- Vade Seçimi -->
+                    <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="10">
+                        <Border StrokeShape="RoundRectangle 12"
+                                BackgroundColor="#F0FDF9">
+                            <VerticalStackLayout Padding="10"
+                                               HorizontalOptions="Center">
+                                <Label Text="12"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#0D7561"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Ay"
+                                       FontFamily="NexaLight"
+                                       TextColor="#0D7561"
+                                       FontSize="12"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border Grid.Column="1"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="#F8F9FB">
+                            <VerticalStackLayout Padding="10"
+                                               HorizontalOptions="Center">
+                                <Label Text="24"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#677372"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Ay"
+                                       FontFamily="NexaLight"
+                                       TextColor="#677372"
+                                       FontSize="12"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border Grid.Column="2"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="#F8F9FB">
+                            <VerticalStackLayout Padding="10"
+                                               HorizontalOptions="Center">
+                                <Label Text="36"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#677372"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Ay"
+                                       FontFamily="NexaLight"
+                                       TextColor="#677372"
+                                       FontSize="12"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border Grid.Column="3"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="#F8F9FB">
+                            <VerticalStackLayout Padding="10"
+                                               HorizontalOptions="Center">
+                                <Label Text="48"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#677372"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Ay"
+                                       FontFamily="NexaLight"
+                                       TextColor="#677372"
+                                       FontSize="12"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Ödeme Planı Detayları (YENİ) -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Ödeme Detayları"
+                           FontFamily="NexaHeavy"
+                           TextColor="#152B27"
+                           FontSize="18"/>
+
+                    <Grid RowDefinitions="Auto,*,*,*,*" RowSpacing="15">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Kredi Tutarı"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                            <Label Grid.Column="1"
+                                   Text="10.000,00 ₺"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1" ColumnDefinitions="*,Auto">
+                            <Label Text="Faiz Tutarı"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                            <Label Grid.Column="1"
+                                   Text="1.790,00 ₺"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#E63950"/>
+                        </Grid>
+
+                        <Grid Grid.Row="2" ColumnDefinitions="*,Auto">
+                            <Label Text="KKDF"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                            <Label Grid.Column="1"
+                                   Text="268,50 ₺"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"/>
+                        </Grid>
+
+                        <Grid Grid.Row="3" ColumnDefinitions="*,Auto">
+                            <Label Text="BSMV"
+                                   FontFamily="NexaLight"
+                                   TextColor="#677372"/>
+                            <Label Grid.Column="1"
+                                   Text="89,50 ₺"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"/>
+                        </Grid>
+
+                        <Border Grid.Row="4"
+                                BackgroundColor="#F8F9FB"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="15"
+                                Margin="0,10">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="Toplam Geri Ödeme"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#152B27"/>
+                                <Label Grid.Column="1"
+                                       Text="12.148,00 ₺"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#E63950"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Taksit Tablosu -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#20000000"
+                           Offset="0,4"
+                           Radius="12"
+                           Opacity="0.1"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="15">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Taksit Tablosu"
+                               FontFamily="NexaHeavy"
+                               TextColor="#152B27"
+                               FontSize="18"/>
+                        <Label Grid.Column="1"
+                               Text="12 Taksit"
+                               FontFamily="NexaLight"
+                               TextColor="#677372"/>
+                    </Grid>
+
+                    <CollectionView HeightRequest="280"
+                                   Margin="0,10">
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="15"
+                                        Margin="0,5"
+                                        StrokeShape="RoundRectangle 12"
+                                        BackgroundColor="#F8F9FB">
+                                    <Grid RowDefinitions="Auto,*,*" RowSpacing="10">
+                                        <Grid ColumnDefinitions="Auto,*,Auto">
+                                            <Border BackgroundColor="#F0FDF9"
+                                                    StrokeShape="RoundRectangle 8"
+                                                    Padding="8,4">
+                                                <Label Text="{Binding StringFormat='{0}. Taksit'}"
+                                                       TextColor="#0D7561"
+                                                       FontSize="12"
+                                                       FontFamily="NexaHeavy"/>
+                                            </Border>
+                                            <Label Grid.Column="1"
+                                                   Text="15.02.2024"
+                                                   FontFamily="NexaLight"
+                                                   TextColor="#677372"
+                                                   VerticalOptions="Center"
+                                                   Margin="15,0"/>
+                                            <Label Grid.Column="2"
+                                                   Text="1.012,33 ₺"
+                                                   FontFamily="NexaHeavy"
+                                                   TextColor="#152B27"
+                                                   VerticalOptions="Center"/>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto">
+                                            <VerticalStackLayout Spacing="2">
+                                                <Label Text="Ana Para"
+                                                       FontFamily="NexaLight"
+                                                       TextColor="#677372"
+                                                       FontSize="12"/>
+                                                <Label Text="833,33 ₺"
+                                                       FontFamily="NexaHeavy"
+                                                       TextColor="#152B27"
+                                                       FontSize="14"/>
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout Grid.Column="1"
+                                                       Spacing="2"
+                                                       HorizontalOptions="Center">
+                                                <Label Text="Faiz"
+                                                       FontFamily="NexaLight"
+                                                       TextColor="#677372"
+                                                       FontSize="12"/>
+                                                <Label Text="149,17 ₺"
+                                                       FontFamily="NexaHeavy"
+                                                       TextColor="#E63950"
+                                                       FontSize="14"/>
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout Grid.Column="2"
+                                                       Spacing="2">
+                                                <Label Text="KKDF+BSMV"
+                                                       FontFamily="NexaLight"
+                                                       TextColor="#677372"
+                                                       FontSize="12"/>
+                                                <Label Text="29,83 ₺"
+                                                       FontFamily="NexaHeavy"
+                                                       TextColor="#152B27"
+                                                       FontSize="14"/>
+                                            </VerticalStackLayout>
+                                        </Grid>
+
+                                        <Border Grid.Row="2"
+                                                BackgroundColor="#F0FDF9"
+                                                StrokeShape="RoundRectangle 8"
+                                                Padding="8,4"
+                                                HorizontalOptions="Start">
+                                            <Label Text="Ödeme Tarihi Gelmedi"
+                                                   TextColor="#0D7561"
+                                                   FontSize="10"
+                                                   FontFamily="NexaHeavy"/>
+                                        </Border>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <!-- Taksit Özeti -->
+                    <Border BackgroundColor="#F8F9FB"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="15">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="Toplam Ödenecek"
+                                       FontFamily="NexaLight"
+                                       TextColor="#677372"/>
+                                <Label Text="12.148,00 ₺"
+                                       FontFamily="NexaHeavy"
+                                       TextColor="#152B27"
+                                       FontSize="20"/>
+                            </VerticalStackLayout>
+                            <Button Grid.Column="1"
+                                    Text="ÖDEME PLANI İNDİR"
+                                    FontFamily="NexaHeavy"
+                                    BackgroundColor="#0D7561"
+                                    TextColor="White"
+                                    HeightRequest="40"
+                                    CornerRadius="10"
+                                    Padding="15,0"/>
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Başvuru Butonu -->
+            <Button Text="BAŞVURU YAP"
+                    FontFamily="NexaHeavy"
+                    BackgroundColor="#0D7561"
+                    TextColor="White"
+                    HeightRequest="50"
+                    CornerRadius="12"/>
+
+            <!-- Bilgilendirme Kartı aynı kalacak -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0D7561"
+                    Padding="20">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Border BackgroundColor="#F0FDF9"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="10">
+                        <Image Source="info_icon.png"
+                               HeightRequest="24"/>
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Detaylı Bilgi"
+                               FontFamily="NexaHeavy"
+                               TextColor="White"/>
+                        <Label Text="İkraz başvurusu hakkında bilgi alın"
+                               FontFamily="NexaLight"
+                               TextColor="White"
+                               Opacity="0.8"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+                    <Image Grid.Column="2"
+                           Source="chevron_right_white.png"
+                           HeightRequest="24"/>
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

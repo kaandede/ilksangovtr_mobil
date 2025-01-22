@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+             x:Class="ilksangovtr_mobil.Views.KampanyaDetail"
+             x:DataType="viewmodels:KampanyaDetailViewModel"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#F8FAFC">
+
+    <Shell.TitleView>
+        <Grid Padding="20,0">
+            <Label Text="{Binding Kampanya.Title}"
+                   FontFamily="NexaHeavy"
+                   FontSize="20"
+                   TextColor="#152B27"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="24" Padding="20,15">
+            <Image Source="{Binding Kampanya.Image}"
+                   HeightRequest="250"
+                   Aspect="AspectFill">
+                <Image.Clip>
+                    <RoundRectangleGeometry Rect="0,0,1000,250" 
+                                          CornerRadius="24"/>
+                </Image.Clip>
+            </Image>
+
+            <VerticalStackLayout Spacing="16">
+                <Label Text="{Binding Kampanya.Category}"
+                       FontFamily="NexaHeavy"
+                       TextColor="#0D7561"
+                       FontSize="16"/>
+                
+                <Label Text="{Binding Kampanya.Description}"
+                       FontFamily="NexaLight"
+                       TextColor="#64748B"
+                       FontSize="16"/>
+
+                <Label Text="{Binding Kampanya.ValidUntil}"
+                       FontFamily="NexaHeavy"
+                       TextColor="#152B27"
+                       FontSize="14"/>
+
+                <Button Text="{Binding Kampanya.ButtonText}"
+                        Command="{Binding BasvurCommand}"
+                        FontFamily="NexaHeavy"
+                        BackgroundColor="#0D7561"
+                        TextColor="White"
+                        HeightRequest="48"
+                        CornerRadius="14"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

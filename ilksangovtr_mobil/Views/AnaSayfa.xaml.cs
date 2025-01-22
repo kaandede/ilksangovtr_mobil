@@ -1,27 +1,73 @@
 using ilksangovtr_mobil.Models;
-
+using System.Diagnostics;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class AnaSayfa : ContentPage
 {
-    AnaSayfaViewModel anaSayfaViewModel = new AnaSayfaViewModel();
-    public AnaSayfa(AnaSayfaViewModel anaSayfaViewModel)
+    private readonly KampanyalarViewModel _kampanyalarViewModel;
+    private readonly ViewModels.AnaSayfaViewModel _anaSayfaViewModel;
+    private readonly AidatViewModel _aidatViewModel;
+    
+    public AnaSayfa(
+        ViewModels.AnaSayfaViewModel anaSayfaViewModel,
+        KampanyalarViewModel kampanyalarViewModel,
+        AidatViewModel aidatViewModel)
     {
         InitializeComponent();
-        BindingContext = anaSayfaViewModel;
+        _anaSayfaViewModel = anaSayfaViewModel;
+        _kampanyalarViewModel = kampanyalarViewModel;
+        _aidatViewModel = aidatViewModel;
+        
+        BindingContext = new
+        {
+            AidatVM = _aidatViewModel,
+            KampanyalarVM = _kampanyalarViewModel,
+            DuyuruItems = _anaSayfaViewModel.DuyuruItems,
+            TumDuyurularCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Duyurular))),
+            DuyuruDetailCommand = new Command<DuyuruItem>(async (duyuru) => await OnDuyuruSelected(duyuru))
+        };
+    }
+
+
+    private async Task OnDuyuruSelected(DuyuruItem duyuru)
+    {
+        if (duyuru == null) return;
+
+        try
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                { "Duyuru", duyuru }
+            };
+            await Shell.Current.GoToAsync($"{nameof(DuyuruDetail)}", parameters);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Navigation error: {ex.Message}");
+            await Shell.Current.DisplayAlert("Hata", "Sayfa açýlýrken bir hata oluþtu.", "Tamam");
+        }
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
-        // Ana Sayfa'ya geri dönüldüðünde gerekli iþlemleri burada yapabilirsiniz
-        Console.WriteLine("Ana Sayfa yeniden yüklendi!");
+        _kampanyalarViewModel.LoadKampanyalarCommand.Execute(null);
     }
+
+    private async void OnKampanyaSelected(object sender, TappedEventArgs e)
+    {
+        if (e.Parameter is Kampanya kampanya)
+        {
+            await _kampanyalarViewModel.KampanyaDetailCommand.ExecuteAsync(kampanya);
+        }
+    }
+    
     private async void Bildirimler_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//AnaSayfa/Bildirimler", false);
+
+        await Shell.Current.GoToAsync(nameof(Bildirimler));
     }
 
     private async void Click_SosyalYardimlar(object sender, EventArgs e)
@@ -29,11 +75,34 @@ public partial class AnaSayfa : ContentPage
 
         await Shell.Current.GoToAsync(nameof(SosyalYardimlar));
     } 
-    private async void Click_AracKampanya(object sender, EventArgs e)
-    {
 
-        await Shell.Current.GoToAsync(nameof(AracKampanya));
+    private async void Ikraz_hesaplama(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(IkrazHesaplama));
     }
 
-  
+    private async void Click_IkrazSigortaPoliceleri(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(IkrazSigortaPoliceleri));
+    }
+
+    private async void Click_Kampanyalar(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(Kampanyalar));
+    }
+
+    private async void Click_OtellerKonukevleri(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(OtellerKonukevleri));
+    }
+
+    private async void Click_BultenRaporlar(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(BultenRaporlar));
+    }
+
+    private async void ImageButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(AracKampanya));
+    }
 }

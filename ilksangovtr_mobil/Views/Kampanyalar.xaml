@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+             xmlns:local="clr-namespace:ilksangovtr_mobil.Converters"
+             x:Class="ilksangovtr_mobil.Views.Kampanyalar"
+             x:DataType="viewmodels:KampanyalarViewModel"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#fff">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SelectedCategoryTextColorConverter x:Key="SelectedCategoryTextColorConverter"/>
+            <local:SelectedCategoryBackgroundConverter x:Key="SelectedCategoryBackgroundConverter"/>
+        </ResourceDictionary>
+        <Style x:Key="CategoryButtonStyle" TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 16"/>
+            <Setter Property="Padding" Value="24,12"/>
+            <Setter Property="MinimumWidthRequest" Value="100"/>
+            <Setter Property="BackgroundColor" Value="#F1F5F9"/>
+            <Style.Triggers>
+                <DataTrigger TargetType="Border"
+                            Binding="{Binding Source={RelativeSource Self}, 
+                                     Path=BindingContext.SelectedKategori}"
+                            Value="{Binding .}">
+                    <Setter Property="BackgroundColor" Value="#0D7561"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="Auto,*" 
+Padding="0,0" 
+BackgroundColor="Transparent">
+            <Label Text="Kampanyalar"
+     Grid.Column="0"
+     FontSize="16"
+     FontFamily="NexaHeavy"
+     HorizontalOptions="CenterAndExpand"
+     VerticalOptions="CenterAndExpand"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="24" Padding="20,15">
+            <!-- Öne Çıkan Kampanya -->
+            <Border StrokeShape="RoundRectangle 28"
+                    BackgroundColor="White"
+                    Padding="0">
+                <Border.Shadow>
+                    <Shadow Brush="#10000000"
+                           Offset="0,6"
+                           Radius="20"
+                           Opacity="0.1"/>
+                </Border.Shadow>
+                <Grid RowDefinitions="*,Auto">
+                    <Image Source="kampanya_banner.jpg"
+                           Aspect="AspectFill"
+                           HeightRequest="200">
+                        <Image.Clip>
+                            <RoundRectangleGeometry Rect="0,0,1000,200" 
+                                                   CornerRadius="28,28,0,0"/>
+                        </Image.Clip>
+                    </Image>
+                    <Border Grid.Row="1"
+                            Padding="24,20">
+                        <Grid RowDefinitions="Auto,Auto,Auto" 
+                              RowSpacing="12">
+                            <Label Text="Kırıkkale Üniversitesi"
+                                   FontFamily="NexaLight"
+                                   TextColor="#64748B"
+                                   FontSize="14"/>
+                            <Label Grid.Row="1"
+                                   Text="Yüksek Lisans Programı Fırsatı"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"
+                                   FontSize="20"/>
+                            <Grid Grid.Row="2" 
+                                  ColumnDefinitions="Auto,*" 
+                                  ColumnSpacing="16">
+                                <Button Text="BAŞVUR"
+                                        FontFamily="NexaHeavy"
+                                        BackgroundColor="#0D7561"
+                                        TextColor="White"
+                                        HeightRequest="48"
+                                        WidthRequest="140"
+                                        CornerRadius="14">
+                                    <Button.Shadow>
+                                        <Shadow Brush="#0D7561"
+                                               Offset="0,4"
+                                               Radius="12"
+                                               Opacity="0.2"/>
+                                    </Button.Shadow>
+                                </Button>
+                                <VerticalStackLayout Grid.Column="1"
+                                                   HorizontalOptions="End"
+                                                   Spacing="4">
+                                    <Label Text="Son Başvuru"
+                                           FontFamily="NexaLight"
+                                           TextColor="#64748B"
+                                           FontSize="12"
+                                           HorizontalOptions="End"/>
+                                    <Label Text="15 Mart 2024"
+                                           FontFamily="NexaHeavy"
+                                           TextColor="#E63950"
+                                           FontSize="16"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Kategori Filtreleri -->
+            <ScrollView Orientation="Horizontal" 
+                       HorizontalScrollBarVisibility="Never"
+                       Margin="0,10">
+                <HorizontalStackLayout Spacing="12">
+                    <CollectionView ItemsSource="{Binding Kategoriler}"
+                                  SelectionMode="Single">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                                            ItemSpacing="12"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <Border StrokeShape="RoundRectangle 16"
+                                       Padding="24,12"
+                                       MinimumWidthRequest="100"
+                                       BackgroundColor="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:KampanyalarViewModel}}, 
+                                                Path=SelectedKategori, 
+                                                Converter={StaticResource SelectedCategoryBackgroundConverter}, 
+                                                ConverterParameter={Binding .}}">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:KampanyalarViewModel}}, 
+                                                      Path=FilterKampanyalarCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                    </Border.GestureRecognizers>
+                                    <Label Text="{Binding .}"
+                                           HorizontalOptions="Center"
+                                           FontFamily="NexaHeavy"
+                                           FontSize="15"
+                                           TextColor="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:KampanyalarViewModel}}, 
+                                                     Path=SelectedKategori, 
+                                                     Converter={StaticResource SelectedCategoryTextColorConverter}, 
+                                                     ConverterParameter={Binding .}}"/>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <!-- Kampanya Kartları -->
+            <CollectionView ItemsSource="{Binding Kampanyalar}"
+                          SelectionMode="Single"
+                          SelectionChanged="OnKampanyaSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Kampanya">
+                        <Border StrokeShape="RoundRectangle 24"
+                                BackgroundColor="White"
+                                Margin="0,0,0,16"
+                                Padding="0">
+                            <Border.Shadow>
+                                <Shadow Brush="#10000000"
+                                       Offset="0,6"
+                                       Radius="16"
+                                       Opacity="0.08"/>
+                            </Border.Shadow>
+                            <Grid RowDefinitions="Auto,Auto">
+                                <Grid>
+                                    <Image Source="{Binding Image}"
+                                           Aspect="AspectFill"
+                                           HeightRequest="180">
+                                        <Image.Clip>
+                                            <RoundRectangleGeometry Rect="0,0,1000,180" 
+                                                                   CornerRadius="24,24,0,0"/>
+                                        </Image.Clip>
+                                    </Image>
+                                    <Border BackgroundColor="#E63950"
+                                            StrokeShape="RoundRectangle 12"
+                                            Padding="16,8"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Start"
+                                            Margin="16">
+                                        <Label Text="{Binding Category}"
+                                               TextColor="White"
+                                               FontFamily="NexaHeavy"
+                                               FontSize="13"/>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Row="1"
+                                      Padding="24,20"
+                                      RowDefinitions="Auto,Auto,Auto"
+                                      RowSpacing="12">
+                                    <Label Text="{Binding Title}"
+                                           FontFamily="NexaHeavy"
+                                           TextColor="#152B27"
+                                           FontSize="18"/>
+                                    <Label Grid.Row="1"
+                                           Text="{Binding Description}"
+                                           FontFamily="NexaLight"
+                                           TextColor="#64748B"
+                                           FontSize="14"/>
+                                    <Grid Grid.Row="2" 
+                                          ColumnDefinitions="Auto,*" 
+                                          ColumnSpacing="16">
+                                        <Button Text="{Binding ButtonText}"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:KampanyalarViewModel}}, 
+                                                          Path=KampanyaDetailCommand}"
+                                                CommandParameter="{Binding .}"
+                                                FontFamily="NexaHeavy"
+                                                BackgroundColor="#0D7561"
+                                                TextColor="White"
+                                                HeightRequest="48"
+                                                WidthRequest="160"
+                                                CornerRadius="14"/>
+                                        <VerticalStackLayout Grid.Column="1"
+                                                           HorizontalOptions="End"
+                                                           Spacing="4">
+                                            <Label Text="Geçerlilik"
+                                                   FontFamily="NexaLight"
+                                                   TextColor="#64748B"
+                                                   FontSize="12"
+                                                   HorizontalOptions="End"/>
+                                            <Label Text="{Binding ValidUntil}"
+                                                   FontFamily="NexaHeavy"
+                                                   TextColor="#152B27"
+                                                   FontSize="14"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

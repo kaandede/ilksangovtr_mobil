@@ -1,26 +1,21 @@
-using DevExpress.Maui.DataGrid;
-using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class SifirAracKampanya : ContentPage
 {
-    AnaSayfaViewModel anaSayfaViewModel = new AnaSayfaViewModel();
-    public SifirAracKampanya(AnaSayfaViewModel anaSayfaViewModel)
-	{
-		InitializeComponent();
-        BindingContext = anaSayfaViewModel;
-    }
+    private readonly SifirAracKampanyaViewModel _viewModel;
 
-
-    private void back_sifir_AracKampanya_Clicked(object sender, EventArgs e)
+    public SifirAracKampanya(SifirAracKampanyaViewModel viewModel)
     {
-        Navigation.PushAsync(new AracKampanya(anaSayfaViewModel));
+        InitializeComponent();
+        _viewModel = viewModel;
+        BindingContext = _viewModel;
     }
 
-    private void sifirArac_Basvur_Kampanya(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        Navigation.PushAsync(new SifirAracKampanyaBasvur(anaSayfaViewModel));
+        base.OnAppearing();
+        _viewModel.LoadDataCommand.Execute(null);
     }
-
-}
+} 

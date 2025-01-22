@@ -17,4 +17,10 @@ public partial class User : ContentPage
         _authService.LogOut();
         Shell.Current.GoToAsync($"//{nameof(Login)}");
     }
+
+    private async void OnChangePasswordClicked(object sender, EventArgs e)
+    {
+        var changePasswordPage = new ChangePasswordPage();
+        await Navigation.PushModalAsync(changePasswordPage);
+    }
 }

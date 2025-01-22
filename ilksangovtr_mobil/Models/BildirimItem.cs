@@ -8,8 +8,9 @@ namespace ilksangovtr_mobil.Models
 {
     public class BildirimItem
     {
-        public string? Bildirim_Title { get; set; }
-        public string? Bildirim_Description { get; set; }
-        public string? Bildirim_date { get; set; }
+        public string Baslik { get; set; }
+        public string Icerik { get; set; }
+        public DateTime Tarih { get; set; }
+        public bool Okundu { get; set; }
     }
 }

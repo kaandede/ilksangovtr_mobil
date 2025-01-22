@@ -13,16 +13,12 @@ namespace ilksangovtr_mobil.Models
     public partial class AnaSayfaViewModel : ObservableObject
     {
         public ObservableCollection<CarouselItem> CarouselItems { get; set; } = new();
-        public ObservableCollection<DuyuruItem> DuyuruItems { get; set; } = new();
         public ObservableCollection<BildirimItem> BildirimItems { get; set; } = new();
         public ObservableCollection<MessageItem> MessageItems { get; set; } = new();
         public ObservableCollection<AidatBilgilerim> AidatBilgilerims { get; set; } = new();
         public ObservableCollection<AidatBorclandirma> AidatBorclandirmas { get; set; } = new();
         public ObservableCollection<SosyalYardimBasvurular> SosyalYardimBasvurulars { get; set; } = new();
         public ObservableCollection<SosyalYardimBilgilerim> SosyalYardimBilgilerims { get; set; } = new();
-        public ObservableCollection<AracKampanyaBilgilerim> AracKampanyaBilgilerims { get; set; } = new();
-        public ObservableCollection<AracKampanyaKatilimSirasi> AracKampanyaKatilimSirasis { get; set; } = new();
-        public ObservableCollection<AracKampanyaParaYatirmaSirasi> AracKampanyaParaYatirmaSirasis { get; set; } = new();
 
 
 
@@ -43,162 +39,130 @@ namespace ilksangovtr_mobil.Models
             });
 
 
+            //DateTime bildirim_date = DateTime.Now;
+            //string bildirim_short_Date = bildirim_date.ToString("dd/MM", CultureInfo.InvariantCulture);
+
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza iade edildi."
+            //});
+
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri2",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir."
+            //});
+
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri3",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde."
+            //});
 
 
-            DateTime duyuru_date = DateTime.Now;
-            string shortDate = duyuru_date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri4",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
-            DuyuruItems.Add(new DuyuruItem()
-            {
-                Duyuru_Title = "Acıbadem Sağlık Grubundan İLKSAN Üyelerine Özel İndirimler",
-                Duyuru_date = shortDate,
-                Duyuru_Image = "duyuru.png"
-            });
-            DuyuruItems.Add(new DuyuruItem()
-            {
-                Duyuru_Title = "Klinik 23 Nİisan Ağız ve Diş Sağlığı Polikliniği'nden Üyelerimize Özel İndirimler",
-                Duyuru_date = shortDate,
-                Duyuru_Image = "duyuru.png"
-            });
-            DuyuruItems.Add(new DuyuruItem()
-            {
-                Duyuru_Title = "Ankara Özel Dentapros Ağız ve Diş Sağlığı Plokliniği'den Üyelerimize Özel İndirimler",
-                Duyuru_date = shortDate,
-                Duyuru_Image = "duyuru.png"
-            });
-            DuyuruItems.Add(new DuyuruItem()
-            {
-                Duyuru_Title = "İstanbul 360 Ağız ve Diş Sağlığı Plokliniği'den Üyelerimize Özel İndirimler",
-                Duyuru_date = shortDate,
-                Duyuru_Image = "duyuru.png"
-            });
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri5",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
 
-
-            DateTime bildirim_date = DateTime.Now;
-            string bildirim_short_Date = bildirim_date.ToString("dd/MM", CultureInfo.InvariantCulture);
-
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza iade edildi."
-            });
-
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri2",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir."
-            });
-
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri3",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde."
-            });
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri6",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
 
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri4",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
-
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri5",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri7",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
 
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri6",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri8",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
 
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri7",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri9",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
 
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri8",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri10",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
-
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri9",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
-
-
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri10",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
-
-            BildirimItems.Add(new BildirimItem()
-            {
-                Bildirim_Title = "Transfer ve Döviz İşlemleri11",
-                Bildirim_date = bildirim_short_Date,
-                Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
-            });
+            //BildirimItems.Add(new BildirimItem()
+            //{
+            //    Bildirim_Title = "Transfer ve Döviz İşlemleri11",
+            //    Bildirim_date = bildirim_short_Date,
+            //    Bildirim_Description = "0470 ile biten ilksan mobil uygulama ile hesap kodunuza ait aidat ödemesi başarılı bir şekilde tarafınıza."
+            //});
 
 
 
 
-            DateTime message_date = DateTime.Now;
-            string message_short_Date = message_date.ToString("dd/MM", CultureInfo.InvariantCulture);
+            //DateTime message_date = DateTime.Now;
+            //string message_short_Date = message_date.ToString("dd/MM", CultureInfo.InvariantCulture);
 
 
-            MessageItems.Add(new MessageItem()
-            {
-                Message_Title = "Transfer ve Döviz İşlemleri1",
-                Message_date = message_short_Date,
+            //MessageItems.Add(new MessageItem()
+            //{
+            //    Message_Title = "Transfer ve Döviz İşlemleri1",
+            //    Message_date = message_short_Date,
 
-            });
-            MessageItems.Add(new MessageItem()
-            {
-                Message_Title = "Transfer ve Döviz İşlemleri2",
-                Message_date = message_short_Date,
+            //});
+            //MessageItems.Add(new MessageItem()
+            //{
+            //    Message_Title = "Transfer ve Döviz İşlemleri2",
+            //    Message_date = message_short_Date,
 
-            });
+            //});
 
-            MessageItems.Add(new MessageItem()
-            {
-                Message_Title = "Transfer ve Döviz İşlemleri3",
-                Message_date = message_short_Date,
+            //MessageItems.Add(new MessageItem()
+            //{
+            //    Message_Title = "Transfer ve Döviz İşlemleri3",
+            //    Message_date = message_short_Date,
 
-            });
-            MessageItems.Add(new MessageItem()
-            {
-                Message_Title = "Transfer ve Döviz İşlemleri4",
-                Message_date = message_short_Date,
+            //});
+            //MessageItems.Add(new MessageItem()
+            //{
+            //    Message_Title = "Transfer ve Döviz İşlemleri4",
+            //    Message_date = message_short_Date,
 
-            });
-            MessageItems.Add(new MessageItem()
-            {
-                Message_Title = "Transfer ve Döviz İşlemleri5",
-                Message_date = message_short_Date,
+            //});
+            //MessageItems.Add(new MessageItem()
+            //{
+            //    Message_Title = "Transfer ve Döviz İşlemleri5",
+            //    Message_date = message_short_Date,
 
-            });
+            //});
 
             DateTime aidat_date = DateTime.Now;
             string aidat_short_Date = aidat_date.ToString("dd/MM", CultureInfo.InvariantCulture);
@@ -375,53 +339,53 @@ namespace ilksangovtr_mobil.Models
 
             });
 
-            AracKampanyaBilgilerims.Add(new AracKampanyaBilgilerim()
-            {
-                ARACKAMP_ADI = "73. Araç Kampanyası",
-                ARAC_OZELLIKLERI = "Citroen C3 Shine 1.2 PureTech 83 HP S&S EAT6",
-                ARAC_DURUM = "Başvuru Yapıldı",
-                ARAC_SOZLESME = "PDF",
-                ARAC_FIYATI = "1.250.000 ₺",
-                ARAC_MARKA = "CITROEN",
-                ARAC_ADET = "4"
+            //AracKampanyaBilgilerims.Add(new AracKampanyaBilgilerim()
+            //{
+            //    ARACKAMP_ADI = "73. Araç Kampanyası",
+            //    ARAC_OZELLIKLERI = "Citroen C3 Shine 1.2 PureTech 83 HP S&S EAT6",
+            //    ARAC_DURUM = "Başvuru Yapıldı",
+            //    ARAC_SOZLESME = "PDF",
+            //    ARAC_FIYATI = "1.250.000 ₺",
+            //    ARAC_MARKA = "CITROEN",
+            //    ARAC_ADET = "4"
 
-            }); 
-            AracKampanyaBilgilerims.Add(new AracKampanyaBilgilerim()
-            {
-                ARACKAMP_ADI = "73. Araç Kampanyası",
-                ARAC_OZELLIKLERI = "Citroen C4 Shine 1.2 PureTech 83 HP S&S EAT6",
-                ARAC_DURUM = "Başvuru Yapıldı",
-                ARAC_SOZLESME = "PDF",
-                ARAC_FIYATI = "1.350.000 ₺",
-                ARAC_MARKA = "CITROEN",
-                ARAC_ADET = "2"
+            //}); 
+            //AracKampanyaBilgilerims.Add(new AracKampanyaBilgilerim()
+            //{
+            //    ARACKAMP_ADI = "73. Araç Kampanyası",
+            //    ARAC_OZELLIKLERI = "Citroen C4 Shine 1.2 PureTech 83 HP S&S EAT6",
+            //    ARAC_DURUM = "Başvuru Yapıldı",
+            //    ARAC_SOZLESME = "PDF",
+            //    ARAC_FIYATI = "1.350.000 ₺",
+            //    ARAC_MARKA = "CITROEN",
+            //    ARAC_ADET = "2"
 
-            });   
-            AracKampanyaKatilimSirasis.Add(new AracKampanyaKatilimSirasi()
-            {
-                ARACKAMP_ADI = "73. Araç Kampanyası",
-                ARAC_OZELLIKLERI = "Citroen C3 Shine 1.2 PureTech 83 HP S&S EAT6",
-                ARAC_SIRA = "1",
-                U_ADI = "Ali",
-                U_ILKSANNO = "651489"
+            //});   
+            //AracKampanyaKatilimSirasis.Add(new AracKampanyaKatilimSirasi()
+            //{
+            //    ARACKAMP_ADI = "73. Araç Kampanyası",
+            //    ARAC_OZELLIKLERI = "Citroen C3 Shine 1.2 PureTech 83 HP S&S EAT6",
+            //    ARAC_SIRA = "1",
+            //    U_ADI = "Ali",
+            //    U_ILKSANNO = "651489"
 
-            });
+            //});
 
-            AracKampanyaParaYatirmaSirasis.Add(new AracKampanyaParaYatirmaSirasi()
-            {
-                ARACBASDUR_AD = "Beklemede",
-                ARAC_OZELLIKLERI = "Citroen",
-                AI_AD ="Ankara",
-                SAYI = "1",
-                AB_AD = "Bölge 1",
-                durum1 = "PARA YATIRMA SIRASINA GÖRE",
-                durum2 = "ONAYLANANLAR",
-                durum3 = "İLLERE GÖRE DAĞILIM",
-                durum4 = "BÖLGELERE GÖRE DAĞILIM",
-                durum5 = "İPTALLER",
-                durum6 = "BEKLEYENLER",
+            //AracKampanyaParaYatirmaSirasis.Add(new AracKampanyaParaYatirmaSirasi()
+            //{
+            //    ARACBASDUR_AD = "Beklemede",
+            //    ARAC_OZELLIKLERI = "Citroen",
+            //    AI_AD ="Ankara",
+            //    SAYI = "1",
+            //    AB_AD = "Bölge 1",
+            //    durum1 = "PARA YATIRMA SIRASINA GÖRE",
+            //    durum2 = "ONAYLANANLAR",
+            //    durum3 = "İLLERE GÖRE DAĞILIM",
+            //    durum4 = "BÖLGELERE GÖRE DAĞILIM",
+            //    durum5 = "İPTALLER",
+            //    durum6 = "BEKLEYENLER",
 
-            });
+            //});
         }
     }
 }

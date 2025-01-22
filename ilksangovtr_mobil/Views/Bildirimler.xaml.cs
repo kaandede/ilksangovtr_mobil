@@ -1,19 +1,32 @@
 using DevExpress.Maui.Controls;
-using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class Bildirimler : ContentPage
 {
-	public Bildirimler(AnaSayfaViewModel anaSayfaViewModel)
+	private readonly BildirimlerViewModel _viewModel;
+
+	public Bildirimler(BildirimlerViewModel viewModel)
 	{
 		InitializeComponent();
-        BindingContext = anaSayfaViewModel;
-    }
+		_viewModel = viewModel;
+		BindingContext = viewModel;
+	}
 
-
-    private void back_AnaSayfa_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync("///AnaSayfa");
-    }
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		try
+		{
+			if (!_viewModel.IsBusy)
+			{
+				_viewModel.LoadData();
+			}
+		}
+		catch (Exception ex)
+		{
+			System.Diagnostics.Debug.WriteLine($"OnAppearing Error: {ex.Message}");
+		}
+	}
 }

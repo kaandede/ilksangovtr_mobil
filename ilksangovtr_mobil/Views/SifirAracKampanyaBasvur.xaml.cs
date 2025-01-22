@@ -1,18 +1,15 @@
-using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class SifirAracKampanyaBasvur : ContentPage
 {
-    AnaSayfaViewModel anaSayfaViewModel = new AnaSayfaViewModel();
-    public SifirAracKampanyaBasvur(AnaSayfaViewModel anaSayfaViewModel)
-	{
-		InitializeComponent();
-        BindingContext = anaSayfaViewModel;
-    }
+    private readonly SifirAracKampanyaBasvurViewModel _viewModel;
 
-    private void back_basvur_AracKampanya_Clicked(object sender, EventArgs e)
+    public SifirAracKampanyaBasvur(SifirAracKampanyaBasvurViewModel viewModel)
     {
-        Navigation.PushAsync(new SifirAracKampanya(anaSayfaViewModel));
+        InitializeComponent();
+        _viewModel = viewModel;
+        BindingContext = _viewModel;
     }
-}
+} 

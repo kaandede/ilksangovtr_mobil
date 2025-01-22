@@ -3,419 +3,621 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ilksangovtr_mobil.Views.AnaSayfa"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:ilksangovtr_mobil.ViewModels"
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
-             x:DataType="models:AnaSayfaViewModel" 
-             BackgroundColor="#F3F7F6"
+             BackgroundColor="#fff"
              Shell.NavBarIsVisible="True">
 
-
     <Shell.TitleView>
-        <Grid ColumnDefinitions="Auto,*,Auto" 
-               Padding="0,0" 
-               BackgroundColor="Transparent">
-            <Label Text="Merhaba, Kaan DEDE"
-            Grid.Column="0"
-            FontFamily="NexaHeavy"
-           VerticalOptions="CenterAndExpand"/>
+        <Border Margin="0" BackgroundColor="#F3F7F6"
+                    Stroke="Transparent"
+                    StrokeShape="RoundRectangle 0,0,30,30">
+            <Grid Margin="10,0,0,0"
+                  ColumnDefinitions="Auto,*,Auto"
+                 BackgroundColor="Transparent">
+                <Label Text="Merhaba, Kaan DEDE"
+                  Grid.Column="0"
+                  FontFamily="NexaHeavy"
+                  FontSize="14"
+                  VerticalOptions="CenterAndExpand"/>
 
-            <ImageButton Grid.Column="2"
-              Source="notification_bell"
-              HeightRequest="30"
-              WidthRequest="30"
-              Margin="0,0,20,0"
-              Clicked="Bildirimler_Clicked"/>
-        </Grid>
+                <ImageButton Grid.Column="2"
+        Source="notification_bell"
+        HeightRequest="35"
+        WidthRequest="35"
+        Margin="0,0,20,0"
+        Clicked="Bildirimler_Clicked"/>
+            </Grid>
+        </Border>
+
     </Shell.TitleView>
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="kullaniciAdi" />
-        <ToolbarItem IconImageSource="bell_24_title" Order="Primary" Priority="2"/>
-    </ContentPage.ToolbarItems>-->
-
     <Page.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="#F3F7F6" StatusBarStyle="DarkContent"/>
     </Page.Behaviors>
 
-    <ScrollView VerticalScrollBarVisibility="Never">
+    <ScrollView  Margin="0" VerticalScrollBarVisibility="Never">
 
-        <StackLayout>
+        <StackLayout Margin="0">
 
-            <Border BackgroundColor="#F3F7F6"
+            <Grid Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Margin="0,-1,0,0" Grid.Row="0" BackgroundColor="#F3F7F6"
                     Stroke="Transparent"
                     StrokeShape="RoundRectangle 0,0,30,30" >
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0"
-                     Margin="25"
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"
+                     Margin="25,15,25,0"
                      BackgroundColor="Transparent">
-                        <StackLayout Spacing="15">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="Toplam Ödenen Aidat Tutarı"
-                  Grid.Column="0"
-                   Grid.Row="0"
-                 FontSize="14"
-                 Margin="-10,0,0,0"
-                 FontFamily="NexaLight"
-                 FontAttributes="Bold"
-                 VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="CenterAndExpand"
-                 TextColor="#666"/>
-                                <Label Text="22.259,69 ₺"
-                  Grid.Column="0"
-                  Grid.Row="1"
-                  FontSize="32"
-                  Margin="0,10,0,0"
-                  FontFamily="NexaHeavy"/>
-                                <Image Source="earnings_red.png"
-                  Grid.Column="2"
-                  Grid.Row="1"
-                  Margin="0,-10,-5,0"
-                  HeightRequest="54"
-                  VerticalOptions="Start"
-                  HorizontalOptions="End"
-                  WidthRequest="54"/>
-                            </Grid>
-                            <Border BackgroundColor="Transparent" Margin="-5,-5,0,0" HorizontalOptions="Start" Stroke="Transparent" StrokeShape="RoundRectangle 30">
-                                <Label Text="Son Aidat Bilgisi : 1.733,04 ₺"
-                    FontFamily="NexaHeavy"
-                    Padding="10,10,10,10"
-                    BackgroundColor="#EAEEF6"
-                    VerticalOptions="Start"
-                    HorizontalOptions="Center"
-                    TextColor="#838FF0"
-                    FontSize="12"/>
-                            </Border>
+                            <StackLayout Spacing="15">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Toplam Ödenen Aidat Tutarı"
+                                  Grid.Column="0"
+                                   Grid.Row="0"
+                                 FontSize="14"
+                                 Margin="0,0,0,0"
+                                 FontFamily="NexaLight"
+                                 FontAttributes="Bold"
+                                 TextColor="#666"/>
+                                    <Label Text="{Binding AidatVM.ToplamOdenenAidatTutari}"
+                                  Grid.Column="0"
+                                  Grid.Row="1"
+                                  FontSize="32"
+                                  Margin="0,10,0,0"
+                                  FontFamily="NexaHeavy"/>
+                                    <Image Source="earnings_red.png"
+                                  Grid.Column="2"
+                                  Grid.Row="1"
+                                  Margin="0,-10,-5,0"
+                                  HeightRequest="54"
+                                  VerticalOptions="Start"
+                                  HorizontalOptions="End"
+                                  WidthRequest="54"/>
+                                </Grid>
+                                <Border BackgroundColor="Transparent" Margin="-5,-5,0,0" HorizontalOptions="Start" Stroke="Transparent" StrokeShape="RoundRectangle 30">
+                                    <Label Text="{Binding AidatVM.SonAidatTutari, StringFormat='Son Aidat Bilgisi : {0}'}"
+                                FontFamily="NexaHeavy"
+                                Padding="10,10,10,10"
+                                BackgroundColor="#EAEEF6"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Center"
+                                TextColor="#838FF0"
+                                FontSize="12"/>
+                                </Border>
 
-                        </StackLayout>
-                    </Grid>
-                    <Grid Grid.Row="1"
-                           Margin="0,5,0,0"
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="1"
+                           Margin="0,20,0,10"
                            HeightRequest="70"
                            VerticalOptions="EndAndExpand">
-                        <Border BackgroundColor="Transparent"
+                            <Border BackgroundColor="Transparent"
                          Stroke="Transparent"
                          StrokeShape="RoundRectangle 0,0,30,30"
                          StrokeThickness="1">
-                            <Border.Shadow>
-                                <Shadow Brush="#0D7561" 
+                                <Border.Shadow>
+                                    <Shadow Brush="#0D7561" 
                            Offset="10,10" 
                            Radius="40" 
                            Opacity="0.2"/>
-                            </Border.Shadow>
-                            <Grid Margin="10,0,10,0" 
+                                </Border.Shadow>
+                                <Grid Margin="10,0,10,0" 
                                  ColumnDefinitions="*,*,*"
                                  RowDefinitions="*,*"
                                  RowSpacing="3">
-                                <Label Grid.Row="1"
+                                    <Label Grid.Row="1"
                                       FontFamily="NexaLight"
                                       FontAttributes="Bold"
                                       FontSize="12"
                                       HorizontalOptions="Center"
                                       Text="Sosyal Yardımlar"
                                       TextColor="#011612">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Click_SosyalYardimlar" />
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <Label Grid.Row="1"
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Click_SosyalYardimlar" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Grid.Row="1"
                                    Grid.Column="1"
                                    FontFamily="NexaLight"
-                                   FontAttributes="Bold"
-                                   FontSize="12"
+                                FontAttributes="Bold"
+                                      FontSize="12"
                                    HorizontalOptions="Center"
                                    Text="Araç Kampanya"
                                    TextColor="#011612">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Click_AracKampanya" />
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <Label Grid.Row="1"
+                                    </Label>
+                                    <Label Grid.Row="1"
                            Grid.Column="2"
-                           FontFamily="NexaLight"
-                           FontAttributes="Bold"
+                         FontFamily="NexaLight"
+                            FontAttributes="Bold"
                            FontSize="12"
                            HorizontalOptions="Center"
                            Text="İkraz Hesaplama"
-                           TextColor="#011612"/>
-                                <ImageButton Source="social_care.png" 
+                           TextColor="#011612">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Ikraz_hesaplama" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <ImageButton Source="sosyal_yardim.png" 
                           HeightRequest="28"
                           WidthRequest="28" 
                           Clicked="Click_SosyalYardimlar"
                           VerticalOptions="Center" 
                           Margin="0,0,0,0" 
                           HorizontalOptions="Center"/>
-                                <ImageButton Source="car.png" 
+                                    <ImageButton Source="car.png" 
                                 Grid.Column="1"
                                 HeightRequest="28"
-                                Clicked="Click_AracKampanya"
+                                Clicked="ImageButton_Clicked"
                                 WidthRequest="28" 
                                 VerticalOptions="Center" 
                                 Margin="0,0,0,0" 
                                 HorizontalOptions="Center"/>
-                                <Image Source="calculate.png" 
+                                    <ImageButton Source="calculate.png" 
                             Grid.Column="2"
                             HeightRequest="28"
                             WidthRequest="28" 
+                            Clicked="Ikraz_hesaplama"
                             VerticalOptions="Center" 
                             Margin="0,0,0,0" 
                             HorizontalOptions="Center"/>
-                            </Grid>
-                        </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Border>
+                </Border>
 
-            <!--<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="3" Margin="25,20,30,0" Spacing="5">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="Haberler"
-                   FontSize="18"
-                   FontFamily="NexaHeavy"/>
-                    <Label Grid.Column="1"
-                   Text="Tümü"
-                   TextColor="#0D7561"
-                   TextDecorations="Underline"
-                   FontFamily="NexaLight" 
-                   FontAttributes="Bold"/>
-                </Grid>
-                <Grid Grid.Row="3">
-                    <Border Stroke="Transparent" BackgroundColor="#F3F7F6" VerticalOptions="CenterAndExpand" StrokeShape="RoundRectangle 15" HorizontalOptions="CenterAndExpand" HeightRequest="100" Margin="0,0,10,0">
-                        <Border.Shadow>
-                            <Shadow Brush="#d9dcdc" Offset="10,10" Radius="30" Opacity="0.3"/>
-                        </Border.Shadow>
-                        <CarouselView ItemsSource="{Binding CarouselItems}" Loop="True">
-                            <CarouselView.ItemTemplate>
-                                <DataTemplate x:DataType="models:CarouselItem">
-                                    <Grid RowDefinitions=".0*,.100*" RowSpacing="0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
-                                        <VerticalStackLayout Grid.Row="1" Spacing="5" Margin="15,0,0,5">
-                                            <Label  FontFamily="NexaHeavy" Text="{Binding Title}" FontSize="Title"></Label>
-                                            <Label  FontFamily="NexaLight" FontAttributes="Bold" Text="{Binding Description}" FontSize="Subtitle"></Label>
+                <Border Grid.Row="2" Padding="20,20,20,20" Stroke="Transparent" Margin="0,20,0,0"
+                        BackgroundColor="#fff"
+                        StrokeShape="RoundRectangle 30,30,0,0">
+                    <ScrollView>
+                        <VerticalStackLayout Spacing="20">
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Margin="0,0,0,10">
+                                <Border Grid.Column="0"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 20"
+                                        BackgroundColor="#F0FDF9"
+                                        Padding="15">
+                                    <VerticalStackLayout>
+                                        <Label Text="Aktif Başvurular"
+                                               FontFamily="NexaLight"
+                                               TextColor="#0D7561"/>
+                                        <Label Text="3"
+                                               FontFamily="NexaHeavy"
+                                               TextColor="#0D7561"
+                                               FontSize="24"/>
+                                        <ProgressBar Progress="0.6"
+                                                   ProgressColor="#0D7561"
+                                                   HeightRequest="4"
+                                                   Margin="0,5,0,0"/>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <Border Grid.Column="1"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 20"
+                                        BackgroundColor="#FFF1F3"
+                                        Padding="15">
+                                    <VerticalStackLayout>
+                                        <Label Text="Bekleyen İşlemler"
+                                               FontFamily="NexaLight"
+                                               TextColor="#E63950"/>
+                                        <Label Text="2"
+                                               FontFamily="NexaHeavy"
+                                               TextColor="#E63950"
+                                               FontSize="24"/>
+                                        <ProgressBar Progress="0.4"
+                                                   ProgressColor="#E63950"
+                                                   HeightRequest="4"
+                                                   Margin="0,5,0,0"/>
+                                    </VerticalStackLayout>
+                                </Border>
+                            </Grid>
+
+                            <Label Text="Hızlı İşlemler"
+                                   FontFamily="NexaHeavy"
+                                   TextColor="#152B27"
+                                   FontSize="18"
+                                   Margin="0,10,0,0"/>
+
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Border Grid.Column="0"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 20"
+                                        BackgroundColor="White"
+                                        Padding="15">
+                                    <Border.Shadow>
+                                        <Shadow Brush="#20000000"
+                                               Offset="0,4"
+                                               Radius="12"
+                                               Opacity="0.2"/>
+                                    </Border.Shadow>
+                                    <Grid RowDefinitions="Auto,*,Auto">
+                                        <Border BackgroundColor="#fff"
+                                                Stroke="Transparent"
+                                                StrokeShape="RoundRectangle 20"
+                                                Padding="8"
+                                                HorizontalOptions="Start"
+                                                WidthRequest="40"
+                                                HeightRequest="40">
+                                            <Image Source="ikraz_ince.png"
+                                                   HeightRequest="24"
+                                                   WidthRequest="24"/>
+                                        </Border>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="5" Margin="0,10">
+                                            <Label Text="İkraz Başvurusu"
+                                                   FontFamily="NexaHeavy"
+                                                   TextColor="#152B27"/>
+                                            <Label Text="Hemen Başvur"
+                                                   FontFamily="NexaLight"
+                                                   TextColor="#677372"
+                                                   FontSize="12"/>
+                                        </VerticalStackLayout>
+                                        <Border Grid.Row="2"
+                                                Stroke="Transparent"
+                                                BackgroundColor="#E5F5F1"
+                                                StrokeShape="RoundRectangle 8"
+                                                Padding="8,4"
+                                                HorizontalOptions="Start">
+                                            <Label Text="Yeni"
+                                                   TextColor="#0D7561"
+                                                   FontSize="10"
+                                                   FontFamily="NexaHeavy"/>
+                                        </Border>
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Column="1"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 20"
+                                        BackgroundColor="White"
+                                        Padding="15">
+                                    <Border.Shadow>
+                                        <Shadow Brush="#20000000"
+                                               Offset="0,4"
+                                               Radius="12"
+                                               Opacity="0.2"/>
+                                    </Border.Shadow>
+                                    <Grid RowDefinitions="Auto,*">
+                                        <Border BackgroundColor="Transparent"
+                                                Stroke="Transparent"
+                                                StrokeShape="RoundRectangle 20"
+                                                Padding="8"
+                                                HorizontalOptions="Start"
+                                                WidthRequest="40"
+                                                HeightRequest="40">
+                                            <Image Source="sociadl_bolder.png"
+                                                   HeightRequest="24"
+                                                   WidthRequest="24"/>
+                                        </Border>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="5" Margin="0,10">
+                                            <Label Text="Sosyal Yardım"
+                                                   FontFamily="NexaHeavy"
+                                                   TextColor="#152B27"/>
+                                            <Label Text="Başvuru Yap"
+                                                   FontFamily="NexaLight"
+                                                   TextColor="#677372"
+                                                   FontSize="12"/>
                                         </VerticalStackLayout>
                                     </Grid>
-                                </DataTemplate>
-                            </CarouselView.ItemTemplate>
-                        </CarouselView>
-                    </Border>
-                </Grid>
-            </StackLayout>-->
+                                </Border>
+                            </Grid>
 
+                            <Grid RowDefinitions="Auto,*" Margin="0,20,0,0">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Aktif Kampanyalar"
+                                           FontFamily="NexaHeavy"
+                                           TextColor="#152B27"
+                                             HorizontalOptions="StartAndExpand"
+                                             VerticalOptions="CenterAndExpand"
+                                           FontSize="18"/>
+                                    <Button Grid.Column="1"
+                                            Text="Tümünü Gör"
+                                            Command="{Binding KampanyalarVM.TumunuGorCommand}"
+                                            FontFamily="NexaHeavy"
+                                            TextColor="#0D7561"
+                                            BackgroundColor="Transparent"
+                                            FontSize="12"
+                                            Padding="0"/>
+                                </Grid>
 
-            <Border Padding="25" WidthRequest="375" Stroke="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="3" Margin="10"
-                      BackgroundColor="#fff"
-                       StrokeShape="RoundRectangle 16">
-                <StackLayout>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Duyurular"
-                    FontSize="18"
-                    FontFamily="NexaHeavy"/>
-                        <Label Grid.Column="1"
-                    Text="Tümü"
-                    TextColor="#0D7561"
-                    TextDecorations="Underline"
-                    FontFamily="NexaLight" 
-                    FontAttributes="Bold"/>
-                    </Grid>
+                                <ScrollView Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
+                                    <HorizontalStackLayout Spacing="15">
+                                        <CollectionView ItemsSource="{Binding KampanyalarVM.AktifKampanyalar}"
+                                                       HeightRequest="280">
+                                            <CollectionView.ItemsLayout>
+                                                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"/>
+                                            </CollectionView.ItemsLayout>
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate x:DataType="models:Kampanya">
+                                                    <Border Stroke="Transparent"
+                                                            StrokeShape="RoundRectangle 15"
+                                                            BackgroundColor="#F8F9FB"
+                                                            WidthRequest="280">
+                                                        <Border.GestureRecognizers>
+                                                            <TapGestureRecognizer 
+                                                                     CommandParameter="{Binding .}"
+                                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.KampanyalarVM.KampanyaDetailCommand}"/>
+                                                        </Border.GestureRecognizers>
+                                                        <Grid RowDefinitions="160,Auto,Auto" Padding="12">
+                                                            <Image Source="{Binding Image}"
+                                                                   Aspect="AspectFill"
+                                                                   HeightRequest="160">
+                                                                <Image.Clip>
+                                                                    <RoundRectangleGeometry Rect="0,0,1000,160" 
+                                                                                          CornerRadius="12"/>
+                                                                </Image.Clip>
+                                                            </Image>
+                                                            <Label Grid.Row="1"
+                                                                   Text="{Binding Title}"
+                                                                   FontFamily="NexaHeavy"
+                                                                   TextColor="#152B27"
+                                                                   FontSize="16"
+                                                                   Margin="0,12,0,8"/>
+                                                            <Label Grid.Row="2"
+                                                                   Text="{Binding Description}"
+                                                                   FontFamily="NexaLight"
+                                                                   TextColor="#64748B"
+                                                                   FontSize="14"
+                                                                   MaxLines="2"
+                                                                   LineBreakMode="TailTruncation"/>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                    </HorizontalStackLayout>
+                                </ScrollView>
+                            </Grid>
 
+                            <Grid RowDefinitions="Auto,*" Margin="0,20,0,0">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Son Duyurular"
+                                           FontFamily="NexaHeavy"
+                                           TextColor="#152B27"
+                                           HorizontalOptions="StartAndExpand"
+                                           VerticalOptions="CenterAndExpand"
+                                           FontSize="18"/>
+                                    <Button Grid.Column="1"
+                                            Text="Tümünü Gör"
+                                            Command="{Binding TumDuyurularCommand}"
+                                            FontFamily="NexaHeavy"
+                                            TextColor="#0D7561"
+                                            BackgroundColor="Transparent"
+                                            FontSize="12"/>
+                                </Grid>
 
-                    <ListView VerticalScrollBarVisibility="Never"
-                         ItemsSource="{Binding DuyuruItems}"
-                         RowHeight="45"
-                         Margin="0,10,0,0"
-                         HasUnevenRows="True"
-                         BackgroundColor="Transparent"
-                         SeparatorColor="#c2c7c7">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="models:DuyuruItem">
-                                <ViewCell>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="*"/>
+                                <CollectionView Grid.Row="1"
+                                        ItemsSource="{Binding DuyuruItems}"
+                                        HeightRequest="280">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="0,10,0,0"
+                                                    BackgroundColor="#F8F9FB"
+                                                    Stroke="Transparent"
+                                                    StrokeThickness="1"
+                                                    StrokeShape="RoundRectangle 10">
+                                                <Border.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DuyuruDetailCommand}"
+                                                                        CommandParameter="{Binding .}"/>
+                                                </Border.GestureRecognizers>
+                                                <Grid Padding="15,15,10,10" RowDefinitions="Auto,Auto">
+                                                    <Label Text="{Binding Duyuru_Title}"
+                                                           FontFamily="NexaHeavy"
+                                                           TextColor="#152B27"
+                                                           FontSize="15"/>
+                                                    <Label Grid.Row="1"
+                                                           Text="{Binding Duyuru_date}"
+                                                           FontFamily="NexaLight"
+                                                           FontAttributes="Bold"
+                                                           TextColor="#64748B"
+                                                           FontSize="13"
+                                                           Margin="0,8,0,0"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </Grid>
 
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Border  
-                                     Grid.Column="0"
-                                     Grid.Row="0"
-                                     Stroke="Transparent" 
-                                     BackgroundColor="Transparent" 
-                                     StrokeShape="RoundRectangle 30" 
-                                     Padding="5"
-                                     Margin="0,20,0,0"
-                                     VerticalOptions="CenterAndExpand"
-                                     HorizontalOptions="CenterAndExpand">
-                                            <Image Source="{Binding Duyuru_Image}"
-                                         VerticalOptions="CenterAndExpand"
-                                         HorizontalOptions="CenterAndExpand"
-                                         HeightRequest="20"
-                                         WidthRequest="20"/>
-                                        </Border>
+                            <Border Grid.Row="1" Stroke="Transparent" Margin="0,20,0,0"
+                                    BackgroundColor="Transparent"
+                                    StrokeShape="RoundRectangle 0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
 
-                                        <Label Grid.Column="1" Grid.Row="0" Padding="5,10,5,5"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#011612" Text="{Binding Duyuru_Title}"/>
-                                        <Label Grid.Column="1" Grid.Row="1" Padding="5,0,0,5" VerticalTextAlignment="Center" FontFamily="NexaHeavy" FontSize="11" TextColor="#273935" Text="{Binding Duyuru_date}"/>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
+                                    <Label Text="İşlemler"
+                                           Grid.Row="0"
+                                           TextColor="#152B27"
+                                           FontSize="20"
+                                           FontFamily="NexaHeavy"
+                                           Margin="0,0,0,15"/>
 
-            </Border>
-            <Border Padding="25" WidthRequest="375" Stroke="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="4" Margin="10"
-            BackgroundColor="#fff"
-             StrokeShape="RoundRectangle 16">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+                                    <!-- İkraz Sigorta Poliçeleri -->
+                                    <Border Grid.Row="1" 
+                                            Margin="0,5,0,10"
+                                            Stroke="Transparent"
+                                            StrokeShape="RoundRectangle 15"
+                                            BackgroundColor="Transparent"
+                                            Padding="15">
+                                        <Grid ColumnDefinitions="Auto,*,Auto">
+                                            <Border Stroke="Transparent" 
+                                              BackgroundColor="#fff" 
+                                              StrokeShape="RoundRectangle 30" 
+                                              Padding="12">
+                                                <Border.Shadow>
+                                                    <Shadow Brush="#687072" Offset="5,5" Radius="10" Opacity="0.2"/>
+                                                </Border.Shadow>
+                                                <Image Source="insurance.png"
+                                                       HeightRequest="24"
+                                                       WidthRequest="24"/>
+                                            </Border>
+                                            <VerticalStackLayout Grid.Column="1"
+                                                   Margin="15,0">
+                                                <Label Text="İkraz Sigorta Poliçeleri"
+                                                       FontFamily="NexaHeavy"
+                                                       TextColor="#152B27"/>
+                                                <Label Text="Poliçe detaylarını görüntüleyin"
+                                                       FontFamily="NexaLight"
+                                                       TextColor="#677372"
+                                                       FontSize="12"/>
+                                            </VerticalStackLayout>
+                                            <Image Grid.Column="2"
+                                                   Source="duyuru.png"
+                                                   HeightRequest="20"
+                                                   WidthRequest="20"
+                                                   Opacity="0.5"/>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Click_IkrazSigortaPoliceleri"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </Border>
 
-                    <Label Text="İşlemler"
-                            Grid.Row="0"
-                            TextColor="#757577"
-                            FontSize="18"
-                            FontFamily="NexaLight"
-                            FontAttributes="Bold"/>
+                                    <!-- Kampanyalar -->
+                                    <Border Grid.Row="2" 
+                                            Margin="0,5,0,10"
+                                               Stroke="Transparent"
+                                            StrokeShape="RoundRectangle 15"
+                                            BackgroundColor="Transparent"
+                                            Padding="15">
+                                        <Grid ColumnDefinitions="Auto,*,Auto">
+                                            <Border Stroke="Transparent" 
+                                              BackgroundColor="#fff" 
+                                              StrokeShape="RoundRectangle 30" 
+                                              Padding="12">
+                                                <Border.Shadow>
+                                                    <Shadow Brush="#687072" Offset="5,5" Radius="10" Opacity="0.2"/>
+                                                </Border.Shadow>
+                                                <Image Source="tag_right.png"
+                                                       HeightRequest="24"
+                                                       WidthRequest="24"/>
+                                            </Border>
+                                            <VerticalStackLayout Grid.Column="1"
+                                                   Margin="15,0">
+                                                <Label Text="Kampanyalar"
+                                                       FontFamily="NexaHeavy"
+                                                       TextColor="#152B27"/>
+                                                <Label Text="Güncel kampanyaları inceleyin"
+                                                       FontFamily="NexaLight"
+                                                       TextColor="#677372"
+                                                       FontSize="12"/>
+                                            </VerticalStackLayout>
+                                            <Image Grid.Column="2"
+                                                   Source="duyuru.png"
+                                                   HeightRequest="20"
+                                                   WidthRequest="20"
+                                                   Opacity="0.5"/>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Click_Kampanyalar"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </Border>
 
+                                    <!-- Oteller ve Konukevleri -->
+                                    <Border Grid.Row="3" 
+                                            Margin="0,5,0,10"
+                                            Stroke="Transparent"
+                                            StrokeShape="RoundRectangle 15"
+                                            BackgroundColor="Transparent"
+                                            Padding="15">
+                                        <Grid ColumnDefinitions="Auto,*,Auto">
+                                            <Border Stroke="Transparent" 
+                                                  BackgroundColor="#fff" 
+                                                  StrokeShape="RoundRectangle 30" 
+                                                  Padding="12">
+                                                <Border.Shadow>
+                                                    <Shadow Brush="#687072" Offset="5,5" Radius="10" Opacity="0.2"/>
+                                                </Border.Shadow>
+                                                <Image Source="bed.png"
+                                                       HeightRequest="24"
+                                                       WidthRequest="24"/>
+                                            </Border>
+                                            <VerticalStackLayout Grid.Column="1"
+                                                   Margin="15,0">
+                                                <Label Text="Oteller ve Konukevleri"
+                                                       FontFamily="NexaHeavy"
+                                                       TextColor="#152B27"/>
+                                                <Label Text="Konaklama fırsatlarını keşfedin"
+                                                       FontFamily="NexaLight"
+                                                       TextColor="#677372"
+                                                       FontSize="12"/>
+                                            </VerticalStackLayout>
+                                            <Image Grid.Column="2"
+                                                   Source="duyuru.png"
+                                                   HeightRequest="20"
+                                                   WidthRequest="20"
+                                                   Opacity="0.5"/>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Click_OtellerKonukevleri"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </Border>
 
-                    <StackLayout Grid.Row="1" Margin="0,10,0,0" Orientation="Horizontal" HorizontalOptions="Start">
-                        <Border  
-             Grid.Column="0"
-             Stroke="Transparent" 
-             BackgroundColor="#fff" 
-             StrokeShape="RoundRectangle 30" 
-             Padding="12"
-             VerticalOptions="Start"
-             HorizontalOptions="Start">
-                            <Border.Shadow>
-                                <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
-                            </Border.Shadow>
-                            <Image Source="insurance.png"
-                 VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="CenterAndExpand"
-                 HeightRequest="20"
-                 WidthRequest="20"/>
-                        </Border>
-                        <Border  Grid.Column="1"
-                  Margin="10,0,0,0"
-                 Stroke="Transparent" 
-                 BackgroundColor="Transparent" 
-                 VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="StartAndExpand">
-                            <Label Text="İkraz Sigorta Poliçeleri"
-                 FontFamily="NexaHeavy"/>
-                        </Border>
-                    </StackLayout>
-                    <StackLayout Grid.Row="2" Margin="0,10,0,10" Orientation="Horizontal" HorizontalOptions="Start">
-                        <Border  
-           Grid.Column="0"
-           Stroke="Transparent" 
-           BackgroundColor="#fff" 
-           StrokeShape="RoundRectangle 30" 
-           Padding="12"
-           VerticalOptions="Start"
-           HorizontalOptions="Start">
-                            <Border.Shadow>
-                                <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
-                            </Border.Shadow>
-                            <Image Source="tag_right.png"
-               HeightRequest="20"
-               WidthRequest="20"/>
-                        </Border>
-                        <Border  Grid.Column="1"
-                Margin="10,0,0,0"
-               Stroke="Transparent" 
-               BackgroundColor="Transparent" 
-               VerticalOptions="CenterAndExpand"
-               HorizontalOptions="StartAndExpand">
-                            <Label Text="Kampanyalar"
-               FontFamily="NexaHeavy"/>
-                        </Border>
-                    </StackLayout>
-                    <StackLayout Grid.Row="3" Margin="0,0,0,10" Orientation="Horizontal" HorizontalOptions="Start">
-                        <Border  
-         Grid.Column="0"
-         Stroke="Transparent" 
-         BackgroundColor="#fff" 
-         StrokeShape="RoundRectangle 30" 
-         Padding="12"
-         VerticalOptions="Start"
-         HorizontalOptions="Start">
-                            <Border.Shadow>
-                                <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
-                            </Border.Shadow>
-                            <Image Source="bed.png"
-         HeightRequest="20"
-         WidthRequest="20"/>
-                        </Border>
-                        <Border  Grid.Column="1"
-          Margin="10,0,0,0"
-         Stroke="Transparent" 
-         BackgroundColor="Transparent" 
-         VerticalOptions="CenterAndExpand"
-         HorizontalOptions="StartAndExpand">
-                            <Label Text="Oteller ve Konukevleri"
-         FontFamily="NexaHeavy"/>
-                        </Border>
-                    </StackLayout>
-                    <StackLayout Grid.Row="4" Margin="0,0,0,10" Orientation="Horizontal" HorizontalOptions="Start">
-                        <Border  
-              Grid.Column="0"
-              Stroke="Transparent" 
-              BackgroundColor="#fff" 
-              StrokeShape="RoundRectangle 30" 
-              Padding="12"
-              VerticalOptions="Start"
-              HorizontalOptions="Start">
-                            <Border.Shadow>
-                                <Shadow Brush="#687072" Offset="5,5" Radius="40" Opacity="0.2"/>
-                            </Border.Shadow>
-                            <Image Source="folder.png"
-              HeightRequest="20"
-              WidthRequest="20"/>
-                        </Border>
-                        <Border  Grid.Column="1"
-               Margin="10,0,0,0"
-              Stroke="Transparent" 
-              BackgroundColor="Transparent" 
-              VerticalOptions="CenterAndExpand"
-              HorizontalOptions="StartAndExpand">
-                            <Label Text="Bülten ve Raporlar"
-              FontFamily="NexaHeavy"/>
-                        </Border>
-                    </StackLayout>
-                </Grid>
+                                    <!-- Bülten ve Raporlar -->
+                                    <Border Grid.Row="4" 
+                                            Margin="0,5,0,10"
+                                            Stroke="Transparent"
+                                            StrokeShape="RoundRectangle 15"
+                                            BackgroundColor="Transparent"
+                                            Padding="15">
+                                        <Grid ColumnDefinitions="Auto,*,Auto">
+                                            <Border Stroke="Transparent" 
+                                                      BackgroundColor="#fff" 
+                                                      StrokeShape="RoundRectangle 30" 
+                                                      Padding="12">
+                                                <Border.Shadow>
+                                                    <Shadow Brush="#687072" Offset="5,5" Radius="10" Opacity="0.2"/>
+                                                </Border.Shadow>
+                                                <Image Source="folder.png"
+                                                       HeightRequest="20"
+                                                       WidthRequest="20"/>
+                                            </Border>
+                                            <VerticalStackLayout Grid.Column="1"
+                                                   Margin="15,0">
+                                                <Label Text="Bülten ve Raporlar"
+                                                       FontFamily="NexaHeavy"
+                                                       TextColor="#152B27"/>
+                                                <Label Text="Güncel bülten ve raporları inceleyin"
+                                                       FontFamily="NexaLight"
+                                                       TextColor="#677372"
+                                                       FontSize="12"/>
+                                            </VerticalStackLayout>
+                                            <Image Grid.Column="2"
+                                                   Source="duyuru.png"
+                                                   HeightRequest="20"
+                                                   WidthRequest="20"/>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Click_BultenRaporlar"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Border>
 
-            </Border>
-
-
+            </Grid>
 
 
         </StackLayout>
@@ -423,3 +625,7 @@
 </ContentPage>
 
 
+
+
+
+    

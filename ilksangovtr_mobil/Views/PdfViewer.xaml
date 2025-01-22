@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+             x:Class="ilksangovtr_mobil.Views.PdfViewer"
+             x:DataType="viewmodels:PdfViewerViewModel"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#F8FAFC">
+
+    <Shell.TitleView>
+        <Grid Padding="20,0">
+            <Label Text="{Binding Baslik}"
+                   FontFamily="NexaHeavy"
+                   FontSize="20"
+                   TextColor="#152B27"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <Grid RowDefinitions="Auto,*">
+        <ActivityIndicator Grid.Row="0"
+                          IsRunning="{Binding IsLoading}"
+                          IsVisible="{Binding IsLoading}"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center"
+                          Color="#0D7561"/>
+
+        <WebView Grid.Row="1"
+                 Source="{Binding PdfUrl}"
+                 IsVisible="{Binding IsNotLoading}"/>
+    </Grid>
+</ContentPage> 

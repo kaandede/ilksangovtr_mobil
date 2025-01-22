@@ -5,51 +5,56 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ilksangovtr_mobil"
     xmlns:views="clr-namespace:ilksangovtr_mobil.Views"
-    Shell.FlyoutBehavior="Flyout"
-    FlyoutIcon="null"
+    Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="True"
     Shell.TabBarIsVisible="True">
+
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="#F3F7F6" />
-                <Setter Property="Shell.ForegroundColor" Value="#000" />
+                <Setter Property="Shell.ForegroundColor" Value="#152B27" />
                 <Setter Property="Shell.TitleColor" Value="#152B27" />
                 <Setter Property="Shell.DisabledColor" Value="#677372" />
-                <Setter Property="Shell.UnselectedColor" Value="#152B27" />
+                <Setter Property="Shell.UnselectedColor" Value="#677372" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="#fff" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="#152B27"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#677372"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="#152B27"/>
             </Style>
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
-
-
-  
+    <!-- Giriş Sayfaları -->
     <ShellContent
-                  ContentTemplate="{DataTemplate views:Loading}"
-                  Route="Loading"
-                   Shell.FlyoutBehavior="Disabled"
-                     Shell.TabBarIsVisible="False"
-                     Shell.FlyoutItemIsVisible="False"/>  
-    <ShellContent 
-                  ContentTemplate="{DataTemplate views:Login}"
-                  Route="Login"
-                  Shell.FlyoutBehavior="Disabled"
-                  Shell.TabBarIsVisible="False"
-                  Shell.FlyoutItemIsVisible="False"/>
+     Route="Loading"
+     ContentTemplate="{DataTemplate views:Loading}"
+     FlyoutItemIsVisible="False"
+     Shell.FlyoutBehavior="Disabled"
+     Shell.TabBarIsVisible="False"/>
 
+    <ShellContent
+     Route="Login"
+     ContentTemplate="{DataTemplate views:Login}"
+     FlyoutItemIsVisible="False"
+     Shell.FlyoutBehavior="Disabled"
+     Shell.TabBarIsVisible="False"/>
 
     <TabBar>
 
-        <ShellContent Icon="home_ince.png" Route="AnaSayfa" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
-        <ShellContent Icon="aidat_ince.png" Route="Aidat" ContentTemplate="{DataTemplate views:Aidat}"/>
-        <ShellContent Icon="ikraz_ince.png" Route="Ikraz" ContentTemplate="{DataTemplate views:Ikraz}"/>
-        <ShellContent Icon="user_ince.png" Route="User" ContentTemplate="{DataTemplate views:User}"/>
-
+        <ShellContent  Icon="home_ince.png"  Route="AnaSayfa" ContentTemplate="{DataTemplate views:AnaSayfa}"/>
+        <ShellContent  Icon="aidat_ince.png" Route="Aidat" ContentTemplate="{DataTemplate views:Aidat}"/>
+        <ShellContent  Icon="ikraz_ince.png" Route="Ikraz" ContentTemplate="{DataTemplate views:Ikraz}"/>
+        <ShellContent  Icon="soft_profil.png" Route="User" ContentTemplate="{DataTemplate views:User}"/>
     </TabBar>
+    
+    <ShellContent
+        Title="PDF Görüntüleyici"
+        ContentTemplate="{DataTemplate views:PdfViewer}"
+        Route="PdfViewer" />
+    
+
+    
 </Shell>

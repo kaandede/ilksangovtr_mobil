@@ -2,27 +2,25 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ilksangovtr_mobil.Views.YeniSosyalYardimBasvurusu"
-             xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
-             x:DataType="models:AnaSayfaViewModel"
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
              xmlns:local="clr-namespace:ilksangovtr_mobil"
-             xmlns:dx="http://schemas.devexpress.com/maui">
-
-    <ContentPage.BindingContext>
-        <models:AnaSayfaViewModel/>
-    </ContentPage.BindingContext>
+             x:DataType="viewmodels:YeniSosyalYardimBasvurusuViewModel"
+             Shell.NavBarIsVisible="True"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#F3F7F6">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="Auto,*" 
-           Padding="0,0" 
-           BackgroundColor="Transparent">
-            <Label Text="Yeni Sosyal Yardım Başvurusu"
-        Grid.Column="0"
-        FontFamily="NexaHeavy"
-       VerticalOptions="CenterAndExpand"/>
-
+            Padding="0,0" 
+            BackgroundColor="Transparent">
+            <Label Text="Yeni Sosyal Yardım Başvuru"
+                   Grid.Column="0"
+                   FontSize="16"
+                   FontFamily="NexaHeavy"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
         </Grid>
     </Shell.TitleView>
-
 
     <Grid>
         <Grid>
@@ -81,7 +79,7 @@
                     <Border.Shadow>
                         <Shadow Brush="#565558" Offset="5,5" Radius="30" Opacity="0.2"/>
                     </Border.Shadow>
-                    <ScrollView>
+                    <ScrollView VerticalScrollBarVisibility="Never">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -166,11 +164,11 @@
                             </Grid>
                         </Grid>
                     </ScrollView>
-                
+
 
                 </Border>
 
-               
+
             </Grid>
         </Grid>
 
