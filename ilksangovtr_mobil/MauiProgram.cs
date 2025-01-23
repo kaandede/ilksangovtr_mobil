@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using ilksangovtr_mobil.Services;
 using DevExpress.Maui;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil
 {
@@ -34,24 +35,47 @@ namespace ilksangovtr_mobil
                     fonts.AddFont("fa-solid-900.ttf", "FaSolid");
                 });
 
-
+            builder.Services.AddSingleton<DuyuruService>();
             builder.Services.AddScoped<AuthService>();
+            builder.Services.AddScoped<ViewModels.AnaSayfaViewModel>();
+            builder.Services.AddScoped<KampanyalarViewModel>();
+            builder.Services.AddScoped<AidatViewModel>();
+            builder.Services.AddScoped<DuyurularViewModel>();
+            builder.Services.AddScoped<DuyuruDetailViewModel>();
             builder.Services.AddScoped<Loading>();
             builder.Services.AddScoped<Login>();
             builder.Services.AddScoped<User>();
-            builder.Services.AddScoped<AnaSayfaViewModel>();
             builder.Services.AddScoped<AnaSayfa>();
             builder.Services.AddScoped<Bildirimler>();
+            builder.Services.AddScoped<BildirimDetail>();
+            builder.Services.AddScoped<MesajDetail>();
+            builder.Services.AddScoped<Duyurular>();
+            builder.Services.AddScoped<DuyuruDetail>();
             builder.Services.AddScoped<Ikraz>();
-            builder.Services.AddScoped<SifirAracKampanya>();
-            builder.Services.AddScoped<SifirAracKampanyaBasvur>();
             builder.Services.AddScoped<Aidat>();
             builder.Services.AddScoped<SosyalYardimlar>();
             builder.Services.AddScoped<YeniSosyalYardimBasvurusu>();
-            builder.Services.AddScoped<AracKampanya>();
-            builder.Services.AddScoped<IkinciElAracKampanya>();
+            builder.Services.AddScoped<ChangePasswordPage>();
+            builder.Services.AddScoped<IkrazHesaplama>();
+            builder.Services.AddScoped<IkrazSigortaPoliceleri>();
+            builder.Services.AddScoped<Kampanyalar>();
+            builder.Services.AddScoped<OtellerKonukevleri>();
+            builder.Services.AddScoped<BultenRaporlar>();
+            builder.Services.AddSingleton<BildirimlerViewModel>();
+            builder.Services.AddTransient<BildirimDetailViewModel>();
+            builder.Services.AddTransient<MesajDetailViewModel>();
+            builder.Services.AddSingleton<SosyalYardimlarViewModel>();
+            builder.Services.AddSingleton<YeniSosyalYardimBasvurusuViewModel>();
+            builder.Services.AddTransient<AracKampanya>();
+            builder.Services.AddTransient<AracKampanyaViewModel>();
+            builder.Services.AddTransient<SifirAracKampanya>();
+            builder.Services.AddTransient<SifirAracKampanyaViewModel>();
+            builder.Services.AddTransient<SifirAracKampanyaBasvur>();
+            builder.Services.AddTransient<SifirAracKampanyaBasvurViewModel>();
+            builder.Services.AddTransient<IkinciElAracKampanya>();
+            builder.Services.AddTransient<IkinciElAracKampanyaViewModel>();
+            builder.Services.AddTransient<UserViewModel>();
 
-  
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

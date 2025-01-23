@@ -1,34 +1,36 @@
-using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class Aidat : ContentPage
 {
-	public Aidat(AnaSayfaViewModel anaSayfaViewModel)
+	private readonly AidatViewModel _viewModel;
+
+	public Aidat(AidatViewModel viewModel)
 	{
 		InitializeComponent();
-        BindingContext = anaSayfaViewModel;
-    }
+		_viewModel = viewModel;
+		BindingContext = _viewModel;
+	}
 
+	private async void Ikraz_pano_copy(object sender, EventArgs e)
+	{
+		var text = "650004600017888000170004";
 
-    private async void Ikraz_pano_copy(object sender, EventArgs e)
-    {
-        var text = "650004600017888000170004";
+		// Metni panoya kopyala
+		await Clipboard.SetTextAsync(text);
 
-        // Metni panoya kopyala
-        await Clipboard.SetTextAsync(text);
+		// KullanÄ±cÄ±ya bilgi vermek iÃ§in bir mesaj gÃ¶ster
+		await DisplayAlert("BaÅŸarÄ±lÄ±", "Metin kopyalandÄ±.", "Tamam");
+	}
+	private async void Aidat_pano_copy(object sender, EventArgs e)
+	{
+		var text = "110004600017888000170006";
 
-        // Kullanýcýya bilgi vermek için bir mesaj göster
-        await DisplayAlert("Baþarýlý", "Metin kopyalandý.", "Tamam");
-    }
-    private async void Aidat_pano_copy(object sender, EventArgs e)
-    {
-        var text = "110004600017888000170006";
+		// Metni panoya kopyala
+		await Clipboard.SetTextAsync(text);
 
-        // Metni panoya kopyala
-        await Clipboard.SetTextAsync(text);
-
-        // Kullanýcýya bilgi vermek için bir mesaj göster
-        await DisplayAlert("Baþarýlý", "Metin kopyalandý.", "Tamam");
-    }
+		// KullanÄ±cÄ±ya bilgi vermek iÃ§in bir mesaj gÃ¶ster
+		await DisplayAlert("BaÅŸarÄ±lÄ±", "Metin kopyalandÄ±.", "Tamam");
+	}
 }

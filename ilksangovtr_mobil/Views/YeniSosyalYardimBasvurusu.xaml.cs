@@ -1,18 +1,15 @@
-using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class YeniSosyalYardimBasvurusu : ContentPage
 {
-    AnaSayfaViewModel anaSayfaViewModel = new AnaSayfaViewModel();
-    public YeniSosyalYardimBasvurusu(AnaSayfaViewModel anaSayfaViewModel)
-	{
-		InitializeComponent();
-        BindingContext = anaSayfaViewModel;
-    }
+    private readonly YeniSosyalYardimBasvurusuViewModel _viewModel;
 
-    private void back_SoyalYardim_geri(object sender, EventArgs e)
+    public YeniSosyalYardimBasvurusu(YeniSosyalYardimBasvurusuViewModel viewModel)
     {
-        Navigation.PushAsync(new SosyalYardimlar(anaSayfaViewModel));
+        InitializeComponent();
+        _viewModel = viewModel;
+        BindingContext = _viewModel;
     }
 }

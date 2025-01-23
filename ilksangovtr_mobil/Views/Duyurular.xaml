@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+             xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
+             x:Class="ilksangovtr_mobil.Views.Duyurular"
+             x:DataType="viewmodels:DuyurularViewModel"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="#F8FAFC">
+
+    <Shell.TitleView>
+        <Grid Padding="20,0">
+            <Label Text="Duyurular"
+                   FontFamily="NexaHeavy"
+                   FontSize="20"
+                   TextColor="#152B27"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <CollectionView ItemsSource="{Binding DuyuruItems}"
+                    Margin="20">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:DuyuruItem">
+                <Border Margin="0,0,0,16"
+                        BackgroundColor="White"
+                        Stroke="#E2E8F0"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 24">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:DuyurularViewModel}}, Path=DuyuruDetailCommand}"
+                                            CommandParameter="{Binding .}"/>
+                    </Border.GestureRecognizers>
+                    <Grid Padding="16" RowDefinitions="Auto,Auto,Auto">
+                        <Label Text="{Binding Duyuru_Title}"
+                               FontFamily="NexaHeavy"
+                               TextColor="#152B27"
+                               FontSize="16"/>
+                        <Label Grid.Row="1"
+                               Text="{Binding Duyuru_date}"
+                               FontFamily="NexaLight"
+                               TextColor="#64748B"
+                               FontSize="14"
+                               Margin="0,8,0,0"/>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage> 

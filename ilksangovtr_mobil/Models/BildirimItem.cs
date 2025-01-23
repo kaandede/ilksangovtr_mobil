@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ilksangovtr_mobil.Models
 {
-    public class BildirimItem
+    public partial class BildirimItem : ObservableObject
     {
-        public string? Bildirim_Title { get; set; }
-        public string? Bildirim_Description { get; set; }
-        public string? Bildirim_date { get; set; }
+        [ObservableProperty]
+        private string baslik;
+
+        [ObservableProperty]
+        private string icerik;
+
+        [ObservableProperty]
+        private DateTime tarih;
+
+        [ObservableProperty]
+        private bool okundu;
     }
 }

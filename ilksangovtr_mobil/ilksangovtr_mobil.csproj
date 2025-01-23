@@ -39,43 +39,43 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
-	  <DebugType>portable</DebugType>
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<DebugType>portable</DebugType>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -86,44 +86,13 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<MauiImage Include="Resources\Images\*.png" BaseSize="168,208" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
-		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<!-- Raw Assets -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\Images\aidat.png" />
-	  <None Remove="Resources\Images\aidat_ince.png" />
-	  <None Remove="Resources\Images\back32.png" />
-	  <None Remove="Resources\Images\back33.png" />
-	  <None Remove="Resources\Images\back34.png" />
-	  <None Remove="Resources\Images\bars_ince.png" />
-	  <None Remove="Resources\Images\bell_ince.png" />
-	  <None Remove="Resources\Images\calculate.png" />
-	  <None Remove="Resources\Images\car.png" />
-	  <None Remove="Resources\Images\earnings.png" />
-	  <None Remove="Resources\Images\earnings_red.png" />
-	  <None Remove="Resources\Images\home.png" />
-	  <None Remove="Resources\Images\home_1.png" />
-	  <None Remove="Resources\Images\home_base.png" />
-	  <None Remove="Resources\Images\home_ince.png" />
-	  <None Remove="Resources\Images\home_ince2.png" />
-	  <None Remove="Resources\Images\iilksan.png" />
-	  <None Remove="Resources\Images\ikraz.png" />
-	  <None Remove="Resources\Images\ikraz_ince.png" />
-	  <None Remove="Resources\Images\insurance.png" />
-	  <None Remove="Resources\Images\profits.png" />
-	  <None Remove="Resources\Images\social_care.png" />
-	  <None Remove="Resources\Images\sosyal_yardim.png" />
-	  <None Remove="Resources\Images\tag_left.png" />
-	  <None Remove="Resources\Images\tag_right.png" />
-	  <None Remove="Resources\Images\user.png" />
-	  <None Remove="Resources\Images\user_ince.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -139,54 +108,45 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\aidat.xaml.cs">
-	    <DependentUpon>Aidat.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Ikraz.xaml.cs">
-	    <DependentUpon>Ikraz.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\user.xaml.cs">
-	    <DependentUpon>User.xaml</DependentUpon>
-	  </Compile>
+		<Compile Update="Views\aidat.xaml.cs">
+			<DependentUpon>Aidat.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\Ikraz.xaml.cs">
+			<DependentUpon>Ikraz.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\user.xaml.cs">
+			<DependentUpon>User.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Aidat.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\AracKampanya.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Bildirimler.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\IkinciElAracKampanya.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Ikraz.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Loading.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Login.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\SifirAracKampanya.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\SifirAracKampanyaBasvur.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\SosyalYardimlar.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\User.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\YeniSosyalYardimBasvurusu.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+		<MauiXaml Update="Views\Aidat.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Bildirimler.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\ChangePasswordPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Ikraz.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Loading.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Login.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\SosyalYardimlar.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\User.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\YeniSosyalYardimBasvurusu.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>

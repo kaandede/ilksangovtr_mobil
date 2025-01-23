@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ilksangovtr_mobil.Views.BildirimDetail"
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+             x:DataType="viewmodels:BildirimDetailViewModel"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#F8FAFC">
+
+    <Shell.TitleView>
+        <Grid Padding="20,0">
+            <Label Text="{Binding Bildirim.Baslik}"
+                   FontFamily="NexaHeavy"
+                   FontSize="20"
+                   TextColor="#152B27"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="20,15">
+            <Label Text="{Binding Bildirim.Tarih, StringFormat='{0:dd.MM.yyyy HH:mm}'}"
+                   FontFamily="NexaLight"
+                   TextColor="#64748B"
+                   FontSize="14"/>
+            
+            <Label Text="{Binding Bildirim.Icerik}"
+                   FontFamily="NexaLight"
+                   TextColor="#64748B"
+                   FontSize="16"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 

@@ -1,38 +1,21 @@
-using ilksangovtr_mobil.Models;
+using ilksangovtr_mobil.ViewModels;
 
 namespace ilksangovtr_mobil.Views;
 
 public partial class AracKampanya : ContentPage
 {
-    AnaSayfaViewModel anaSayfaViewModel = new AnaSayfaViewModel();
-    public AracKampanya(AnaSayfaViewModel anaSayfaViewModel)
-	{
-		InitializeComponent();
-        BindingContext = anaSayfaViewModel;
-    }
-    private void back_Anasayfa_Arackampanya(object sender, EventArgs e)
+    private readonly AracKampanyaViewModel _viewModel;
+
+    public AracKampanya(AracKampanyaViewModel viewModel)
     {
-        Shell.Current.GoToAsync("///AnaSayfa");
+        InitializeComponent();
+        _viewModel = viewModel;
+        BindingContext = _viewModel;
     }
 
-    private void OnArackSelectedIndexChanged(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        var picker = (Picker)sender;
-        int selectedIndex = picker.SelectedIndex;
-
-        if (selectedIndex != -1) // Seçim yapýldýysa
-        {
-            string selectedItem = (string)picker.SelectedItem;
-
-        }
+        base.OnAppearing();
+        _viewModel.LoadDataCommand.Execute(null);
     }
-
-    private void tapped_ikincelArac_Kampanya(object sender, TappedEventArgs e)
-    {
-        Navigation.PushAsync(new IkinciElAracKampanya(anaSayfaViewModel));
-    } 
-    private void tapped_sifirArac_Kampanya(object sender, TappedEventArgs e)
-    {
-        Navigation.PushAsync(new SifirAracKampanya(anaSayfaViewModel));
-    }
-}
+} 

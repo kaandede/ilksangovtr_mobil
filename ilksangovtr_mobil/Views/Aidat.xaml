@@ -12,13 +12,13 @@
     </ContentPage.BindingContext>
 
     <Shell.TitleView>
-        <Grid ColumnDefinitions="Auto,*" 
-              Padding="0,0" 
-              BackgroundColor="Transparent">
+        <Grid>
             <Label Text="Aidat"
-           Grid.Column="0"
-           FontFamily="NexaHeavy"
-          VerticalOptions="CenterAndExpand"/>
+         Grid.Column="0"
+         FontSize="16"
+         FontFamily="NexaHeavy"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand"/>
 
         </Grid>
     </Shell.TitleView>
