@@ -47,8 +47,11 @@ namespace ilksangovtr_mobil
             builder.Services.AddScoped<User>();
             builder.Services.AddScoped<AnaSayfa>();
             builder.Services.AddScoped<Bildirimler>();
+<<<<<<< HEAD
             builder.Services.AddScoped<BildirimDetail>();
             builder.Services.AddScoped<MesajDetail>();
+=======
+>>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
             builder.Services.AddScoped<Duyurular>();
             builder.Services.AddScoped<DuyuruDetail>();
             builder.Services.AddScoped<Ikraz>();
@@ -61,9 +64,13 @@ namespace ilksangovtr_mobil
             builder.Services.AddScoped<Kampanyalar>();
             builder.Services.AddScoped<OtellerKonukevleri>();
             builder.Services.AddScoped<BultenRaporlar>();
+<<<<<<< HEAD
             builder.Services.AddSingleton<BildirimlerViewModel>();
             builder.Services.AddTransient<BildirimDetailViewModel>();
             builder.Services.AddTransient<MesajDetailViewModel>();
+=======
+            builder.Services.AddScoped<BildirimlerViewModel>();
+>>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
             builder.Services.AddSingleton<SosyalYardimlarViewModel>();
             builder.Services.AddSingleton<YeniSosyalYardimBasvurusuViewModel>();
             builder.Services.AddTransient<AracKampanya>();
@@ -74,7 +81,10 @@ namespace ilksangovtr_mobil
             builder.Services.AddTransient<SifirAracKampanyaBasvurViewModel>();
             builder.Services.AddTransient<IkinciElAracKampanya>();
             builder.Services.AddTransient<IkinciElAracKampanyaViewModel>();
+<<<<<<< HEAD
             builder.Services.AddTransient<UserViewModel>();
+=======
+>>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
 
 #if DEBUG
             builder.Logging.AddDebug();
