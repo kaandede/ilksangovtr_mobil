@@ -2,38 +2,26 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ilksangovtr_mobil.Models;
 using System.Collections.ObjectModel;
-using System.Threading;
-<<<<<<< HEAD
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
 using ilksangovtr_mobil.Views;
-=======
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+using System.Threading;
 
 namespace ilksangovtr_mobil.ViewModels
 {
     public partial class BildirimlerViewModel : ObservableObject
     {
         [ObservableProperty]
-<<<<<<< HEAD
         private ObservableCollection<BildirimItem> bildirimler;
 
         [ObservableProperty]
         private ObservableCollection<MesajItem> mesajlar;
 
-
         [ObservableProperty]
-
         private bool isBusy;
 
-
+        [ObservableProperty]
+        private bool isRefreshing;
 
         [ObservableProperty]
-
         private string errorMessage;
 
         // Mevcut bildirimleri ve mesajları tutmak için private listeler
@@ -49,62 +37,27 @@ namespace ilksangovtr_mobil.ViewModels
             
             // İlk kez test verilerini yükle
             LoadTestData();
-            LoadData().ConfigureAwait(false);
         }
 
         [RelayCommand]
-        private async Task LoadData()
+        public async Task LoadData()
         {
             try
             {
                 IsBusy = true;
                 ErrorMessage = string.Empty;
 
-                // API simülasyonu
-                await Task.Delay(1000);
+                await Task.Delay(1000); // API simülasyonu
 
                 await MainThread.InvokeOnMainThreadAsync(() =>
                 {
-                    // Mevcut verileri temizle
-                    Bildirimler.Clear();
-                    Mesajlar.Clear();
-                    // Test verilerini yükle
-                    LoadTestData();
+                    LoadTestData(); // Bildirimler ve Mesajlar zaten LoadTestData içinde temizleniyor
                 });
             }
             catch (Exception ex)
             {
                 ErrorMessage = $"Veriler yüklenirken bir hata oluştu: {ex.Message}";
                 await Shell.Current.DisplayAlert("Hata", ErrorMessage, "Tamam");
-=======
-        private ObservableCollection<BildirimItem> _bildirimler;
-
-        [ObservableProperty]
-        private ObservableCollection<MesajItem> _mesajlar;
-
-        [ObservableProperty]
-        private bool _isRefreshing;
-
-        [ObservableProperty]
-        private bool _isBusy;
-
-        public BildirimlerViewModel()
-        {
-            _bildirimler = new ObservableCollection<BildirimItem>();
-            _mesajlar = new ObservableCollection<MesajItem>();
-            LoadData();
-        }
-
-        public void LoadData()
-        {
-            if (IsBusy) return;
-            
-            try
-            {
-                IsBusy = true;
-                LoadBildirimler();
-                LoadMesajlar();
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
             }
             finally
             {
@@ -112,22 +65,18 @@ namespace ilksangovtr_mobil.ViewModels
             }
         }
 
-<<<<<<< HEAD
         [RelayCommand]
         private async Task RefreshData()
         {
             try
             {
-                IsBusy = true;
+                IsRefreshing = true;
                 
                 // API simülasyonu
                 await Task.Delay(1000);
                 
-                // Mevcut verileri temizle ve yeniden yükle
                 await MainThread.InvokeOnMainThreadAsync(() =>
                 {
-                    Bildirimler.Clear();
-                    Mesajlar.Clear();
                     LoadTestData();
                 });
             }
@@ -138,7 +87,7 @@ namespace ilksangovtr_mobil.ViewModels
             }
             finally
             {
-                IsBusy = false;
+                IsRefreshing = false;
             }
         }
 
@@ -199,102 +148,17 @@ namespace ilksangovtr_mobil.ViewModels
             // ObservableCollection'ları güncelle
             Bildirimler.Clear();
             Mesajlar.Clear();
-            
+
             // Tarihe göre sırala (en yeniler üstte)
             foreach (var bildirim in _tumBildirimler.OrderByDescending(b => b.Tarih))
             {
                 Bildirimler.Add(bildirim);
             }
-            
+
             foreach (var mesaj in _tumMesajlar.OrderByDescending(m => m.Tarih))
             {
                 Mesajlar.Add(mesaj);
             }
-
-        private void LoadBildirimler()
-        {
-            var list = new List<BildirimItem>
-            {
-                new BildirimItem 
-                { 
-                    Baslik = "Aidat Ödemesi",
-                    Icerik = "Ocak 2024 aidat ödemesi yapıldı",
-                    Tarih = DateTime.Now.AddDays(-1),
-                    Okundu = false
-                },
-                new BildirimItem 
-                { 
-                    Baslik = "Sosyal Yardım",
-                    Icerik = "Sosyal yardım başvurunuz onaylandı",
-                    Tarih = DateTime.Now.AddDays(-2),
-                    Okundu = true
-                }
-            };
-
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Bildirimler.Clear();
-                foreach (var item in list)
-                {
-                    Bildirimler.Add(item);
-                }
-            });
-        }
-
-        private void LoadMesajlar()
-        {
-            var list = new List<MesajItem>
-            {
-                new MesajItem 
-                { 
-                    Gonderen = "İLKSAN Destek",
-                    Icerik = "Başvurunuz hakkında bilgi",
-                    Tarih = DateTime.Now.AddHours(-2),
-                    Okundu = false
-                },
-                new MesajItem 
-                { 
-                    Gonderen = "Sistem",
-                    Icerik = "Hoş geldiniz",
-                    Tarih = DateTime.Now.AddDays(-1),
-                    Okundu = true
-                }
-            };
-
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Mesajlar.Clear();
-                foreach (var item in list)
-                {
-                    Mesajlar.Add(item);
-                }
-            });
-        }
-
-        [RelayCommand]
-        private async Task RefreshData()
-        {
-            if (IsRefreshing || IsBusy)
-                return;
-
-            try
-            {
-                IsRefreshing = true;
-                await Task.Delay(1000); // Simüle edilmiş yükleme süresi
-                LoadData();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Refresh Error: {ex.Message}");
-            }
-            finally
-            {
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    IsRefreshing = false;
-                });
-            }
-
         }
 
         public void AddBildirim(BildirimItem bildirim)
@@ -306,7 +170,6 @@ namespace ilksangovtr_mobil.ViewModels
         {
             Mesajlar.Insert(0, mesaj);
         }
-
 
         [RelayCommand]
         private async Task BildirimTapped(BildirimItem bildirim)
@@ -353,6 +216,5 @@ namespace ilksangovtr_mobil.ViewModels
             };
             await Shell.Current.GoToAsync(nameof(MesajDetail), parameters);
         }
-
     }
 } 

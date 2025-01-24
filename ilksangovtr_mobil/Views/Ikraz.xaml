@@ -11,7 +11,7 @@
                 StrokeShape="RoundRectangle 0,0,30,30">
             <Label Text="İkraz İşlemleri"
                    Margin="20,0"
-                   FontFamily="NexaHeavy"
+           FontFamily="NexaHeavy"
                    FontSize="18"
                    TextColor="#152B27"
                    VerticalOptions="Center"/>
@@ -41,7 +41,7 @@
                 <VerticalStackLayout Spacing="20" Padding="20,15">
                     <!-- Mevcut kartlardan önce -->
                     <Border StrokeShape="RoundRectangle 20"
-                            BackgroundColor="White"
+                   BackgroundColor="White"
                             Padding="20">
                         <Border.Shadow>
                             <Shadow Brush="#20000000"
@@ -51,9 +51,9 @@
                         </Border.Shadow>
                         <Grid ColumnDefinitions="*,Auto">
                             <VerticalStackLayout>
-                                <Label Text="Kullanılabilir İkraz Limiti"
-                                       FontFamily="NexaLight"
-                                       TextColor="#677372"/>
+                    <Label Text="Kullanılabilir İkraz Limiti"
+                           FontFamily="NexaLight"
+                           TextColor="#677372"/>
                                 <Label Text="50.000,00 ₺"
                                        FontFamily="NexaHeavy"
                                        TextColor="#152B27"
@@ -233,8 +233,8 @@
                                            TextColor="#677372"/>
                                     <Label Grid.Column="1"
                                            Text="11.500,00 ₺"
-                                           FontFamily="NexaHeavy"
-                                           TextColor="#152B27"/>
+                           FontFamily="NexaHeavy"
+                           TextColor="#152B27"/>
                                 </Grid>
 
                                 <Grid Grid.Row="2" ColumnDefinitions="*,Auto">
@@ -249,13 +249,13 @@
                             </Grid>
 
                             <Button Text="BAŞVURU YAP"
-                                    FontFamily="NexaHeavy"
-                                    BackgroundColor="#0D7561"
-                                    TextColor="White"
+                            FontFamily="NexaHeavy"
+                            BackgroundColor="#0D7561"
+                            TextColor="White"
                                     HeightRequest="50"
                                     CornerRadius="12"
-                                    Margin="0,10,0,0"/>
-                        </VerticalStackLayout>
+                            Margin="0,10,0,0"/>
+                </VerticalStackLayout>
                     </Border>
 
                     <!-- Ödeme Planı kartından sonra -->
@@ -871,7 +871,7 @@
 
                     <!-- Banka Bilgileri -->
                     <Border StrokeShape="RoundRectangle 20"
-                            BackgroundColor="White"
+                   BackgroundColor="White"
                             Padding="20">
                         <Border.Shadow>
                             <Shadow Brush="#20000000"
@@ -932,7 +932,7 @@
                                                 FontFamily="NexaHeavy"
                                                 BackgroundColor="#F0FDF9"
                                                 TextColor="#0D7561"
-                                                HeightRequest="40"
+                           HeightRequest="40"
                                                 CornerRadius="10"
                                                 Padding="20,0"/>
                                     </Grid>
@@ -1254,9 +1254,9 @@
                                                FontFamily="NexaLight"
                                                TextColor="#677372"
                                                FontSize="12"
-                                               HorizontalOptions="Center"/>
-                                    </VerticalStackLayout>
-                                </Grid>
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+        </Grid>
                             </Border>
 
                             <!-- Yüklenen Belgeler -->
@@ -1311,7 +1311,7 @@
                             <Image Grid.Column="2"
                                    Source="arrow_right_white"
                                    HeightRequest="24"/>
-                        </Grid>
+    </Grid>
                     </Border>
                 </VerticalStackLayout>
             </ScrollView>

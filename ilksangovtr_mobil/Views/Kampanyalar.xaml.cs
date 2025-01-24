@@ -5,19 +5,19 @@ namespace ilksangovtr_mobil.Views;
 
 public partial class Kampanyalar : ContentPage
 {
-    private KampanyalarViewModel _viewModel;
+    private readonly KampanyalarViewModel _viewModel;
 
-    public Kampanyalar()
+    public Kampanyalar(KampanyalarViewModel viewModel)
     {
         InitializeComponent();
-        _viewModel = new KampanyalarViewModel();
+        _viewModel = viewModel;
         BindingContext = _viewModel;
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-        _viewModel.LoadKampanyalarCommand.Execute(null);
+     _viewModel.LoadKampanyalarCommand.Execute(null);
     }
 
     private async void OnKampanyaSelected(object sender, SelectedItemChangedEventArgs e)

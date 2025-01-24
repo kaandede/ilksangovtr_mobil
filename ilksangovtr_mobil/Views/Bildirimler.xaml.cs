@@ -11,29 +11,23 @@ public partial class Bildirimler : ContentPage
 	{
 		InitializeComponent();
 		_viewModel = viewModel;
-
 		BindingContext = _viewModel;
+	}
 
-		BindingContext = viewModel;
-}
-
-	protected override void OnAppearing()
+	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
-
-		_viewModel.LoadDataCommand.Execute(null);
 
 		try
 		{
 			if (!_viewModel.IsBusy)
 			{
-				_viewModel.LoadData();
+				await _viewModel.LoadDataCommand.ExecuteAsync(null);
 			}
 		}
 		catch (Exception ex)
 		{
 			System.Diagnostics.Debug.WriteLine($"OnAppearing Error: {ex.Message}");
 		}
-
 	}
 }

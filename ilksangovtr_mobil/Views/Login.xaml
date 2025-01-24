@@ -2,36 +2,77 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ilksangovtr_mobil.Views.Login"
-             Shell.NavBarIsVisible="False"
-             xmlns:local="clr-namespace:ilksangovtr_mobil">
+             xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+             x:DataType="viewmodels:LoginViewModel"
+             Shell.NavBarIsVisible="False">
     <Grid>
         <Image Source="back25.png" 
-      Aspect="AspectFill"
-      HorizontalOptions="FillAndExpand" 
-      VerticalOptions="FillAndExpand"/>
+              Aspect="AspectFill"
+              HorizontalOptions="FillAndExpand" 
+              VerticalOptions="FillAndExpand"/>
+        
         <StackLayout Margin="0,120,0,0" HorizontalOptions="CenterAndExpand">
             <StackLayout Margin="120,0,120,0">
                 <Image Source="iilksan.png" Aspect="AspectFit"/>
             </StackLayout>
 
             <StackLayout WidthRequest="300" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <!-- TC Kimlik No -->
                 <Frame BackgroundColor="#F3F6FF" BorderColor="#e8ecf1" Padding="0" Margin="0,40,0,0" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Orientation="Horizontal">
-                        <local:BorderlessEntry Text="43975571922" Placeholder="T.C. Kimlik No" PlaceholderColor="#164276" TextColor="#164276" FontFamily="NexaLight" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,5,20,5"/>
+                        <Entry Text="{Binding TcKimlikNo}"
+                               Placeholder="TC Kimlik No"
+                               Keyboard="Numeric"
+                               MaxLength="11"
+                               FontFamily="NexaLight"
+                               TextColor="#164276"
+                               PlaceholderColor="#164276"
+                               HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
                 </Frame>
-                <Frame  BackgroundColor="#F3F6FF" BorderColor="#e8ecf1" Padding="0" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" CornerRadius="10">
+
+                <!-- Şifre -->
+                <Frame BackgroundColor="#F3F6FF" BorderColor="#e8ecf1" Padding="0" Margin="0,10,0,0" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Orientation="Horizontal">
-                        <local:BorderlessEntry Text="1q2w3E*" IsPassword="True" Placeholder="Parola" PlaceholderColor="#164276" TextColor="#164276" FontFamily="NexaLight" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,5,20,5"/>
+                        <Entry Text="{Binding Sifre}"
+                               Placeholder="Şifre"
+                               IsPassword="True"
+                               FontFamily="NexaLight"
+                               TextColor="#164276"
+                               PlaceholderColor="#164276"
+                               HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
                 </Frame>
-                <StackLayout Orientation="Horizontal" Margin="0,15,0,0" Padding="0">
-                    <CheckBox IsChecked="False" Color="#164276"/>
-                    <Label Text="Beni Hatırla" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#164276" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                    <Label Text="Şifremi Unuttum" TextDecorations="Underline" TextColor="#63B7FD" FontFamily="NexaLight" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                <!-- Beni Hatırla ve Şifremi Unuttum -->
+                <StackLayout Orientation="Horizontal" Margin="5,10,0,0">
+                    <CheckBox IsChecked="{Binding BeniHatirla}" Color="#164276"/>
+                    <Label Text="Beni Hatırla" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#164276" FontSize="Small" VerticalTextAlignment="Center"/>
+                    <Label Text="Şifremi Unuttum" TextDecorations="Underline" TextColor="#63B7FD" FontFamily="NexaLight" FontAttributes="Bold" HorizontalOptions="EndAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SifremiUnuttumCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
-                <Button Text="Giriş" FontSize="18" BackgroundColor="#164276" FontFamily="NexaHeavy" TextColor="#fff" HeightRequest="50" CornerRadius="10" Margin="5,25,0,0" Clicked="Login_Button_Clicked"/>
-            </StackLayout> 
+
+                <!-- Giriş Butonu -->
+                <Button Text="Giriş"
+                        Clicked="Login_Button_Clicked"
+                        IsEnabled="{Binding IsNotBusy}"
+                        FontSize="18"
+                        BackgroundColor="#164276"
+                        FontFamily="NexaHeavy"
+                        TextColor="#fff"
+                        HeightRequest="50"
+                        CornerRadius="10"
+                        Margin="5,25,0,0"/>
+
+                <!-- Loading Indicator -->
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                 IsVisible="{Binding IsBusy}"
+                                 Color="#164276"
+                                 Margin="0,10,0,0"/>
+            </StackLayout>
             <StackLayout Margin="0,45,0,0" HorizontalOptions="CenterAndExpand">
                 <Frame BorderColor="#edf0f4" BackgroundColor="#F3F6FF" CornerRadius="10" Padding="0">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

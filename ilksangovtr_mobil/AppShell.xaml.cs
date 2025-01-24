@@ -4,14 +4,21 @@ using ilksangovtr_mobil.Views;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using ilksangovtr_mobil.Services;
+using Microsoft.Maui.Controls;
 
 namespace ilksangovtr_mobil
 {
     public partial class AppShell : Shell
     {
-        public AppShell()
+        private readonly AuthService _authService;
+        private readonly IServiceProvider _serviceProvider;
+
+        public AppShell(AuthService authService, IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            _authService = authService;
+            _serviceProvider = serviceProvider;
 
             Routing.RegisterRoute(nameof(Bildirimler), typeof(Bildirimler));
             Routing.RegisterRoute(nameof(SosyalYardimlar), typeof(SosyalYardimlar));
@@ -35,6 +42,14 @@ namespace ilksangovtr_mobil
             Routing.RegisterRoute(nameof(BildirimDetail), typeof(BildirimDetail));
             Routing.RegisterRoute(nameof(MesajDetail), typeof(MesajDetail));
 
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                if (!await _authService.IsAuthenticatedAsync())
+                {
+                    var loginViewModel = _serviceProvider.GetRequiredService<LoginViewModel>();
+                    Application.Current.MainPage = new Login(loginViewModel, _authService, _serviceProvider);
+                }
+            });
         }
     }
 }

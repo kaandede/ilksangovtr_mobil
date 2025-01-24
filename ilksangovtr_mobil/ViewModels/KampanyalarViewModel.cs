@@ -49,7 +49,7 @@ namespace ilksangovtr_mobil.ViewModels
         }
 
         [RelayCommand]
-        private async Task LoadKampanyalar()
+        public async Task LoadKampanyalar()
         {
             if (IsBusy) return;
 
@@ -168,4 +168,4 @@ namespace ilksangovtr_mobil.ViewModels
             }
         }
     }
-} 
+}

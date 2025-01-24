@@ -9,7 +9,7 @@ namespace ilksangovtr_mobil.ViewModels
     public partial class DuyurularViewModel : ObservableObject
     {
         private readonly DuyuruService _duyuruService;
-        
+
         [ObservableProperty]
         private ObservableCollection<DuyuruItem> _duyuruItems;
 
@@ -35,7 +35,7 @@ namespace ilksangovtr_mobil.ViewModels
             {
                 { "Duyuru", duyuru }
             };
-            
+
             await Shell.Current.GoToAsync($"DuyuruDetail", parameters);
         }
     }

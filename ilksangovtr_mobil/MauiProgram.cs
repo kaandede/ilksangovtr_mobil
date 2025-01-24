@@ -26,8 +26,8 @@ namespace ilksangovtr_mobil
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("Nexa-ExtraLight.ttf", "NexaLight");
-                    fonts.AddFont("Nexa-Heavy.ttf", "NexaHeavy");
+                    fonts.AddFont("NexaDemo-Bold.ttf", "NexaHeavy");
+                    fonts.AddFont("NexaDemo-Light.ttf", "NexaLight");
                     fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
                     fonts.AddFont("Montserrat-Regular.ttf", "MontserratRegular");
                     fonts.AddFont("Aller_Rg.ttf", "AllerRg");
@@ -35,23 +35,32 @@ namespace ilksangovtr_mobil
                     fonts.AddFont("fa-solid-900.ttf", "FaSolid");
                 });
 
+            builder.Services.AddSingleton<AuthService>();
             builder.Services.AddSingleton<DuyuruService>();
-            builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<ViewModels.AnaSayfaViewModel>();
             builder.Services.AddScoped<KampanyalarViewModel>();
             builder.Services.AddScoped<AidatViewModel>();
             builder.Services.AddScoped<DuyurularViewModel>();
             builder.Services.AddScoped<DuyuruDetailViewModel>();
             builder.Services.AddScoped<Loading>();
-            builder.Services.AddScoped<Login>();
-            builder.Services.AddScoped<User>();
-            builder.Services.AddScoped<AnaSayfa>();
-            builder.Services.AddScoped<Bildirimler>();
-<<<<<<< HEAD
-            builder.Services.AddScoped<BildirimDetail>();
-            builder.Services.AddScoped<MesajDetail>();
-=======
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+            builder.Services.AddTransient<LoginViewModel>();
+            builder.Services.AddTransient<BildirimlerViewModel>();
+            builder.Services.AddTransient<UserViewModel>(sp => 
+                new UserViewModel(
+                    sp.GetRequiredService<AuthService>(),
+                    sp));
+            builder.Services.AddTransient<MesajDetailViewModel>();
+            builder.Services.AddTransient<Login>(sp => 
+                new Login(
+                    sp.GetRequiredService<LoginViewModel>(),
+                    sp.GetRequiredService<AuthService>(),
+                    sp));
+            builder.Services.AddTransient<AnaSayfaViewModel>();
+            builder.Services.AddTransient<AnaSayfa>();
+            builder.Services.AddTransient<Bildirimler>();
+            builder.Services.AddTransient<User>();
+            builder.Services.AddTransient<BildirimDetail>();
+            builder.Services.AddTransient<MesajDetail>();
             builder.Services.AddScoped<Duyurular>();
             builder.Services.AddScoped<DuyuruDetail>();
             builder.Services.AddScoped<Ikraz>();
@@ -64,13 +73,6 @@ namespace ilksangovtr_mobil
             builder.Services.AddScoped<Kampanyalar>();
             builder.Services.AddScoped<OtellerKonukevleri>();
             builder.Services.AddScoped<BultenRaporlar>();
-<<<<<<< HEAD
-            builder.Services.AddSingleton<BildirimlerViewModel>();
-            builder.Services.AddTransient<BildirimDetailViewModel>();
-            builder.Services.AddTransient<MesajDetailViewModel>();
-=======
-            builder.Services.AddScoped<BildirimlerViewModel>();
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
             builder.Services.AddSingleton<SosyalYardimlarViewModel>();
             builder.Services.AddSingleton<YeniSosyalYardimBasvurusuViewModel>();
             builder.Services.AddTransient<AracKampanya>();
@@ -81,10 +83,9 @@ namespace ilksangovtr_mobil
             builder.Services.AddTransient<SifirAracKampanyaBasvurViewModel>();
             builder.Services.AddTransient<IkinciElAracKampanya>();
             builder.Services.AddTransient<IkinciElAracKampanyaViewModel>();
-<<<<<<< HEAD
-            builder.Services.AddTransient<UserViewModel>();
-=======
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+
+            // App sınıfını singleton olarak kaydet
+            builder.Services.AddSingleton<App>();
 
 #if DEBUG
             builder.Logging.AddDebug();

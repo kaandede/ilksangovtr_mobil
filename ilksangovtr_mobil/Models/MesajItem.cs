@@ -15,5 +15,5 @@ namespace ilksangovtr_mobil.Models
 
         [ObservableProperty]
         private bool okundu;
-
-} 
+    } 
+}

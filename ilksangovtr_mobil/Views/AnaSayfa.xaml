@@ -8,18 +8,20 @@
              BackgroundColor="#fff"
              Shell.NavBarIsVisible="True">
 
+
     <Shell.TitleView>
         <Border Margin="0" BackgroundColor="#F3F7F6"
-                    Stroke="Transparent"
-                    StrokeShape="RoundRectangle 0,0,30,30">
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 0,0,30,30">
             <Grid Margin="10,0,0,0"
                   ColumnDefinitions="Auto,*,Auto"
-                 BackgroundColor="Transparent">
-                <Label Text="Merhaba, Kaan DEDE"
-                  Grid.Column="0"
-                  FontFamily="NexaHeavy"
-                  FontSize="14"
-                  VerticalOptions="CenterAndExpand"/>
+                  BackgroundColor="Transparent">
+                <Label Text="{Binding KullaniciSelamlama}"
+                       FontFamily="NexaHeavy"
+                       FontSize="16"
+                       TextColor="#152B27"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"/>
 
                 <ImageButton Grid.Column="2"
         Source="notification_bell"
@@ -619,6 +621,7 @@
 
             </Grid>
 
+        
 
         </StackLayout>
     </ScrollView>

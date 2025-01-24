@@ -3,13 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dx="http://schemas.devexpress.com/maui"
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
+             xmlns:vm="clr-namespace:ilksangovtr_mobil.ViewModels"
              x:Class="ilksangovtr_mobil.Views.Aidat"
-             BackgroundColor="#fff"
-             x:DataType="models:AnaSayfaViewModel">
+             BackgroundColor="#fff">
 
-    <ContentPage.BindingContext>
-        <models:AnaSayfaViewModel/>
-    </ContentPage.BindingContext>
+
 
     <Shell.TitleView>
         <Grid>

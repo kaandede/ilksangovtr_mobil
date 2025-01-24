@@ -1,246 +1,337 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
              x:Class="ilksangovtr_mobil.Views.Bildirimler"
+
              xmlns:dx="http://schemas.devexpress.com/maui"
+
              xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
+
              xmlns:models="clr-namespace:ilksangovtr_mobil.Models"
+
              x:DataType="viewmodels:BildirimlerViewModel"
+
              Shell.NavBarIsVisible="True"
+
              Shell.TabBarIsVisible="False"
+
              BackgroundColor="#fff">
 
+
+
     <Shell.TitleView>
+
         <Grid ColumnDefinitions="Auto,*,Auto" 
+
               Padding="0,0" 
+
               BackgroundColor="Transparent">
+
             <Label Text="Bildirimler ve Mesajlar"
+
                    Grid.Column="0"
+
                    FontFamily="NexaHeavy"
+
                    VerticalOptions="CenterAndExpand"/>
+
         </Grid>
+
     </Shell.TitleView>
 
-<<<<<<< HEAD
-    <dx:TabView       HeaderPanelPadding="0"
-                        ItemHeaderWidth="Auto"
-                        IsSelectedItemIndicatorVisible="True" 
-                        SelectedItemIndicatorColor="#0D7561"
-                        HeaderPanelPosition="Top"
-                        SelectedItemIndicatorHeight="5"
-                        Margin="0,0,0,0"
-                        ItemHeaderPadding="10"
-                        HeaderPanelBackgroundColor="#fff">
-=======
-    <dx:TabView   HeaderPanelPadding="0"
-                  ItemHeaderWidth="Auto"
-                  IsSelectedItemIndicatorVisible="True" 
-                  SelectedItemIndicatorColor="#0D7561"
-                  HeaderPanelPosition="Top"
-                  SelectedItemIndicatorHeight="5"
-                  Margin="0,0,0,0"
-                  ItemHeaderPadding="10"
-                  HeaderPanelBackgroundColor="#fff">
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+
+
+    <dx:TabView HeaderPanelPadding="0"
+                ItemHeaderWidth="Auto"
+                IsSelectedItemIndicatorVisible="True" 
+                SelectedItemIndicatorColor="#0D7561"
+                HeaderPanelPosition="Top"
+                SelectedItemIndicatorHeight="5"
+                Margin="0,0,0,0"
+                ItemHeaderPadding="10"
+                HeaderPanelBackgroundColor="#fff">
+
+
+
+        <!-- Bildirimler Tab -->
+
         <dx:TabViewItem>
+
             <dx:TabViewItem.HeaderContent>
-                <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="4" >
+
+                <VerticalStackLayout HorizontalOptions="CenterAndExpand" 
+
+                                   VerticalOptions="CenterAndExpand" 
+
+                                   Spacing="4">
+
                     <Label Text="Bildirimler"
-<<<<<<< HEAD
-                    FontSize="14"
-                    FontFamily="NexaHeavy"
-                    TextColor="#20322F" 
-                    HorizontalOptions="Center" />
+
+                           FontSize="14"
+
+                           FontFamily="NexaHeavy"
+
+                           TextColor="#20322F" 
+
+                           HorizontalOptions="Center"/>
+
                 </VerticalStackLayout>
+
             </dx:TabViewItem.HeaderContent>
+
+
+
             <dx:TabViewItem.Content>
-                <RefreshView IsRefreshing="{Binding IsBusy}"
+
+                <RefreshView IsRefreshing="{Binding IsRefreshing}"
+
                             Command="{Binding RefreshDataCommand}">
+
                     <CollectionView ItemsSource="{Binding Bildirimler}"
+
                                   Margin="20"
+
                                   SelectionMode="None">
+
                         <CollectionView.ItemTemplate>
+
                             <DataTemplate x:DataType="models:BildirimItem">
+
                                 <Border Margin="10,10,10,10"
+
                                         BackgroundColor="{Binding Okundu, Converter={StaticResource OkunduColorConverter}}"
+
                                         Stroke="#E2E8F0"
+
                                         StrokeThickness="1"
+
                                         StrokeShape="RoundRectangle 24">
+
                                     <Border.GestureRecognizers>
+
                                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:BildirimlerViewModel}}, Path=BildirimTappedCommand}"
+
                                                               CommandParameter="{Binding .}"/>
+
                                     </Border.GestureRecognizers>
+
                                     <Grid Padding="16" RowDefinitions="Auto,Auto,Auto,*">
+
                                         <Grid ColumnDefinitions="*,Auto">
+
                                             <Label Text="{Binding Baslik}"
+
                                                    FontFamily="NexaHeavy"
+
                                                    TextColor="#152B27"
+
                                                    FontSize="16"/>
-                                            
+
+
+
                                             <Frame Grid.Column="1" 
+
                                                    BackgroundColor="{Binding Okundu, Converter={StaticResource OkunduStatusColorConverter}}"
+
                                                    CornerRadius="12"
+
                                                    Padding="8,4"
+
                                                    HasShadow="False">
+
                                                 <Label Text="{Binding Okundu, Converter={StaticResource OkunduStatusConverter}}"
+
                                                        TextColor="White"
+
                                                        FontSize="12"
+
                                                        FontFamily="NexaLight"/>
+
                                             </Frame>
+
+                                        </Grid>
+
+
+
+                                        <Label Text="{Binding Icerik}"
+
+                                               Grid.Row="1"
+
+                                               FontFamily="NexaLight"
+
+                                               TextColor="#64748B"
+
+                                               FontSize="14"
+
+                                               Margin="0,8,0,0"/>
+
+
+
+                                        <Label Text="{Binding Tarih, StringFormat='{0:dd.MM.yyyy HH:mm}'}"
+
+                                               Grid.Row="2"
+
+                                               FontFamily="NexaLight"
+
+                                               TextColor="#94A3B8"
+
+                                               FontSize="12"
+
+                                               Margin="0,8,0,0"/>
+
+                                    </Grid>
+
+                                </Border>
+
+                            </DataTemplate>
+
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </RefreshView>
+
+            </dx:TabViewItem.Content>
+
+        </dx:TabViewItem>
+
+
+
+        <!-- Mesajlar Tab -->
+
+        <dx:TabViewItem>
+
+            <dx:TabViewItem.HeaderContent>
+
+                <VerticalStackLayout HorizontalOptions="CenterAndExpand" 
+
+                                   VerticalOptions="CenterAndExpand" 
+
+                                   Spacing="4">
+
+                    <Label Text="Mesajlar"
+
+                           FontSize="14"
+
+                           FontFamily="NexaHeavy"
+
+                           TextColor="#20322F" 
+
+                           HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+
+            </dx:TabViewItem.HeaderContent>
+
+
+
+            <dx:TabViewItem.Content>
+
+                <RefreshView IsRefreshing="{Binding IsRefreshing}"
+
+                            Command="{Binding RefreshDataCommand}">
+
+                    <CollectionView ItemsSource="{Binding Mesajlar}"
+
+                                  Margin="20"
+
+                                  SelectionMode="None">
+
+                        <CollectionView.ItemTemplate>
+
+                            <DataTemplate x:DataType="models:MesajItem">
+
+                                <Border Margin="10,10,10,10"
+
+                                        BackgroundColor="{Binding Okundu, Converter={StaticResource OkunduColorConverter}}"
+
+                                        Stroke="#E2E8F0"
+
+                                        StrokeThickness="1"
+
+                                        StrokeShape="RoundRectangle 24">
+
+                                    <Border.GestureRecognizers>
+
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:BildirimlerViewModel}}, Path=MesajTappedCommand}"
+
+                                                              CommandParameter="{Binding .}"/>
+
+                                    </Border.GestureRecognizers>
+
+                                    <Grid Padding="16" RowDefinitions="Auto,Auto,Auto,*">
+
+                                        <Grid ColumnDefinitions="*,Auto">
+
+                                            <Label Text="{Binding Gonderen}"
+
+                                                   FontFamily="NexaHeavy"
+
+                                                   TextColor="#152B27"
+
+                                                   FontSize="16"/>
+
+                                            <Label Grid.Column="1"
+
+                                                   Text="{Binding Okundu, Converter={StaticResource OkunduStatusConverter}}"
+
+                                                   TextColor="{Binding Okundu, Converter={StaticResource OkunduStatusColorConverter}}"
+
+                                                   FontFamily="NexaHeavy"
+
+                                                   FontSize="12"/>
+
                                         </Grid>
 
                                         <Label Text="{Binding Icerik}"
+
                                                Grid.Row="1"
-=======
-                          FontSize="14"
-                          FontFamily="NexaHeavy"
-                          TextColor="#20322F" 
-                          HorizontalOptions="Center" />
-                </VerticalStackLayout>
-            </dx:TabViewItem.HeaderContent>
-            <dx:TabViewItem.Content>
-                <RefreshView Command="{Binding RefreshDataCommand}"
-                            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
-                    
-                    <CollectionView ItemsSource="{Binding Bildirimler}"
-                                  Margin="20">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="models:BildirimItem">
-                                <Border Margin="10,10,10,10"
-                                        BackgroundColor="White"
-                                        Stroke="#E2E8F0"
-                                        StrokeThickness="1"
-                                        StrokeShape="RoundRectangle 24">
-                                    <Grid Padding="16" RowDefinitions="Auto,Auto,Auto">
-                                        <Label Text="{Binding Baslik}"
-                                               FontFamily="NexaHeavy"
-                                               TextColor="#152B27"
-                                               FontSize="16"/>
-                                        <Label Grid.Row="1"
-                                               Text="{Binding Icerik}"
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+
                                                FontFamily="NexaLight"
+
                                                TextColor="#64748B"
+
                                                FontSize="14"
-                                               Margin="0,8,0,0"/>
-<<<<<<< HEAD
+
+                                               LineBreakMode="TailTruncation"
+
+                                               MaxLines="2"/>
 
                                         <Label Text="{Binding Tarih, StringFormat='{0:dd.MM.yyyy HH:mm}'}"
+
                                                Grid.Row="2"
+
                                                FontFamily="NexaLight"
-                                               TextColor="#94A3B8"
-=======
-                                        <Label Grid.Row="2"
-                                               Text="{Binding Tarih, StringFormat='{0:dd/MM/yyyy HH:mm}'}"
-                                               FontFamily="NexaLight"
+
                                                TextColor="#64748B"
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+
                                                FontSize="12"
+
                                                Margin="0,8,0,0"/>
+
                                     </Grid>
+
                                 </Border>
+
                             </DataTemplate>
+
                         </CollectionView.ItemTemplate>
+
                     </CollectionView>
+
                 </RefreshView>
+
             </dx:TabViewItem.Content>
+
         </dx:TabViewItem>
 
-        <dx:TabViewItem>
-            <dx:TabViewItem.HeaderContent>
-                <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="4" >
-                    <Label Text="Mesajlar"
-<<<<<<< HEAD
-                    FontSize="14"
-                    FontFamily="NexaHeavy"
-                    TextColor="#20322F" 
-                    HorizontalOptions="Center" />
-                </VerticalStackLayout>
-            </dx:TabViewItem.HeaderContent>
-            <dx:TabViewItem.Content>
-                <RefreshView IsRefreshing="{Binding IsBusy}"
-                            Command="{Binding RefreshDataCommand}">
-                    <CollectionView ItemsSource="{Binding Mesajlar}"
-                                  Margin="20"
-                                  SelectionMode="None">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="models:MesajItem">
-                                <Border Margin="10,10,10,10"
-                                        BackgroundColor="{Binding Okundu, Converter={StaticResource OkunduColorConverter}}"
-                                        Stroke="#E2E8F0"
-                                        StrokeThickness="1"
-                                        StrokeShape="RoundRectangle 24">
-                                    <Border.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:BildirimlerViewModel}}, Path=MesajTappedCommand}"
-                                                              CommandParameter="{Binding .}"/>
-                                    </Border.GestureRecognizers>
-                                    <Grid Padding="16" RowDefinitions="Auto,Auto,Auto,*">
-                                        <Grid ColumnDefinitions="*,Auto">
-                                            <Label Text="{Binding Gonderen}"
-                                                   FontFamily="NexaHeavy"
-                                                   TextColor="#152B27"
-                                                   FontSize="16"/>
-                                            <Label Grid.Column="1"
-                                                   Text="{Binding Okundu, Converter={StaticResource OkunduStatusConverter}}"
-                                                   TextColor="{Binding Okundu, Converter={StaticResource OkunduStatusColorConverter}}"
-                                                   FontFamily="NexaHeavy"
-                                                   FontSize="12"/>
-                                        </Grid>
-=======
-              FontSize="14"
-              FontFamily="NexaHeavy"
-              TextColor="#20322F" 
-              HorizontalOptions="Center" />
-                </VerticalStackLayout>
-            </dx:TabViewItem.HeaderContent>
-            <dx:TabViewItem.Content>
-                <RefreshView Command="{Binding RefreshDataCommand}"
-                            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
-                    <CollectionView ItemsSource="{Binding Mesajlar}"
-                                  Margin="20">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="models:MesajItem">
-                                <Border Margin="10,10,10,10"
-                                        BackgroundColor="White"
-                                        Stroke="#E2E8F0"
-                                        StrokeThickness="1"
-                                        StrokeShape="RoundRectangle 24">
-                                    <Grid Padding="16" RowDefinitions="Auto,Auto,Auto">
-                                        <Label Text="{Binding Gonderen}"
-                                               FontFamily="NexaHeavy"
-                                               TextColor="#152B27"
-                                               FontSize="16"/>
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
-                                        <Label Grid.Row="1"
-                                               Text="{Binding Icerik}"
-                                               FontFamily="NexaLight"
-                                               TextColor="#64748B"
-                                               FontSize="14"
-<<<<<<< HEAD
-                                               LineBreakMode="TailTruncation"
-                                               MaxLines="2"/>
-                                        <Label Grid.Row="2"
-                                               Text="{Binding Tarih, StringFormat='{0:dd.MM.yyyy HH:mm}'}"
-                                               FontFamily="NexaLight"
-                                               TextColor="#64748B"
-                                               FontSize="12"/>
-=======
-                                               Margin="0,8,0,0"/>
-                                        <Label Grid.Row="2"
-                                               Text="{Binding Tarih, StringFormat='{0:dd/MM/yyyy HH:mm}'}"
-                                               FontFamily="NexaLight"
-                                               TextColor="#64748B"
-                                               FontSize="12"
-                                               Margin="0,8,0,0"/>
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </RefreshView>
-            </dx:TabViewItem.Content>
-        </dx:TabViewItem>
     </dx:TabView>
+
 </ContentPage>
+
+
+
 

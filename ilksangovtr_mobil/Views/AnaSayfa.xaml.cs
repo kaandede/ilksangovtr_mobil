@@ -6,30 +6,58 @@ namespace ilksangovtr_mobil.Views;
 
 public partial class AnaSayfa : ContentPage
 {
+    private readonly AnaSayfaViewModel _viewModel;
     private readonly KampanyalarViewModel _kampanyalarViewModel;
-    private readonly ViewModels.AnaSayfaViewModel _anaSayfaViewModel;
     private readonly AidatViewModel _aidatViewModel;
     
     public AnaSayfa(
-        ViewModels.AnaSayfaViewModel anaSayfaViewModel,
+        AnaSayfaViewModel viewModel,
         KampanyalarViewModel kampanyalarViewModel,
         AidatViewModel aidatViewModel)
     {
         InitializeComponent();
-        _anaSayfaViewModel = anaSayfaViewModel;
+        _viewModel = viewModel;
         _kampanyalarViewModel = kampanyalarViewModel;
         _aidatViewModel = aidatViewModel;
-        
+
+        // Tüm view model'leri ve komutları içeren anonim tip
         BindingContext = new
         {
             AidatVM = _aidatViewModel,
             KampanyalarVM = _kampanyalarViewModel,
-            DuyuruItems = _anaSayfaViewModel.DuyuruItems,
+            DuyuruItems = _viewModel.DuyuruItems,
+            KullaniciSelamlama = _viewModel.KullaniciSelamlama,
             TumDuyurularCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Duyurular))),
             DuyuruDetailCommand = new Command<DuyuruItem>(async (duyuru) => await OnDuyuruSelected(duyuru))
         };
+
+        // KullaniciSelamlama property'sinin değişimini dinle
+        _viewModel.PropertyChanged += (s, e) =>
+        {
+            if (e.PropertyName == nameof(AnaSayfaViewModel.KullaniciSelamlama))
+            {
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    // BindingContext'i güncelle
+                    BindingContext = new
+                    {
+                        AidatVM = _aidatViewModel,
+                        KampanyalarVM = _kampanyalarViewModel,
+                        DuyuruItems = _viewModel.DuyuruItems,
+                        KullaniciSelamlama = _viewModel.KullaniciSelamlama,
+                        TumDuyurularCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Duyurular))),
+                        DuyuruDetailCommand = new Command<DuyuruItem>(async (duyuru) => await OnDuyuruSelected(duyuru))
+                    };
+                });
+            }
+        };
     }
 
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await _viewModel.LoadUserInfoAsync();
+    }
 
     private async Task OnDuyuruSelected(DuyuruItem duyuru)
     {
@@ -46,14 +74,8 @@ public partial class AnaSayfa : ContentPage
         catch (Exception ex)
         {
             Debug.WriteLine($"Navigation error: {ex.Message}");
-            await Shell.Current.DisplayAlert("Hata", "Sayfa a��l�rken bir hata olu�tu.", "Tamam");
+            await Shell.Current.DisplayAlert("Hata", "Sayfa açılırken bir hata oluştu.", "Tamam");
         }
-    }
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        _kampanyalarViewModel.LoadKampanyalarCommand.Execute(null);
     }
 
     private async void OnKampanyaSelected(object sender, TappedEventArgs e)
