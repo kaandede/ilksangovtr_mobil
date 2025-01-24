@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ilksangovtr_mobil.Services;
 using ilksangovtr_mobil.Views;
+using System.Diagnostics;
 
 namespace ilksangovtr_mobil.ViewModels
 {
@@ -12,10 +13,42 @@ namespace ilksangovtr_mobil.ViewModels
         private readonly AuthService _authService;
         private readonly IServiceProvider _serviceProvider;
 
+        [ObservableProperty]
+        private string adSoyad;
+
+        [ObservableProperty]
+        private string uyeKodu;
+
+        [ObservableProperty]
+        private string initials; // Baş harfler için
+
+        [ObservableProperty]
+        private bool isBusy;
+
         public UserViewModel(AuthService authService, IServiceProvider serviceProvider)
         {
             _authService = authService;
             _serviceProvider = serviceProvider;
+            LoadUserInfo();
+        }
+
+        private async void LoadUserInfo()
+        {
+            try
+            {
+                var userInfo = await _authService.GetCurrentUser();
+                if (userInfo != null)
+                {
+                    AdSoyad = $"{userInfo.Ad} {userInfo.Soyad}".ToUpper();
+                    UyeKodu = userInfo.UyeKodu;
+                    // Ad ve Soyadın baş harflerini al
+                    Initials = $"{userInfo.Ad[0]}{userInfo.Soyad[0]}";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"LoadUserInfo Error: {ex.Message}");
+            }
         }
 
         [RelayCommand]
@@ -59,8 +92,5 @@ namespace ilksangovtr_mobil.ViewModels
                 IsBusy = false;
             }
         }
-
-        [ObservableProperty]
-        private bool isBusy;
     }
 } 

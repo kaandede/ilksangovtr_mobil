@@ -57,7 +57,7 @@
                                   HeightRequest="80"
                                   WidthRequest="80"
                                   BackgroundColor="#F0FDF9">
-                                    <Label Text="KD"
+                                    <Label Text="{Binding Initials}"
                                      FontFamily="NexaHeavy"
                                      TextColor="#0D7561"
                                      FontSize="32"
@@ -66,11 +66,11 @@
                                 </Border>
                                 <VerticalStackLayout Grid.Column="1"
                                              Margin="15,0">
-                                    <Label Text="KAAN DEDE"
+                                    <Label Text="{Binding AdSoyad}"
                                      FontFamily="NexaHeavy"
                                      TextColor="#152B27"
                                      FontSize="24"/>
-                                    <Label Text="669758"
+                                    <Label Text="{Binding UyeKodu}"
                                      FontFamily="NexaLight"
                                      TextColor="#677372"/>
                                 </VerticalStackLayout>
