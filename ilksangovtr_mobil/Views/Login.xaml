@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ilksangovtr_mobil.Views.Login"
+             xmlns:local="clr-namespace:ilksangovtr_mobil"
              xmlns:viewmodels="clr-namespace:ilksangovtr_mobil.ViewModels"
              x:DataType="viewmodels:LoginViewModel"
              Shell.NavBarIsVisible="False">
@@ -20,35 +21,41 @@
                 <!-- TC Kimlik No -->
                 <Frame BackgroundColor="#F3F6FF" BorderColor="#e8ecf1" Padding="0" Margin="0,40,0,0" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Orientation="Horizontal">
-                        <Entry Text="{Binding TcKimlikNo}"
+                        <local:BorderlessEntry Text="{Binding TcKimlikNo}"
                                Placeholder="TC Kimlik No"
                                Keyboard="Numeric"
                                MaxLength="11"
                                FontFamily="NexaLight"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="15,5,20,5"
                                TextColor="#164276"
-                               PlaceholderColor="#164276"
-                               HorizontalOptions="FillAndExpand"/>
+                               PlaceholderColor="#164276"/>
                     </StackLayout>
                 </Frame>
 
                 <!-- Şifre -->
                 <Frame BackgroundColor="#F3F6FF" BorderColor="#e8ecf1" Padding="0" Margin="0,10,0,0" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Orientation="Horizontal">
-                        <Entry Text="{Binding Sifre}"
+                        <local:BorderlessEntry Text="{Binding Sifre}"
                                Placeholder="Şifre"
                                IsPassword="True"
                                FontFamily="NexaLight"
                                TextColor="#164276"
                                PlaceholderColor="#164276"
-                               HorizontalOptions="FillAndExpand"/>
+                               FontAttributes="Bold" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="15,5,20,5"/>
                     </StackLayout>
                 </Frame>
 
                 <!-- Beni Hatırla ve Şifremi Unuttum -->
                 <StackLayout Orientation="Horizontal" Margin="5,10,0,0">
                     <CheckBox IsChecked="{Binding BeniHatirla}" Color="#164276"/>
-                    <Label Text="Beni Hatırla" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#164276" FontSize="Small" VerticalTextAlignment="Center"/>
-                    <Label Text="Şifremi Unuttum" TextDecorations="Underline" TextColor="#63B7FD" FontFamily="NexaLight" FontAttributes="Bold" HorizontalOptions="EndAndExpand">
+                    <Label Text="Beni Hatırla" FontFamily="NexaLight" FontAttributes="Bold" TextColor="#164276" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Şifremi Unuttum" TextDecorations="Underline" TextColor="#63B7FD" FontFamily="NexaLight" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SifremiUnuttumCommand}"/>
                         </Label.GestureRecognizers>
@@ -62,6 +69,7 @@
                         FontSize="18"
                         BackgroundColor="#164276"
                         FontFamily="NexaHeavy"
+                        FontAttributes="Bold"
                         TextColor="#fff"
                         HeightRequest="50"
                         CornerRadius="10"
@@ -70,7 +78,7 @@
                 <!-- Loading Indicator -->
                 <ActivityIndicator IsRunning="{Binding IsBusy}"
                                  IsVisible="{Binding IsBusy}"
-                                 Color="#164276"
+                                 Color="#164276"  WidthRequest="20" HeightRequest="20"
                                  Margin="0,10,0,0"/>
             </StackLayout>
             <StackLayout Margin="0,45,0,0" HorizontalOptions="CenterAndExpand">

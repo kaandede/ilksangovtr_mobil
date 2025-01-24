@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="@color/colorPrimary"/>
+    </item>
+    <item>
+        <bitmap
+            android:src="@drawable/back25"
+            android:tileMode="disabled"
+            android:gravity="fill"/>
+    </item>
+    <item android:gravity="center">
+        <bitmap
+            android:src="@drawable/ilksan"
+            android:gravity="center"
+            android:scaleType="centerInside"/>
+    </item>
+</layer-list> 

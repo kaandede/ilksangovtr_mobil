@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using Google.Android.Material.ImageView;
+using Android.Window;
 
 namespace ilksangovtr_mobil
 {

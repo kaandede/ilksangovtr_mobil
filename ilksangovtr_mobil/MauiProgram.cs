@@ -59,7 +59,9 @@ namespace ilksangovtr_mobil
             builder.Services.AddTransient<AnaSayfa>();
             builder.Services.AddTransient<Bildirimler>();
             builder.Services.AddTransient<User>();
+            builder.Services.AddTransient<BildirimDetailViewModel>();
             builder.Services.AddTransient<BildirimDetail>();
+            builder.Services.AddTransient<MesajDetailViewModel>();
             builder.Services.AddTransient<MesajDetail>();
             builder.Services.AddScoped<Duyurular>();
             builder.Services.AddScoped<DuyuruDetail>();
