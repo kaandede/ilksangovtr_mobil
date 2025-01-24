@@ -210,7 +210,7 @@ namespace ilksangovtr_mobil.ViewModels
             {
                 Mesajlar.Add(mesaj);
             }
-=======
+
         private void LoadBildirimler()
         {
             var list = new List<BildirimItem>
@@ -294,7 +294,7 @@ namespace ilksangovtr_mobil.ViewModels
                     IsRefreshing = false;
                 });
             }
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+
         }
 
         public void AddBildirim(BildirimItem bildirim)
@@ -306,7 +306,7 @@ namespace ilksangovtr_mobil.ViewModels
         {
             Mesajlar.Insert(0, mesaj);
         }
-<<<<<<< HEAD
+
 
         [RelayCommand]
         private async Task BildirimTapped(BildirimItem bildirim)
@@ -353,7 +353,6 @@ namespace ilksangovtr_mobil.ViewModels
             };
             await Shell.Current.GoToAsync(nameof(MesajDetail), parameters);
         }
-=======
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+
     }
 } 

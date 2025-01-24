@@ -12,11 +12,7 @@ namespace ilksangovtr_mobil
         public AppShell()
         {
             InitializeComponent();
-            
-<<<<<<< HEAD
-=======
 
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
             Routing.RegisterRoute(nameof(Bildirimler), typeof(Bildirimler));
             Routing.RegisterRoute(nameof(SosyalYardimlar), typeof(SosyalYardimlar));
             Routing.RegisterRoute(nameof(YeniSosyalYardimBasvurusu), typeof(YeniSosyalYardimBasvurusu));
@@ -35,11 +31,10 @@ namespace ilksangovtr_mobil
             Routing.RegisterRoute(nameof(SifirAracKampanya), typeof(SifirAracKampanya));
             Routing.RegisterRoute(nameof(SifirAracKampanyaBasvur), typeof(SifirAracKampanyaBasvur));
             Routing.RegisterRoute(nameof(IkinciElAracKampanya), typeof(IkinciElAracKampanya));
-<<<<<<< HEAD
+
             Routing.RegisterRoute(nameof(BildirimDetail), typeof(BildirimDetail));
             Routing.RegisterRoute(nameof(MesajDetail), typeof(MesajDetail));
-=======
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
+
         }
     }
 }

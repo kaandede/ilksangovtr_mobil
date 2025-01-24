@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ilksangovtr_mobil.Models
@@ -16,15 +15,5 @@ namespace ilksangovtr_mobil.Models
 
         [ObservableProperty]
         private bool okundu;
-=======
-namespace ilksangovtr_mobil.Models
-{
-    public class MesajItem
-    {
-        public string Gonderen { get; set; }
-        public string Icerik { get; set; }
-        public DateTime Tarih { get; set; }
-        public bool Okundu { get; set; }
->>>>>>> bc064b6d546b2507753d0de211bec7e59797acfd
-    }
+
 } 
